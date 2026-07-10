@@ -1,0 +1,118 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { Layers, Workflow, TrendingUp, DollarSign, HelpCircle } from "lucide-react";
+import { NavBar } from "@/components/ui/tubelight-navbar";
+
+const navItems = [
+  { name: "Solutions", url: "#solutions", icon: Layers },
+  { name: "How It Works", url: "#how-it-works", icon: Workflow },
+  { name: "Case Studies", url: "#case-studies", icon: TrendingUp },
+  { name: "Pricing", url: "#pricing", icon: DollarSign },
+  { name: "FAQ", url: "#faq", icon: HelpCircle }
+];
+
+export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <>
+      {/* Floating Centered Tubelight Navbar */}
+      <NavBar items={navItems} />
+
+      {/* Header bar for Logo and CTA */}
+      <header
+        style={{
+          position: "fixed",
+          top: 0, left: 0, right: 0,
+          zIndex: 40,
+          transition: "background 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease",
+          background: scrolled ? "rgba(8, 8, 8, 0.4)" : "transparent",
+          backdropFilter: scrolled ? "blur(16px)" : "none",
+          WebkitBackdropFilter: scrolled ? "blur(16px)" : "none",
+          borderBottom: `0.5px solid ${scrolled ? "var(--color-border)" : "transparent"}`,
+        }}
+      >
+        <div
+          className="container"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            height: 68,
+            gap: "var(--space-lg)",
+          }}
+        >
+          {/* Logo */}
+          <a
+            href="#"
+            style={{
+              textDecoration: "none",
+              display: "flex",
+              alignItems: "center",
+              gap: 10,
+              flexShrink: 0,
+            }}
+          >
+            <div
+              style={{
+                width: 34, height: 34,
+                background: "#FFFFFF",
+                borderRadius: 9,
+                display: "flex", alignItems: "center", justifyContent: "center",
+              }}
+            >
+              <span
+                style={{
+                  color: "#080808",
+                  fontWeight: 800,
+                  fontSize: "0.9rem",
+                  lineHeight: 1,
+                }}
+              >
+                L
+              </span>
+            </div>
+            <span
+              style={{
+                fontWeight: 700,
+                fontSize: "1rem",
+                color: "#FFFFFF",
+                letterSpacing: "-0.015em",
+              }}
+            >
+              Probiz Automation
+            </span>
+          </a>
+
+          {/* Right CTA */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 10,
+              flexShrink: 0,
+            }}
+          >
+            <a
+              href="#contact"
+              className="btn-primary"
+              style={{
+                fontSize: "0.82rem",
+                padding: "10px 22px",
+              }}
+            >
+              Get Started
+            </a>
+          </div>
+        </div>
+      </header>
+    </>
+  );
+}
