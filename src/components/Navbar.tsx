@@ -76,7 +76,7 @@ export default function Navbar() {
                   lineHeight: 1,
                 }}
               >
-                L
+                P
               </span>
             </div>
             <span

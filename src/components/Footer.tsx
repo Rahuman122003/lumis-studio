@@ -26,29 +26,29 @@ export default function Footer() {
     {
       title: "Solutions",
       links: [
-        { label: "Flagship Design", href: "#solutions" },
-        { label: "Visual Merchandising", href: "#solutions" },
-        { label: "Retail Analytics", href: "#solutions" },
-        { label: "Omnichannel Commerce", href: "#solutions" },
-        { label: "Global Rollout", href: "#solutions" },
+        { label: "Smart BMS", href: "#solutions" },
+        { label: "Energy Management", href: "#solutions" },
+        { label: "AI Analytics", href: "#solutions" },
+        { label: "Digital Twin", href: "#solutions" },
+        { label: "IoT Integration", href: "#solutions" },
       ],
     },
     {
       title: "Company",
       links: [
         { label: "About Us", href: "#" },
-        { label: "Studio Team", href: "#" },
+        { label: "Engineering Team", href: "#" },
         { label: "Careers", href: "#" },
-        { label: "Press & Awards", href: "#" },
+        { label: "Case Studies", href: "#case-studies" },
         { label: "Contact", href: "#contact", pulse: true },
       ],
     },
     {
       title: "Resources",
       links: [
-        { label: "Case Studies", href: "#case-studies" },
-        { label: "Design Guides", href: "#" },
-        { label: "Platform Docs", href: "#" },
+        { label: "Documentation", href: "#" },
+        { label: "API Reference", href: "#" },
+        { label: "Platform Guides", href: "#" },
         { label: "Partner Program", href: "#" },
         { label: "Blog", href: "#" },
       ],
@@ -82,7 +82,7 @@ export default function Footer() {
               <span className="text-white text-xl sm:text-2xl font-bold tracking-tight">Probiz Automation</span>
             </div>
             <p className="text-sm leading-relaxed text-neutral-400 max-w-xs">
-              Intelligent retail platform automation for the next generation of consumer brands.
+              Intelligent building and industrial automation platform for the next generation of smart infrastructure.
             </p>
             
             {/* Newsletter input nested in brand section */}

@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Probiz Automation — Intelligent Retail Platforms",
+  title: "Probiz Automation — Smart Building & Industrial Automation",
   description:
-    "Probiz Automation: smarter retail experiences, premium brand environments, and data-driven merchandising solutions.",
+    "Probiz Automation: intelligent building management, energy optimization, IoT integration, and AI-powered automation solutions.",
   openGraph: {
-    title: "Probiz Automation — Intelligent Retail Platforms",
-    description: "Smarter retail experiences, premium brand environments.",
+    title: "Probiz Automation — Smart Building & Industrial Automation",
+    description: "Intelligent building management and industrial automation solutions.",
     type: "website",
   },
 };

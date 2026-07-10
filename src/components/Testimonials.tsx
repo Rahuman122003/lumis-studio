@@ -6,38 +6,38 @@ import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Camille Rousseau",
-    role: "Chief Retail Officer",
-    company: "Nordica Fashion Group",
+    name: "Sarah Mitchell",
+    role: "Director of Facilities",
+    company: "Metro Corporate Towers",
     quote:
-      "Probiz Automation completely transformed how we think about retail space. The results were immediate — our flagship in Paris saw a 148% jump in dwell time within the first quarter. The team's attention to commercial outcomes, not just aesthetics, sets them apart from every agency we've worked with.",
+      "Probiz Automation completely transformed how we manage our building operations. The results were immediate — our energy consumption dropped by 35% within the first quarter. The team's focus on intelligent automation, not just basic controls, sets them apart from every vendor we've evaluated.",
     photo: "https://randomuser.me/api/portraits/women/44.jpg",
     stars: 5,
   },
   {
-    name: "James Whitfield",
-    role: "VP of Store Experience",
-    company: "TechHaven Electronics",
+    name: "David Chen",
+    role: "VP of Operations",
+    company: "CloudNex Infrastructure",
     quote:
-      "The Probiz Automation platform gave us a single source of truth across our 200+ store estate. Budget management, supplier coordination, and live analytics — all in one place. Our rollout speed improved by 40% within six months of onboarding.",
+      "The Probiz Automation platform gave us a single source of truth across our entire data center portfolio. Energy monitoring, predictive maintenance, and live analytics — all in one place. Our PUE improved by 28% within six months of deployment.",
     photo: "https://randomuser.me/api/portraits/men/32.jpg",
     stars: 5,
   },
   {
-    name: "Priya Sharma",
-    role: "Head of Brand",
-    company: "Solé Luxury",
+    name: "Dr. Priya Sharma",
+    role: "Chief Operating Officer",
+    company: "City General Hospital",
     quote:
-      "We needed a partner who understood luxury retail at a global scale. Probiz Automation delivered a pop-up concept that generated 22,000 footfalls over three days and became a blueprint for our entire experiential strategy going forward.",
+      "We needed a partner who understood critical healthcare infrastructure at scale. Probiz Automation delivered a comprehensive BMS solution that maintains 99.9% uptime on our HVAC and air quality systems — essential for patient safety and regulatory compliance.",
     photo: "https://randomuser.me/api/portraits/women/68.jpg",
     stars: 5,
   },
   {
-    name: "Marco de Vries",
-    role: "COO",
-    company: "Mova Sportswear",
+    name: "Marcus Webb",
+    role: "Plant Manager",
+    company: "Apex Industrial Group",
     quote:
-      "Standardising our store identity across 80 locations in 18 markets was a logistical nightmare — until Probiz Automation stepped in. The rollout playbook they built for us has become our global brand bible.",
+      "Predictive maintenance across our manufacturing floor was a constant challenge — until Probiz Automation stepped in. Their AI-powered platform reduced our unplanned downtime by 42% and has become the backbone of our operational strategy.",
     photo: "https://randomuser.me/api/portraits/men/75.jpg",
     stars: 5,
   },
@@ -67,7 +67,7 @@ export default function Testimonials() {
           transition={{ duration: 0.5 }}
         >
           <span className="section-label">TESTIMONIALS</span>
-          <h2 className="section-h2">Trusted by leading retail brands</h2>
+          <h2 className="section-h2">Trusted by industry leaders</h2>
         </motion.div>
 
         {/* Card */}

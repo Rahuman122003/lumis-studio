@@ -6,13 +6,13 @@ import { Layers, BarChart2, Sparkles, ShoppingBag, Globe, Zap } from "lucide-rea
 const cards = [
   {
     icon: <Layers size={18} />,
-    label: "FLAGSHIP DESIGN",
-    title: "Immersive Brand Environments",
-    desc: "End-to-end design of flagship stores, shop-in-shop concepts, and pop-up activations that drive dwell time and brand recall.",
+    label: "BUILDING MANAGEMENT",
+    title: "Smart BMS Solutions",
+    desc: "End-to-end building management systems integrating HVAC, lighting, fire safety, and access control into one intelligent ecosystem.",
     wide: true,
     demo: (
       <div style={{ display: "flex", gap: 6, marginTop: 20 }}>
-        {["Concept", "Design", "Build", "Launch"].map((s, i) => (
+        {["HVAC", "Lighting", "Safety", "Access"].map((s, i) => (
           <div
             key={s}
             style={{
@@ -33,9 +33,9 @@ const cards = [
   },
   {
     icon: <BarChart2 size={18} />,
-    label: "ANALYTICS",
-    title: "Retail Intelligence",
-    desc: "Real-time footfall, heat-mapping, and conversion analytics powered by live sensor data.",
+    label: "ENERGY",
+    title: "Energy Management",
+    desc: "Real-time energy monitoring, demand optimization, and sustainability analytics powered by live sensor data.",
     demo: (
       <div style={{ display: "flex", alignItems: "flex-end", gap: 4, marginTop: 20, height: 52 }}>
         {[38, 62, 48, 82, 68, 90, 74].map((h, i) => (
@@ -54,9 +54,9 @@ const cards = [
   },
   {
     icon: <Sparkles size={18} />,
-    label: "VISUAL MERCH",
-    title: "Visual Merchandising",
-    desc: "Planogram automation and digital display management at scale.",
+    label: "AI ANALYTICS",
+    title: "AI-Powered Intelligence",
+    desc: "Predictive analytics, anomaly detection, and automated optimization at scale.",
     demo: (
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 6, marginTop: 20 }}>
         {[1, 2, 3, 4].map((n) => (
@@ -74,9 +74,9 @@ const cards = [
   },
   {
     icon: <ShoppingBag size={18} />,
-    label: "COMMERCE",
-    title: "Omnichannel Commerce",
-    desc: "Unify physical and digital retail for seamless customer journeys.",
+    label: "DIGITAL TWIN",
+    title: "Digital Twin Technology",
+    desc: "Real-time virtual representation of your physical infrastructure for complete visibility.",
     demo: (
       <div style={{ marginTop: 20 }}>
         <div
@@ -89,21 +89,21 @@ const cards = [
           }}
         >
           <div style={{ width: 7, height: 7, borderRadius: "50%", background: "#22c55e", flexShrink: 0 }} />
-          <span style={{ fontWeight: 500 }}>In-store + Online synced</span>
+          <span style={{ fontWeight: 500 }}>Physical + Digital synced</span>
         </div>
       </div>
     ),
   },
   {
     icon: <Globe size={18} />,
-    label: "GLOBAL ROLLOUT",
-    title: "Multi-Market Expansion",
-    desc: "Standardised rollout playbooks for consistent brand execution across 40+ markets.",
+    label: "IOT INTEGRATION",
+    title: "Industrial IoT Platform",
+    desc: "Connected sensor networks for multi-site monitoring across 18+ industry verticals.",
     demo: (
       <div style={{ marginTop: 20, fontSize: "0.85rem", letterSpacing: "0.04em" }}>
-        🇺🇸 🇬🇧 🇩🇪 🇯🇵 🇦🇺 🇸🇬
+        🏢 🏥 🏭 🏫 🏨 🏬
         <span style={{ fontSize: "0.72rem", color: "var(--color-muted)", fontWeight: 500, marginLeft: 6 }}>
-          +34 more
+          +12 more
         </span>
       </div>
     ),
@@ -111,12 +111,12 @@ const cards = [
   {
     icon: <Zap size={18} />,
     label: "PLATFORM",
-    title: "The Probiz Automation Platform — Your End-to-End Retail OS",
-    desc: "One dashboard to manage projects, suppliers, budgets, installation timelines, and performance data across every store in your estate.",
+    title: "The Probiz Automation Platform — Your Intelligent Building OS",
+    desc: "One dashboard to monitor, analyze, predict, and automate operations across every building in your portfolio.",
     full: true,
     demo: (
       <div style={{ display: "flex", gap: 8, marginTop: 16, flexWrap: "wrap" }}>
-        {["Project Hub", "Supplier Network", "Budget Tracker", "Live Analytics", "Team Workspace"].map((f) => (
+        {["Command Center", "Energy Dashboard", "Asset Manager", "Live Analytics", "Maintenance Hub"].map((f) => (
           <span key={f} className="tag">{f}</span>
         ))}
       </div>
@@ -144,7 +144,7 @@ export default function Solutions() {
         >
           <span className="section-label">SOLUTIONS</span>
           <h2 className="section-h2" style={{ maxWidth: 500 }}>
-            Everything you need to lead in retail
+            Everything you need for intelligent buildings
           </h2>
         </motion.div>
 

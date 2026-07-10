@@ -6,28 +6,28 @@ import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
-    q: "What types of retail brands does Probiz Automation work with?",
-    a: "We partner with brands across fashion, beauty, electronics, food & beverage, luxury, and sportswear — from emerging DTC brands opening their first physical store to global enterprises managing hundreds of locations. Our approach is sector-agnostic but always commercially led.",
+    q: "What types of buildings and facilities does Probiz Automation work with?",
+    a: "We partner with organizations across commercial real estate, healthcare, manufacturing, education, hospitality, data centers, and government infrastructure — from single facilities to enterprise portfolios managing hundreds of buildings. Our approach is industry-agnostic but always intelligence-driven.",
   },
   {
-    q: "How long does a typical store design and build project take?",
-    a: "Timelines vary by project scope. A single shop-in-shop concept typically takes 8–12 weeks from brief to launch. A full flagship store design and build usually runs 16–24 weeks. Multi-market rollouts are planned in phased tranches to maintain quality and momentum.",
+    q: "How long does a typical automation deployment take?",
+    a: "Timelines vary by project scope. A single building BMS integration typically takes 8–12 weeks from assessment to go-live. A full campus-wide smart building deployment usually runs 16–24 weeks. Multi-site enterprise rollouts are planned in phased tranches to ensure quality and minimize operational disruption.",
   },
   {
-    q: "Do you handle international store rollouts?",
-    a: "Yes — we've delivered projects in 40+ countries. Our global supplier network, certified installation partners, and standardised rollout playbooks ensure consistent brand execution regardless of market. We manage local compliance, logistics, and quality assurance.",
+    q: "Can you integrate with our existing building systems?",
+    a: "Yes — our platform supports open protocols including BACnet, Modbus, MQTT, OPC UA, and REST APIs. We integrate with existing HVAC controllers, electrical meters, fire panels, access control systems, and legacy BMS platforms to create a unified intelligent ecosystem.",
   },
   {
     q: "What does the Probiz Automation Platform include?",
-    a: "The platform centralises your entire retail estate: project management, supplier coordination, budget tracking, design asset library, installation scheduling, and live performance analytics. It integrates with your existing ERP and POS systems via our open API.",
+    a: "The platform provides centralized monitoring and control across all building systems: energy management, HVAC optimization, predictive maintenance, asset tracking, digital twin visualization, real-time analytics, and automated alerting. It integrates with your existing infrastructure via our open API.",
   },
   {
-    q: "Can we start with just the design consultancy and add build services later?",
-    a: "Absolutely. Many clients start with a strategy and design engagement to validate their concept before committing to a full build. Our modular service model means you can scale your engagement as your confidence and budget grow.",
+    q: "Can we start with energy monitoring and add full automation later?",
+    a: "Absolutely. Many clients start with energy monitoring and analytics to establish baseline metrics before committing to full building automation. Our modular platform architecture means you can scale capabilities as your requirements and budget grow.",
   },
   {
     q: "How is pricing structured for Enterprise clients?",
-    a: "Enterprise engagements are scoped and priced based on project volume, market complexity, and required service levels. We typically work on a retainer plus project basis. Contact our sales team for a bespoke proposal — most Enterprise conversations result in a custom brief within 48 hours.",
+    a: "Enterprise engagements are scoped and priced based on facility count, system complexity, and required service levels. We typically work on a platform license plus implementation basis. Contact our team for a bespoke proposal — most enterprise conversations result in a custom assessment within 48 hours.",
   },
 ];
 

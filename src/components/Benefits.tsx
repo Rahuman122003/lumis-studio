@@ -5,42 +5,42 @@ import { useCountUp } from "@/hooks/useCountUp";
 import { TrendingUp, Clock, Users, Shield, Cpu, Award } from "lucide-react";
 
 const stats = [
-  { target: 500, suffix: "+", label: "Brands Served" },
-  { target: 98,  suffix: "%", label: "Client Retention" },
-  { target: 40,  suffix: "+", label: "Countries" },
-  { target: 12,  suffix: "",  label: "Design Awards" },
+  { target: 200, suffix: "+", label: "Buildings Managed" },
+  { target: 99,  suffix: "%", label: "System Uptime" },
+  { target: 18,  suffix: "+", label: "Industries" },
+  { target: 35,  suffix: "%", label: "Energy Savings" },
 ];
 
 const benefits = [
   {
     icon: <TrendingUp size={22} strokeWidth={1.5} />,
-    title: "Revenue-First Thinking",
-    desc: "Every design decision is grounded in commercial outcomes, not just aesthetics.",
+    title: "AI-Driven Automation",
+    desc: "Every automation decision is powered by artificial intelligence, delivering actionable insights not just raw data.",
   },
   {
     icon: <Clock size={22} strokeWidth={1.5} />,
-    title: "Faster Time to Store",
-    desc: "Our streamlined project management cuts typical fit-out timelines by up to 40%.",
+    title: "Real-Time Monitoring",
+    desc: "Centralized dashboards provide instant visibility into every connected asset across multiple facilities.",
   },
   {
     icon: <Users size={22} strokeWidth={1.5} />,
-    title: "Dedicated Studio Team",
-    desc: "A single point of contact from concept through to opening day — no agency juggling.",
+    title: "Predictive Maintenance",
+    desc: "AI continuously monitors equipment health to identify potential issues before they become failures.",
   },
   {
     icon: <Shield size={22} strokeWidth={1.5} />,
-    title: "Brand Consistency at Scale",
-    desc: "Proprietary brand guardianship tools ensure every market reflects your core identity.",
+    title: "Enterprise-Grade Security",
+    desc: "End-to-end encryption, role-based access controls, and compliance-ready architecture for critical infrastructure.",
   },
   {
     icon: <Cpu size={22} strokeWidth={1.5} />,
-    title: "Technology-Enabled",
-    desc: "Integrated IoT, digital signage, and analytics built into every environment we design.",
+    title: "Scalable Cloud Architecture",
+    desc: "Cloud-native platform that scales from a single building to enterprise portfolios with open system integration.",
   },
   {
     icon: <Award size={22} strokeWidth={1.5} />,
-    title: "Award-Winning Design",
-    desc: "Recognised globally for design excellence — 12 international retail design awards.",
+    title: "Energy Optimization",
+    desc: "Intelligent energy management achieving an average 35% reduction in energy consumption across managed facilities.",
   },
 ];
 
@@ -88,7 +88,7 @@ export default function Benefits() {
         >
           <span className="section-label">WHY PROBIZ AUTOMATION</span>
           <h2 className="section-h2" style={{ maxWidth: 460 }}>
-            Built for serious retail brands
+            Built for intelligent infrastructure
           </h2>
         </motion.div>
 

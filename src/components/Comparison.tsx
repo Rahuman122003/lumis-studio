@@ -12,9 +12,9 @@ export default function Comparison() {
   const products = [
     {
       id: 1,
-      title: "Probiz Automation",
-      subtitle: "Smart Operations Engine",
-      pinText: "probiz.io/automation",
+      title: "Smart BMS Engine",
+      subtitle: "Building Management System",
+      pinText: "probiz.io/bms",
       href: "#",
       icon: <Cpu className="text-sky-400" size={24} />,
       colorClass: "text-sky-400",
@@ -22,44 +22,44 @@ export default function Comparison() {
       metric: "2.4x",
       metricLabel: "Operational Lift",
       details: [
-        { label: "Triggers", val: "Instant" },
-        { label: "Sync Rates", val: "99.9%" },
+        { label: "Response", val: "Instant" },
+        { label: "Uptime", val: "99.9%" },
       ],
-      desc: "Orchestrate retail workflows, planograms, and live inventory syncs automatically.",
+      desc: "Orchestrate HVAC, lighting, fire safety, access control, and utility systems automatically from one intelligent platform.",
     },
     {
       id: 2,
-      title: "Prosmart Energy",
+      title: "Energy Intelligence",
       subtitle: "Efficiency & Sustainability",
-      pinText: "prosmart.io/energy",
+      pinText: "probiz.io/energy",
       href: "#",
       icon: <Leaf className="text-emerald-400" size={24} />,
       colorClass: "text-emerald-400",
       accentBg: "bg-emerald-500",
-      metric: "32%",
-      metricLabel: "Cost Reduction",
+      metric: "35%",
+      metricLabel: "Energy Reduction",
       details: [
         { label: "CO2 Saved", val: "4.8 Tons" },
         { label: "ROI Cycle", val: "4 Months" },
       ],
-      desc: "IoT climate thresholds, smart LED lighting profiles, and carbon footprint ledger reporting.",
+      desc: "Real-time energy monitoring, demand optimization, smart lighting profiles, and carbon footprint tracking.",
     },
     {
       id: 3,
-      title: "Probiz Energy",
-      subtitle: "Microgrid Control & Resiliency",
-      pinText: "probiz.io/energy",
+      title: "Digital Twin",
+      subtitle: "Virtual Infrastructure Modeling",
+      pinText: "probiz.io/twin",
       href: "#",
       icon: <Zap className="text-yellow-400" size={24} />,
       colorClass: "text-yellow-400",
       accentBg: "bg-yellow-500",
-      metric: "85kW",
-      metricLabel: "Autonomy Yield",
+      metric: "100%",
+      metricLabel: "Visibility",
       details: [
-        { label: "Battery Cap", val: "Full Sync" },
-        { label: "Failover", val: "< 10ms" },
+        { label: "Sync Rate", val: "Real-time" },
+        { label: "Assets", val: "Unlimited" },
       ],
-      desc: "Local solar power routing, battery bank offloading, and dynamic site grid failover.",
+      desc: "Real-time virtual representation of your physical infrastructure for monitoring, planning, and predictive analysis.",
     },
   ];
 
@@ -80,7 +80,7 @@ export default function Comparison() {
         >
           <span className="section-label">PRODUCT PORTFOLIO</span>
           <h2 className="section-h2" style={{ maxWidth: 540 }}>
-            Automated intelligence & energy optimization
+            Intelligent automation & energy optimization
           </h2>
           <p style={{ color: "var(--color-muted)", fontSize: "0.875rem", marginTop: "12px", maxWidth: "560px" }}>
             Hover over any product deck to rotate the 3D projection, view specifications, and establish live connection nodes.

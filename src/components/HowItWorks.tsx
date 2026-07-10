@@ -6,14 +6,14 @@ import { useInView } from "@/hooks/useInView";
 const steps = [
   {
     num: "01",
-    title: "Audit & Strategy",
-    desc: "We conduct a comprehensive retail environment audit — analysing foot traffic patterns, conversion funnels, brand touchpoints, and competitor benchmarks to build a data-driven strategy tailored to your market.",
+    title: "Assessment & Audit",
+    desc: "We conduct a comprehensive infrastructure audit — analysing existing building systems, energy patterns, equipment health, and operational workflows to build a data-driven automation strategy tailored to your facility.",
     visual: (
       <div style={{ padding: 24, display: "flex", flexDirection: "column", gap: 10 }}>
         <p style={{ fontSize: "0.72rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--color-muted)", marginBottom: 4 }}>
-          Audit Dashboard
+           Assessment Dashboard
         </p>
-        {["Brand Audit", "Traffic Analysis", "Competitor Map", "KPI Baseline"].map((t, i) => (
+         {["System Audit", "Energy Analysis", "Equipment Map", "KPI Baseline"].map((t, i) => (
           <div
             key={t}
             style={{
@@ -38,15 +38,15 @@ const steps = [
   },
   {
     num: "02",
-    title: "Design & Prototype",
-    desc: "Our studio team designs immersive retail environments using 3D spatial planning, material libraries, and digital mock-ups — giving you photorealistic previews before a single fixture is installed.",
+    title: "Design & Integration",
+    desc: "Our engineering team designs intelligent automation architectures using IoT sensors, BMS controllers, and cloud platforms — giving you a complete digital blueprint before a single device is installed.",
     visual: (
       <div style={{ padding: 24, display: "flex", flexDirection: "column", gap: 12 }}>
         <p style={{ fontSize: "0.72rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--color-muted)", marginBottom: 4 }}>
-          Design Pipeline
+           Integration Pipeline
         </p>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
-          {[["Layout Draft", false], ["Material Board", false], ["3D Render", true], ["Final Spec", false]].map(([t, active]) => (
+           {[["System Design", false], ["Sensor Layout", false], ["BMS Config", true], ["Final Spec", false]].map(([t, active]) => (
             <div
               key={t as string}
               style={{
@@ -68,25 +68,25 @@ const steps = [
           display: "flex", alignItems: "center", gap: 8,
         }}>
           <span style={{ color: "#16a34a", fontWeight: 600 }}>✓</span>
-          Client approved — ready for build phase
+           Client approved — ready for deployment phase
         </div>
       </div>
     ),
   },
   {
     num: "03",
-    title: "Build & Launch",
-    desc: "From fixture manufacturing to in-store installation, our certified rollout teams execute with precision — minimising downtime and ensuring every detail matches the approved design spec.",
+    title: "Deploy & Optimize",
+    desc: "From hardware installation to cloud platform deployment, our certified teams execute with precision — minimising downtime and ensuring every system integrates seamlessly with your existing infrastructure.",
     visual: (
       <div style={{ padding: 24, display: "flex", flexDirection: "column", gap: 16 }}>
         <p style={{ fontSize: "0.72rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--color-muted)", marginBottom: 4 }}>
-          Rollout Progress
+           Deployment Progress
         </p>
         {[
-          { label: "Manufacturing", pct: 100 },
-          { label: "Logistics",     pct: 100 },
-          { label: "Installation",  pct: 78 },
-          { label: "QA Sign-off",   pct: 30 },
+           { label: "Hardware Setup", pct: 100 },
+           { label: "IoT Integration", pct: 100 },
+           { label: "Platform Deploy", pct: 78 },
+           { label: "QA Sign-off",     pct: 30 },
         ].map((s, i) => (
           <div key={s.label}>
             <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 6, fontSize: "0.8rem", fontWeight: 500 }}>
@@ -132,7 +132,7 @@ export default function HowItWorks() {
         >
           <span className="section-label">HOW IT WORKS</span>
           <h2 className="section-h2" style={{ maxWidth: 460 }}>
-            From concept to conversion in three steps
+            From concept to intelligent building in three steps
           </h2>
         </motion.div>
 

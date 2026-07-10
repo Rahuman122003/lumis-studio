@@ -8,9 +8,9 @@ import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
 const timelineData = [
   {
     id: 1,
-    title: "DTC Strategy",
+    title: "Site Assessment",
     date: "Phase 1",
-    content: "Comprehensive retail spatial audit, competitor mapping, and baseline metrics formulation.",
+    content: "Comprehensive infrastructure audit, existing system evaluation, and baseline energy metrics formulation.",
     category: "Planning",
     icon: Calendar,
     relatedIds: [2],
@@ -19,9 +19,9 @@ const timelineData = [
   },
   {
     id: 2,
-    title: "Spatial Design",
+    title: "System Design",
     date: "Phase 2",
-    content: "Immersive 3D planning drafts, material board reviews, and photorealistic concept renders.",
+    content: "IoT sensor architecture, BMS controller mapping, cloud platform design, and digital twin modeling.",
     category: "Design",
     icon: FileText,
     relatedIds: [1, 3],
@@ -32,7 +32,7 @@ const timelineData = [
     id: 3,
     title: "Integration",
     date: "Phase 3",
-    content: "IoT beacon placement, digital dashboard API linkages, and planogram sync automation.",
+    content: "Sensor deployment, BMS controller installation, cloud API linkages, and protocol bridge automation.",
     category: "Development",
     icon: Code,
     relatedIds: [2, 4],
@@ -41,9 +41,9 @@ const timelineData = [
   },
   {
     id: 4,
-    title: "Rollout & Build",
+    title: "Deployment",
     date: "Phase 4",
-    content: "Fixture construction playbooks, installer coordination, and local site QA compliance signoff.",
+    content: "Hardware commissioning, platform go-live, user training, and local compliance verification signoff.",
     category: "Rollout",
     icon: Settings,
     relatedIds: [3, 5],
@@ -54,7 +54,7 @@ const timelineData = [
     id: 5,
     title: "Optimization",
     date: "Phase 5",
-    content: "Continuous heat-mapping data review, average dwell time tuning, and revenue lift analytics tracking.",
+    content: "Continuous AI-driven performance tuning, energy optimization, predictive maintenance calibration, and analytics tracking.",
     category: "Scale",
     icon: TrendingUp,
     relatedIds: [4],
@@ -83,7 +83,7 @@ export default function Pricing() {
         >
           <span className="section-label">PROCESS ROADMAP</span>
           <h2 className="section-h2" style={{ maxWidth: 480 }}>
-            Retail lifecycle from concept to conversion
+            Automation lifecycle from assessment to intelligence
           </h2>
           <p style={{ color: "var(--color-muted)", fontSize: "0.875rem", marginTop: "12px", maxWidth: "540px" }}>
             Click on any outer orbit node to inspect details, completion status, energy level parameters, and connected system links.

@@ -1,13 +1,13 @@
 "use client";
 
 const items = [
-  "Saves 10M+ Shopping Hours Yearly",
-  "500+ Retail Brands Trust Probiz Automation",
-  "Average 3.2× Revenue Lift",
-  "98% Client Retention Rate",
-  "Deployed in 40+ Countries",
-  "Trusted by Fortune 500 Retailers",
-  "ISO 27001 Certified Platform",
+  "AI-Powered Building Intelligence",
+  "200+ Buildings Automated Globally",
+  "35% Average Energy Savings",
+  "99.9% System Uptime",
+  "Real-Time IoT Monitoring",
+  "Digital Twin Technology",
+  "Predictive Maintenance Platform",
   "24/7 Dedicated Support",
 ];
 

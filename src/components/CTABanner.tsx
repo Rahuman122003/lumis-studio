@@ -68,7 +68,7 @@ export default function CTABanner() {
             maxWidth: 660,
           }}
         >
-          Ready to transform your retail presence?
+          Ready to transform your infrastructure?
         </motion.h2>
 
         <motion.p
@@ -83,8 +83,8 @@ export default function CTABanner() {
             marginBottom: 40,
           }}
         >
-          Join 500+ leading retail brands who trust Probiz Automation to design, build,
-          and scale experiences that convert.
+          Join 200+ leading organizations who trust Probiz Automation to monitor, optimize,
+          and automate their building operations.
         </motion.p>
 
         <motion.div
@@ -125,7 +125,7 @@ export default function CTABanner() {
             letterSpacing: "0.02em",
           }}
         >
-          No commitment required · Response within 24 hours · Free initial consultation
+          No commitment required · Response within 24 hours · Free initial assessment
         </motion.p>
       </div>
     </section>
