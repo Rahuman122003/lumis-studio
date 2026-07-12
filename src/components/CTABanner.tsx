@@ -49,7 +49,7 @@ export default function CTABanner() {
           initial={{ opacity: 0, y: 14 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.45 }}
-          style={{ color: "rgba(255,255,255,0.38)", marginBottom: 20 }}
+          style={{ color: "#fde68a", marginBottom: 20 }}
         >
           GET STARTED
         </motion.span>
@@ -62,7 +62,7 @@ export default function CTABanner() {
             fontSize: "clamp(2.2rem, 5vw, 4rem)",
             fontWeight: 800,
             lineHeight: 1.08,
-            color: "#FFFFFF",
+            color: "#86efac",
             letterSpacing: "-0.025em",
             marginBottom: 24,
             maxWidth: 660,

@@ -21,6 +21,8 @@ export function Spotlight({
   const containerRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
   const [parentElement, setParentElement] = useState<HTMLElement | null>(null);
+  const rafId = useRef<number>(0);
+  const latestEvent = useRef<{ x: number; y: number } | null>(null);
 
   const mouseX = useSpring(0, springOptions);
   const mouseY = useSpring(0, springOptions);
@@ -35,8 +37,7 @@ export function Spotlight({
         parent.style.position = 'relative';
         parent.style.overflow = 'hidden';
         setParentElement(parent);
-        
-        // Initialize at the center if biased
+
         if (biasToCenter) {
           const { width, height } = parent.getBoundingClientRect();
           mouseX.set(width / 2);
@@ -46,44 +47,54 @@ export function Spotlight({
     }
   }, [biasToCenter, mouseX, mouseY]);
 
+  // Throttled mouse handler using rAF to prevent jank from excessive mousemove events
+  const processMouseMove = useCallback(() => {
+    if (!latestEvent.current || !parentElement) return;
+    const { x: clientX, y: clientY } = latestEvent.current;
+    const { left, top, width, height } = parentElement.getBoundingClientRect();
+    const clientXRel = clientX - left;
+    const clientYRel = clientY - top;
+
+    if (biasToCenter) {
+      const centerX = width / 2;
+      const centerY = height / 2;
+      mouseX.set(centerX + (clientXRel - centerX) * biasFactor);
+      mouseY.set(centerY + (clientYRel - centerY) * biasFactor);
+    } else {
+      mouseX.set(clientXRel);
+      mouseY.set(clientYRel);
+    }
+    latestEvent.current = null;
+    rafId.current = 0;
+  }, [mouseX, mouseY, parentElement, biasToCenter, biasFactor]);
+
   const handleMouseMove = useCallback(
     (event: MouseEvent) => {
-      if (!parentElement) return;
-      const { left, top, width, height } = parentElement.getBoundingClientRect();
-      const clientXRel = event.clientX - left;
-      const clientYRel = event.clientY - top;
-      
-      if (biasToCenter) {
-        const centerX = width / 2;
-        const centerY = height / 2;
-        const dx = clientXRel - centerX;
-        const dy = clientYRel - centerY;
-        // Shift spotlight slightly from the center relative to mouse position
-        mouseX.set(centerX + dx * biasFactor);
-        mouseY.set(centerY + dy * biasFactor);
-      } else {
-        mouseX.set(clientXRel);
-        mouseY.set(clientYRel);
+      latestEvent.current = { x: event.clientX, y: event.clientY };
+      if (!rafId.current) {
+        rafId.current = requestAnimationFrame(processMouseMove);
       }
     },
-    [mouseX, mouseY, parentElement, biasToCenter, biasFactor]
+    [processMouseMove]
   );
+
+  const handleEnter = useCallback(() => setIsHovered(true), []);
+  const handleLeave = useCallback(() => setIsHovered(false), []);
 
   useEffect(() => {
     if (!parentElement) return;
 
-    parentElement.addEventListener('mousemove', handleMouseMove);
-    parentElement.addEventListener('mouseenter', () => setIsHovered(true));
-    parentElement.addEventListener('mouseleave', () => setIsHovered(false));
+    parentElement.addEventListener('mousemove', handleMouseMove, { passive: true });
+    parentElement.addEventListener('mouseenter', handleEnter);
+    parentElement.addEventListener('mouseleave', handleLeave);
 
     return () => {
       parentElement.removeEventListener('mousemove', handleMouseMove);
-      parentElement.removeEventListener('mouseenter', () => setIsHovered(true));
-      parentElement.removeEventListener('mouseleave', () =>
-        setIsHovered(false)
-      );
+      parentElement.removeEventListener('mouseenter', handleEnter);
+      parentElement.removeEventListener('mouseleave', handleLeave);
+      if (rafId.current) cancelAnimationFrame(rafId.current);
     };
-  }, [parentElement, handleMouseMove]);
+  }, [parentElement, handleMouseMove, handleEnter, handleLeave]);
 
   return (
     <motion.div
@@ -99,6 +110,8 @@ export function Spotlight({
         height: size,
         left: spotlightLeft,
         top: spotlightTop,
+        willChange: 'transform',
+        transform: 'translateZ(0)',
       }}
     />
   );

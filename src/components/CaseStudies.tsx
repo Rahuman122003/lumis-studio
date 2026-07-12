@@ -1,8 +1,7 @@
 "use client";
 import { useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useInView } from "@/hooks/useInView";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const cases = [
   {
@@ -37,149 +36,135 @@ const cases = [
   },
 ];
 
-function NavBtn({
-  onClick,
-  label,
-  children,
-}: {
-  onClick: () => void;
-  label: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <button
-      onClick={onClick}
-      aria-label={label}
-      style={{
-        width: 40, height: 40,
-        borderRadius: "50%",
-        border: "0.5px solid var(--color-border)",
-        background: "var(--color-bg)",
-        cursor: "pointer",
-        display: "flex", alignItems: "center", justifyContent: "center",
-        transition: "all 200ms ease",
-        color: "var(--color-text)",
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.background = "var(--color-surface)";
-        e.currentTarget.style.borderColor = "#AAAAAA";
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.background = "var(--color-bg)";
-        e.currentTarget.style.borderColor = "var(--color-border)";
-      }}
-    >
-      {children}
-    </button>
-  );
-}
+const CARD_WIDTH = 330;
+const GAP = 14;
+const TOTAL_SCROLL_WIDTH = cases.length * (CARD_WIDTH + GAP) - GAP;
 
 export default function CaseStudies() {
-  const { ref, inView } = useInView();
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const { ref: inViewRef, inView } = useInView();
+  const sectionRef = useRef<HTMLDivElement>(null);
 
-  const scroll = (dir: number) => {
-    scrollRef.current?.scrollBy({ left: dir * 360, behavior: "smooth" });
-  };
+  // Track scroll progress of the tall outer section
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end end"],
+  });
+
+  // Map vertical scroll progress → horizontal translateX
+  // We want cards to slide from right to left as we scroll down
+  const x = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, -(TOTAL_SCROLL_WIDTH - (typeof window !== "undefined" ? window.innerWidth * 0.65 : 700))]
+  );
 
   return (
     <section
       id="case-studies"
-      ref={ref as React.RefObject<HTMLElement>}
-      className="section-pad"
+      ref={sectionRef}
+      style={{
+        /* Extra height creates the vertical scroll runway that drives horizontal movement */
+        height: `${TOTAL_SCROLL_WIDTH}px`,
+        position: "relative",
+      }}
     >
-      {/* Header inside container */}
-      <div className="container" style={{ marginBottom: "var(--space-lg)" }}>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          style={{
-            display: "flex",
-            alignItems: "flex-end",
-            justifyContent: "space-between",
-            gap: 20,
-            flexWrap: "wrap",
-          }}
-        >
-          <div className="section-header" style={{ marginBottom: 0 }}>
-            <span className="section-label">CASE STUDIES</span>
-            <h2 className="section-h2">Results that speak for themselves</h2>
-          </div>
-
-          <div style={{ display: "flex", gap: 8 }}>
-            <NavBtn onClick={() => scroll(-1)} label="Previous">
-              <ChevronLeft size={16} />
-            </NavBtn>
-            <NavBtn onClick={() => scroll(1)} label="Next">
-              <ChevronRight size={16} />
-            </NavBtn>
-          </div>
-        </motion.div>
-      </div>
-
-      {/* Scrollable row — bleeds to edges but starts at container indent */}
+      {/* Sticky wrapper — stays in viewport while user scrolls through the tall section */}
       <div
-        ref={scrollRef}
-        className="h-scroll"
+        ref={inViewRef as React.RefObject<HTMLDivElement>}
         style={{
+          position: "sticky",
+          top: 0,
+          height: "100vh",
           display: "flex",
-          gap: 14,
-          paddingLeft: "max(calc((100vw - 1100px) / 2), var(--container-px))",
-          paddingRight: "max(calc((100vw - 1100px) / 2), var(--container-px))",
-          paddingBottom: 6,
+          flexDirection: "column",
+          justifyContent: "center",
+          overflow: "hidden",
         }}
       >
-        {cases.map((c, i) => (
+        {/* Header */}
+        <div className="container" style={{ marginBottom: "var(--space-lg)" }}>
           <motion.div
-            key={i}
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: i * 0.08 }}
-            className="card"
-            style={{ minWidth: 330, maxWidth: 330, overflow: "hidden", flexShrink: 0 }}
+            transition={{ duration: 0.5 }}
+            style={{
+              display: "flex",
+              alignItems: "flex-end",
+              justifyContent: "space-between",
+              gap: 20,
+              flexWrap: "wrap",
+            }}
           >
-            {/* Image */}
-            <div
-              style={{
-                height: 210,
-                backgroundImage: `url(${c.img})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                borderRadius: "14px 14px 0 0",
-                position: "relative",
-                overflow: "hidden",
-              }}
-            >
-              <div
-                style={{
-                  position: "absolute", inset: 0,
-                  background: "linear-gradient(to bottom, transparent 45%, rgba(0,0,0,0.6))",
-                }}
-              />
-              <span className="tag" style={{ position: "absolute", top: 14, left: 14 }}>
-                {c.category}
-              </span>
-            </div>
-
-            {/* Body */}
-            <div style={{ padding: "20px var(--space-md)" }}>
-              <div
-                style={{
-                  fontSize: "0.72rem",
-                  fontWeight: 600,
-                  color: "var(--color-muted)",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.08em",
-                  marginBottom: 8,
-                }}
-              >
-                {c.company}
-              </div>
-              <p className="card-title">{c.result}</p>
+            <div className="section-header" style={{ marginBottom: 0 }}>
+              <span className="section-label">CASE STUDIES</span>
+              <h2 className="section-h2">Results that speak for themselves</h2>
             </div>
           </motion.div>
-        ))}
+        </div>
+
+        {/* Horizontally-scrolling cards driven by vertical scroll */}
+        <motion.div
+          style={{
+            x,
+            display: "flex",
+            gap: GAP,
+            paddingLeft: "max(calc((100vw - 1100px) / 2), var(--container-px))",
+            paddingRight: 80,
+            paddingBottom: 6,
+            willChange: "transform",
+          }}
+        >
+          {cases.map((c, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="card"
+              style={{ minWidth: CARD_WIDTH, maxWidth: CARD_WIDTH, overflow: "hidden", flexShrink: 0 }}
+            >
+              {/* Image */}
+              <div
+                style={{
+                  height: 210,
+                  backgroundImage: `url(${c.img})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  borderRadius: "14px 14px 0 0",
+                  position: "relative",
+                  overflow: "hidden",
+                }}
+              >
+                <div
+                  style={{
+                    position: "absolute", inset: 0,
+                    background: "linear-gradient(to bottom, transparent 45%, rgba(0,0,0,0.6))",
+                  }}
+                />
+                <span className="tag" style={{ position: "absolute", top: 14, left: 14 }}>
+                  {c.category}
+                </span>
+              </div>
+
+              {/* Body */}
+              <div style={{ padding: "20px var(--space-md)" }}>
+                <div
+                  style={{
+                    fontSize: "0.72rem",
+                    fontWeight: 600,
+                    color: "#FFFFFF",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.08em",
+                    marginBottom: 8,
+                  }}
+                >
+                  {c.company}
+                </div>
+                <p className="card-title" style={{ color: "#FFFFFF" }}>{c.result}</p>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

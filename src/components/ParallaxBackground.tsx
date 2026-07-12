@@ -7,11 +7,11 @@ export default function ParallaxBackground() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll();
 
-  // GPU translations using transforms
-  const gridY = useTransform(scrollYProgress, [0, 1], [0, -120]);
-  const orb1Y = useTransform(scrollYProgress, [0, 1], [0, -260]);
-  const orb2Y = useTransform(scrollYProgress, [0, 1], [0, -380]);
-  const orb3Y = useTransform(scrollYProgress, [0, 1], [0, -200]);
+  // Reduced parallax range to minimize repaints
+  const gridY = useTransform(scrollYProgress, [0, 1], [0, -80]);
+  const orb1Y = useTransform(scrollYProgress, [0, 1], [0, -160]);
+  const orb2Y = useTransform(scrollYProgress, [0, 1], [0, -200]);
+  const orb3Y = useTransform(scrollYProgress, [0, 1], [0, -120]);
 
   return (
     <div
@@ -19,13 +19,14 @@ export default function ParallaxBackground() {
       style={{
         position: "fixed",
         inset: 0,
-        zIndex: -10, // Places the background completely behind all content structures
+        zIndex: -10,
         pointerEvents: "none",
         overflow: "hidden",
         background: "var(--color-bg)",
+        contain: "strict", // Full layout containment — prevents this layer from affecting rest of DOM
       }}
     >
-      {/* Grid Pattern Layer */}
+      {/* Grid Pattern Layer — GPU promoted */}
       <motion.div
         style={{
           position: "absolute",
@@ -37,11 +38,12 @@ export default function ParallaxBackground() {
           backgroundSize: "60px 60px",
           y: gridY,
           zIndex: 1,
-          willChange: "transform", // Forces GPU layer promotion to prevent repaint lag
+          willChange: "transform",
+          transform: "translateZ(0)", // Force GPU compositing layer
         }}
       />
 
-      {/* Ambient Orbs */}
+      {/* Ambient Orbs — reduced blur radii for better GPU perf */}
       <motion.div
         style={{
           position: "absolute",
@@ -51,10 +53,11 @@ export default function ParallaxBackground() {
           height: "60vw",
           borderRadius: "50%",
           background: "radial-gradient(circle, rgba(70,70,70,0.1) 0%, rgba(10,10,10,0) 70%)",
-          filter: "blur(90px)",
+          filter: "blur(60px)", // Reduced from 90px
           y: orb1Y,
           zIndex: 2,
-          willChange: "transform", // GPU acceleration
+          willChange: "transform",
+          transform: "translateZ(0)",
         }}
       />
 
@@ -67,10 +70,11 @@ export default function ParallaxBackground() {
           height: "55vw",
           borderRadius: "50%",
           background: "radial-gradient(circle, rgba(120,120,120,0.05) 0%, rgba(10,10,10,0) 70%)",
-          filter: "blur(110px)",
+          filter: "blur(70px)", // Reduced from 110px
           y: orb2Y,
           zIndex: 2,
-          willChange: "transform", // GPU acceleration
+          willChange: "transform",
+          transform: "translateZ(0)",
         }}
       />
 
@@ -83,10 +87,11 @@ export default function ParallaxBackground() {
           height: "50vw",
           borderRadius: "50%",
           background: "radial-gradient(circle, rgba(90,90,90,0.07) 0%, rgba(10,10,10,0) 70%)",
-          filter: "blur(100px)",
+          filter: "blur(65px)", // Reduced from 100px
           y: orb3Y,
           zIndex: 2,
-          willChange: "transform", // GPU acceleration
+          willChange: "transform",
+          transform: "translateZ(0)",
         }}
       />
     </div>

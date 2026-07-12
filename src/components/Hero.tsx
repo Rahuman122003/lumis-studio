@@ -88,7 +88,6 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, ease: "easeOut", delay: 0.1 }}
           style={{
-            color: "#FFFFFF",
             marginBottom: 28,
             width: "100%",
           }}
@@ -110,9 +109,9 @@ export default function Hero() {
                 exit={{ opacity: 0, y: -14 }}
                 transition={{ duration: 0.28, ease: "easeOut" }}
                 style={{
-                  color: "#FFFFFF",
+                  color: "inherit",
                   textDecoration: "underline",
-                  textDecorationColor: "rgba(240,238,233,0.35)",
+                  textDecorationColor: "rgba(134,239,172,0.35)",
                   textUnderlineOffset: "8px",
                   textDecorationThickness: "1.5px",
                   display: "inline-block",
