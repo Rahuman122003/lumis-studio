@@ -54,6 +54,28 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* GPU-promote the main scrolling layer */
+main {
+  will-change: scroll-position;
+  transform: translateZ(0);
+}
+
+/* Off-screen sections skip rendering until near viewport */
+.section-pad {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* ─────────────────────────────────────────
    LAYOUT
 ───────────────────────────────────────── */
@@ -212,6 +234,23 @@ body {
 }
 
 .marquee-track:hover { animation-play-state: paused; }
+
+/* Logo marquee — left to right */
+@keyframes logo-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-33.33%); }
+}
+
+.logo-marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: logo-marquee 35s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.logo-marquee-track:hover { animation-play-state: paused; }
 
 /* ─────────────────────────────────────────
    BENTO GRID

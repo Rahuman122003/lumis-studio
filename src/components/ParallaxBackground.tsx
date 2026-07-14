@@ -11,7 +11,6 @@ export default function ParallaxBackground() {
   const gridY = useTransform(scrollYProgress, [0, 1], [0, -80]);
   const orb1Y = useTransform(scrollYProgress, [0, 1], [0, -160]);
   const orb2Y = useTransform(scrollYProgress, [0, 1], [0, -200]);
-  const orb3Y = useTransform(scrollYProgress, [0, 1], [0, -120]);
 
   return (
     <div
@@ -23,7 +22,8 @@ export default function ParallaxBackground() {
         pointerEvents: "none",
         overflow: "hidden",
         background: "var(--color-bg)",
-        contain: "strict", // Full layout containment — prevents this layer from affecting rest of DOM
+        contain: "strict",
+        contentVisibility: "auto" as React.CSSProperties["contentVisibility"],
       }}
     >
       {/* Grid Pattern Layer — GPU promoted */}
@@ -39,21 +39,20 @@ export default function ParallaxBackground() {
           y: gridY,
           zIndex: 1,
           willChange: "transform",
-          transform: "translateZ(0)", // Force GPU compositing layer
+          transform: "translateZ(0)",
         }}
       />
 
-      {/* Ambient Orbs — reduced blur radii for better GPU perf */}
+      {/* Ambient Orbs — use box-shadow instead of filter:blur for GPU perf */}
       <motion.div
         style={{
           position: "absolute",
           top: "10%",
           left: "-10%",
-          width: "60vw",
-          height: "60vw",
+          width: "40vw",
+          height: "40vw",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(70,70,70,0.1) 0%, rgba(10,10,10,0) 70%)",
-          filter: "blur(60px)", // Reduced from 90px
+          background: "radial-gradient(circle, rgba(70,70,70,0.08) 0%, transparent 70%)",
           y: orb1Y,
           zIndex: 2,
           willChange: "transform",
@@ -64,31 +63,13 @@ export default function ParallaxBackground() {
       <motion.div
         style={{
           position: "absolute",
-          top: "40%",
+          top: "45%",
           right: "-15%",
-          width: "55vw",
-          height: "55vw",
+          width: "35vw",
+          height: "35vw",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(120,120,120,0.05) 0%, rgba(10,10,10,0) 70%)",
-          filter: "blur(70px)", // Reduced from 110px
+          background: "radial-gradient(circle, rgba(120,120,120,0.04) 0%, transparent 70%)",
           y: orb2Y,
-          zIndex: 2,
-          willChange: "transform",
-          transform: "translateZ(0)",
-        }}
-      />
-
-      <motion.div
-        style={{
-          position: "absolute",
-          top: "70%",
-          left: "-5%",
-          width: "50vw",
-          height: "50vw",
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(90,90,90,0.07) 0%, rgba(10,10,10,0) 70%)",
-          filter: "blur(65px)", // Reduced from 100px
-          y: orb3Y,
           zIndex: 2,
           willChange: "transform",
           transform: "translateZ(0)",

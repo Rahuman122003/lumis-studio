@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
 import { useInView } from "@/hooks/useInView";
-import { SplineScene } from "@/components/ui/splite";
 import { Spotlight } from "@/components/ui/spotlight";
 
 const cyclingWords = ["Intelligence", "Automation", "Efficiency", "Safety", "Performance"];
@@ -37,14 +36,39 @@ export default function Hero() {
       {/* Cursor tracking spotlight animation centered and biased to follow the robot head */}
       <Spotlight className="z-0" size={600} biasToCenter={true} biasFactor={0.2} />
 
-      {/* Spline 3D Scene Background - Only rendered when inView is true to maintain high FPS scroll performance */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-30 select-none hidden md:block">
-        {inView && (
-          <SplineScene
-            scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-            className="w-full h-full pointer-events-none"
-          />
-        )}
+      {/* Video Background - looping herobg.mp4 */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 0,
+          overflow: "hidden",
+          pointerEvents: "none",
+        }}
+      >
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            opacity: 0.3,
+          }}
+        >
+          <source src="/herobg.mp4" type="video/mp4" />
+        </video>
+        {/* Dark gradient overlay for readability */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(to bottom, rgba(8,8,8,0.4) 0%, rgba(8,8,8,0.7) 60%, rgba(8,8,8,1) 100%)",
+          }}
+        />
       </div>
 
       <div

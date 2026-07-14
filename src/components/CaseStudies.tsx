@@ -1,5 +1,5 @@
 "use client";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useInView } from "@/hooks/useInView";
 
@@ -43,6 +43,14 @@ const TOTAL_SCROLL_WIDTH = cases.length * (CARD_WIDTH + GAP) - GAP;
 export default function CaseStudies() {
   const { ref: inViewRef, inView } = useInView();
   const sectionRef = useRef<HTMLDivElement>(null);
+  const [viewportWidth, setViewportWidth] = useState(700);
+
+  useEffect(() => {
+    setViewportWidth(window.innerWidth);
+    const onResize = () => setViewportWidth(window.innerWidth);
+    window.addEventListener("resize", onResize, { passive: true });
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
 
   // Track scroll progress of the tall outer section
   const { scrollYProgress } = useScroll({
@@ -51,11 +59,10 @@ export default function CaseStudies() {
   });
 
   // Map vertical scroll progress → horizontal translateX
-  // We want cards to slide from right to left as we scroll down
   const x = useTransform(
     scrollYProgress,
     [0, 1],
-    [0, -(TOTAL_SCROLL_WIDTH - (typeof window !== "undefined" ? window.innerWidth * 0.65 : 700))]
+    [0, -(TOTAL_SCROLL_WIDTH - viewportWidth * 0.65)]
   );
 
   return (
@@ -63,12 +70,11 @@ export default function CaseStudies() {
       id="case-studies"
       ref={sectionRef}
       style={{
-        /* Extra height creates the vertical scroll runway that drives horizontal movement */
         height: `${TOTAL_SCROLL_WIDTH}px`,
         position: "relative",
       }}
     >
-      {/* Sticky wrapper — stays in viewport while user scrolls through the tall section */}
+      {/* Sticky wrapper */}
       <div
         ref={inViewRef as React.RefObject<HTMLDivElement>}
         style={{
@@ -79,6 +85,7 @@ export default function CaseStudies() {
           flexDirection: "column",
           justifyContent: "center",
           overflow: "hidden",
+          contain: "layout style",
         }}
       >
         {/* Header */}
@@ -112,6 +119,7 @@ export default function CaseStudies() {
             paddingRight: 80,
             paddingBottom: 6,
             willChange: "transform",
+            transform: "translateZ(0)",
           }}
         >
           {cases.map((c, i) => (
@@ -121,7 +129,13 @@ export default function CaseStudies() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.08 }}
               className="card"
-              style={{ minWidth: CARD_WIDTH, maxWidth: CARD_WIDTH, overflow: "hidden", flexShrink: 0 }}
+              style={{
+                minWidth: CARD_WIDTH,
+                maxWidth: CARD_WIDTH,
+                overflow: "hidden",
+                flexShrink: 0,
+                contain: "layout paint",
+              }}
             >
               {/* Image */}
               <div
