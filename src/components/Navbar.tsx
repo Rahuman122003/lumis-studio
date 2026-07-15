@@ -56,39 +56,18 @@ export default function Navbar() {
               textDecoration: "none",
               display: "flex",
               alignItems: "center",
-              gap: 10,
               flexShrink: 0,
             }}
           >
-            <div
+            <img
+              src="/logoauto.png"
+              alt="Probiz Automation Logo"
               style={{
-                width: 34, height: 34,
-                background: "#FFFFFF",
-                borderRadius: 9,
-                display: "flex", alignItems: "center", justifyContent: "center",
+                height: 38,
+                width: "auto",
+                objectFit: "contain",
               }}
-            >
-              <span
-                style={{
-                  color: "#080808",
-                  fontWeight: 800,
-                  fontSize: "0.9rem",
-                  lineHeight: 1,
-                }}
-              >
-                P
-              </span>
-            </div>
-            <span
-              style={{
-                fontWeight: 700,
-                fontSize: "1rem",
-                color: "#FFFFFF",
-                letterSpacing: "-0.015em",
-              }}
-            >
-              Probiz Automation
-            </span>
+            />
           </a>
 
           {/* Right CTA */}

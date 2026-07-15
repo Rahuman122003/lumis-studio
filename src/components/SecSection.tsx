@@ -26,21 +26,21 @@ export default function SecSection() {
           style={{ marginBottom: "var(--space-lg)" }}
         >
           <span className="section-label">PROBIZ TECHNOLOGIES</span>
-          <h2 className="section-h2" style={{ maxWidth: 580 }}>
-            Evolving How Buildings Connect & Automate
+          <h2 className="section-h2" style={{ maxWidth: 640 }}>
+            Probiz Automation: A Division of Probiz Technologies
           </h2>
           <p
             style={{
               color: "var(--color-muted)",
               fontSize: "1rem",
               lineHeight: 1.65,
-              maxWidth: 480,
+              maxWidth: 540,
               marginTop: 10,
               marginLeft: "auto",
               marginRight: "auto",
             }}
           >
-            Bridge the gap between physical infrastructure and cloud-based intelligence with our open IoT frameworks, BACnet/Modbus integrations, and Digital Twin architecture.
+            Operating under the banner of Probiz Technologies, we bridge the gap between physical infrastructure and cloud-based intelligence with our open IoT frameworks, BACnet/Modbus integrations, and Digital Twin architecture.
           </p>
         </motion.div>
 

@@ -69,17 +69,16 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 md:gap-8 lg:gap-12 pb-6">
           {/* Brand section */}
           <div className="flex flex-col space-y-4 lg:col-span-2">
-            <div className="flex items-center space-x-2">
-              <div
+            <div className="flex items-center">
+              <img
+                src="/logoauto.png"
+                alt="Probiz Automation Logo"
                 style={{
-                  width: 32, height: 32,
-                  background: "#FFFFFF", borderRadius: 8,
-                  display: "flex", alignItems: "center", justifyContent: "center",
+                  height: 38,
+                  width: "auto",
+                  objectFit: "contain",
                 }}
-              >
-                <span style={{ color: "#080808", fontWeight: 800, fontSize: "0.85rem" }}>P</span>
-              </div>
-              <span className="text-white text-xl sm:text-2xl font-bold tracking-tight">Probiz Automation</span>
+              />
             </div>
             <p className="text-sm leading-relaxed text-neutral-400 max-w-xs">
               Intelligent building and industrial automation platform for the next generation of smart infrastructure.
