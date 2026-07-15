@@ -3,152 +3,203 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import createGlobe, { COBEOptions } from "cobe";
-import { useCallback, useEffect, useRef, useState } from "react";
-import { cn } from "@/lib/utils";
+import { useEffect, useRef } from "react";
 import React from "react";
 
 export default function GlobeFeatureSection() {
   return (
-    <section className="relative w-full mx-auto overflow-hidden rounded-3xl bg-[#121212] border border-neutral-900 shadow-2xl px-6 py-16 md:px-16 md:py-24 my-24 max-w-layout container">
-      <div className="flex flex-col-reverse items-center justify-between gap-10 md:flex-row">
-        <div className="z-10 max-w-xl text-left">
-          <h1 className="text-3xl md:text-4xl font-normal text-white leading-tight">
-            Powered by <span className="text-[#86efac] font-bold">Probiz Technologies</span>{" "}
-            <span className="block mt-4 text-neutral-400 text-sm md:text-base leading-relaxed">
-              Probiz Automation is a division of Probiz Technologies. We empower global organizations with fast, elegant, and intelligent building automation and energy intelligence systems to optimize efficiency and drive sustainability.
-            </span>
-          </h1>
-          <Button
-            asChild
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-white text-[#080808] hover:bg-neutral-200 px-6 py-2.5 text-sm font-semibold transition"
-          >
-            <a href="#contact">
-              Explore Our Tech <ArrowRight className="h-4 w-4" />
+    <section
+      className="container"
+      style={{
+        paddingTop: "var(--space-2xl)",
+        paddingBottom: "var(--space-2xl)",
+      }}
+    >
+      <div
+        style={{
+          position: "relative",
+          width: "100%",
+          borderRadius: 24,
+          background: "rgba(255,255,255,0.04)",
+          border: "0.5px solid var(--color-border)",
+          padding: "clamp(2.5rem, 5vw, 4rem)",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: "3rem",
+            flexWrap: "wrap",
+          }}
+        >
+          {/* Text side */}
+          <div style={{ flex: "1 1 380px", maxWidth: 520, zIndex: 2 }}>
+            <h2
+              style={{
+                fontSize: "clamp(1.6rem, 3vw, 2.4rem)",
+                fontWeight: 400,
+                color: "#fff",
+                lineHeight: 1.35,
+              }}
+            >
+              Powered by{" "}
+              <span style={{ color: "#86efac", fontWeight: 700 }}>
+                Probiz Technologies
+              </span>{" "}
+              <span style={{ color: "rgba(255,255,255,0.45)" }}>
+                Probiz Automation is a division of Probiz Technologies. We
+                empower global organizations with fast, elegant, and intelligent
+                building automation and energy intelligence systems to optimize
+                efficiency and drive sustainability.
+              </span>
+            </h2>
+            <a
+              href="#contact"
+              className="btn-primary"
+              style={{
+                marginTop: 28,
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
+                padding: "12px 26px",
+                fontSize: "0.85rem",
+              }}
+            >
+              Explore Our Tech <ArrowRight size={16} />
             </a>
-          </Button>
-        </div>
-        <div className="relative h-[250px] w-full max-w-md flex justify-center items-center overflow-visible">
-          <Globe className="absolute scale-110 md:scale-125" />
+          </div>
+
+          {/* Globe side — fully visible, no clipping */}
+          <div
+            style={{
+              flex: "0 0 320px",
+              height: 320,
+              position: "relative",
+              zIndex: 1,
+              margin: "0 auto",
+            }}
+          >
+            <Globe />
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-const GLOBE_CONFIG = {
-  width: 800,
-  height: 800,
-  devicePixelRatio: 2,
-  phi: 0,
-  theta: 0.3,
-  dark: 0,
-  diffuse: 0.4,
-  mapSamples: 16000,
-  mapBrightness: 1.2,
-  baseColor: [1, 1, 1] as [number, number, number],
-  markerColor: [251 / 255, 100 / 255, 21 / 255] as [number, number, number],
-  glowColor: [1, 1, 1] as [number, number, number],
-  markers: [
-    { location: [14.5995, 120.9842] as [number, number], size: 0.03 },
-    { location: [19.076, 72.8777] as [number, number], size: 0.1 },
-    { location: [23.8103, 90.4125] as [number, number], size: 0.05 },
-    { location: [30.0444, 31.2357] as [number, number], size: 0.07 },
-    { location: [39.9042, 116.4074] as [number, number], size: 0.08 },
-    { location: [-23.5505, -46.6333] as [number, number], size: 0.1 },
-    { location: [19.4326, -99.1332] as [number, number], size: 0.1 },
-    { location: [40.7128, -74.006] as [number, number], size: 0.1 },
-    { location: [34.6937, 135.5022] as [number, number], size: 0.05 },
-    { location: [41.0082, 28.9784] as [number, number], size: 0.06 },
-  ],
-};
-
-export function Globe({
-  className,
-  config = GLOBE_CONFIG,
-}: {
-  className?: string;
-  config?: Partial<COBEOptions>;
-}) {
+export function Globe({ className }: { className?: string }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pointerInteracting = useRef<number | null>(null);
   const pointerInteractionMovement = useRef(0);
-  const [r, setR] = useState(0);
+  const phiRef = useRef(0);
+  const rRef = useRef(0);
 
   useEffect(() => {
-    let phi = 0;
-    let width = 0;
+    if (!canvasRef.current) return;
 
-    const onResize = () => {
-      if (canvasRef.current) {
-        width = canvasRef.current.offsetWidth;
-      }
-    };
+    const canvas = canvasRef.current;
 
-    window.addEventListener("resize", onResize);
-    onResize();
+    // Use a fixed render size so cobe always gets valid dimensions
+    const size = 600;
 
-    // Fallback if width cannot be immediately computed
-    if (width === 0) {
-      width = 300;
-    }
-
-    const globe = createGlobe(canvasRef.current!, {
-      ...config,
-      width: width * 2,
-      height: width * 2,
+    const globeConfig: COBEOptions = {
+      devicePixelRatio: 2,
+      width: size * 2,
+      height: size * 2,
+      phi: 0,
+      theta: 0.3,
+      dark: 0,
+      diffuse: 0.4,
+      mapSamples: 16000,
+      mapBrightness: 1.2,
+      baseColor: [1, 1, 1],
+      markerColor: [251 / 255, 100 / 255, 21 / 255],
+      glowColor: [1, 1, 1],
+      markers: [
+        { location: [14.5995, 120.9842], size: 0.03 },
+        { location: [19.076, 72.8777], size: 0.1 },
+        { location: [23.8103, 90.4125], size: 0.05 },
+        { location: [30.0444, 31.2357], size: 0.07 },
+        { location: [39.9042, 116.4074], size: 0.08 },
+        { location: [-23.5505, -46.6333], size: 0.1 },
+        { location: [19.4326, -99.1332], size: 0.1 },
+        { location: [40.7128, -74.006], size: 0.1 },
+        { location: [34.6937, 135.5022], size: 0.05 },
+        { location: [41.0082, 28.9784], size: 0.06 },
+      ],
       onRender: (state: Record<string, any>) => {
         if (!pointerInteracting.current) {
-          phi += 0.005;
+          phiRef.current += 0.005;
         }
-        state.phi = phi + r;
-        state.width = width * 2;
-        state.height = width * 2;
+        state.phi = phiRef.current + rRef.current;
       },
-    } as any);
+    };
 
-    setTimeout(() => {
-      if (canvasRef.current) {
-        canvasRef.current.style.opacity = "1";
-      }
+    const globe = createGlobe(canvas, globeConfig);
+
+    // Fade in after first paint
+    requestAnimationFrame(() => {
+      canvas.style.opacity = "1";
     });
 
-    return () => {
-      globe.destroy();
-      window.removeEventListener("resize", onResize);
-    };
-  }, [config, r]);
+    return () => globe.destroy();
+  }, []);
 
-  const updatePointerInteraction = (value: number | null) => {
-    pointerInteracting.current = value;
-    if (canvasRef.current) {
-      canvasRef.current.style.cursor = value ? "grabbing" : "grab";
+  const onPointerDown = (e: React.PointerEvent) => {
+    pointerInteracting.current =
+      e.clientX - pointerInteractionMovement.current;
+    if (canvasRef.current) canvasRef.current.style.cursor = "grabbing";
+  };
+
+  const onPointerUp = () => {
+    pointerInteracting.current = null;
+    if (canvasRef.current) canvasRef.current.style.cursor = "grab";
+  };
+
+  const onMouseMove = (e: React.MouseEvent) => {
+    if (pointerInteracting.current !== null) {
+      const delta = e.clientX - pointerInteracting.current;
+      pointerInteractionMovement.current = delta;
+      rRef.current = delta / 200;
     }
   };
 
-  const updateMovement = (clientX: number) => {
-    if (pointerInteracting.current !== null) {
-      const delta = clientX - pointerInteracting.current;
+  const onTouchMove = (e: React.TouchEvent) => {
+    if (e.touches[0] && pointerInteracting.current !== null) {
+      const delta = e.touches[0].clientX - pointerInteracting.current;
       pointerInteractionMovement.current = delta;
-      setR(delta / 200);
+      rRef.current = delta / 200;
     }
   };
 
   return (
-    <div className={cn("aspect-square w-full max-w-[400px]", className)}>
+    <div
+      className={className}
+      style={{
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <canvas
-        className="w-full h-full opacity-0 transition-opacity duration-500 [contain:layout_paint_size]"
         ref={canvasRef}
-        onPointerDown={(e) =>
-          updatePointerInteraction(
-            e.clientX - pointerInteractionMovement.current
-          )
-        }
-        onPointerUp={() => updatePointerInteraction(null)}
-        onPointerOut={() => updatePointerInteraction(null)}
-        onMouseMove={(e) => updateMovement(e.clientX)}
-        onTouchMove={(e) =>
-          e.touches[0] && updateMovement(e.touches[0].clientX)
-        }
+        style={{
+          width: "100%",
+          height: "100%",
+          opacity: 0,
+          transition: "opacity 0.5s ease",
+          contain: "layout paint size",
+          cursor: "grab",
+        }}
+        onPointerDown={onPointerDown}
+        onPointerUp={onPointerUp}
+        onPointerOut={onPointerUp}
+        onMouseMove={onMouseMove}
+        onTouchMove={onTouchMove}
       />
     </div>
   );

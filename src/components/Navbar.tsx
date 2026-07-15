@@ -56,6 +56,7 @@ export default function Navbar() {
               textDecoration: "none",
               display: "flex",
               alignItems: "center",
+              gap: 10,
               flexShrink: 0,
             }}
           >
@@ -68,6 +69,16 @@ export default function Navbar() {
                 objectFit: "contain",
               }}
             />
+            <span
+              style={{
+                fontWeight: 700,
+                fontSize: "1rem",
+                color: "#FFFFFF",
+                letterSpacing: "-0.015em",
+              }}
+            >
+              Probiz Automation
+            </span>
           </a>
 
           {/* Right CTA */}
