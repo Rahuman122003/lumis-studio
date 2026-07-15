@@ -8,7 +8,7 @@ const cards = [
     icon: <Layers size={18} />,
     label: "BUILDING MANAGEMENT",
     title: "Smart BMS Solutions",
-    desc: "End-to-end building management systems integrating HVAC, lighting, fire safety, and access control into one intelligent ecosystem.",
+    desc: "Complete Building Management Systems integrating HVAC, lighting, fire safety, and access control into one intelligent, cloud-connected ecosystem.",
     wide: true,
     demo: (
       <div style={{ display: "flex", gap: 6, marginTop: 20 }}>
@@ -33,9 +33,9 @@ const cards = [
   },
   {
     icon: <BarChart2 size={18} />,
-    label: "ENERGY",
-    title: "Energy Management",
-    desc: "Real-time energy monitoring, demand optimization, and sustainability analytics powered by live sensor data.",
+    label: "ENERGY INTELLIGENCE",
+    title: "Real-Time Energy Monitoring",
+    desc: "Track electricity, water, gas, steam, BTU, solar, and more through one centralized dashboard with live analytics and automated reports.",
     demo: (
       <div style={{ display: "flex", alignItems: "flex-end", gap: 4, marginTop: 20, height: 52 }}>
         {[38, 62, 48, 82, 68, 90, 74].map((h, i) => (
@@ -55,8 +55,8 @@ const cards = [
   {
     icon: <Sparkles size={18} />,
     label: "AI ANALYTICS",
-    title: "AI-Powered Intelligence",
-    desc: "Predictive analytics, anomaly detection, and automated optimization at scale.",
+    title: "Probiz Energy AI Platform",
+    desc: "Predictive analytics, anomaly detection, fault identification, and automated optimization — all powered by machine learning.",
     demo: (
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 6, marginTop: 20 }}>
         {[1, 2, 3, 4].map((n) => (
@@ -76,7 +76,7 @@ const cards = [
     icon: <ShoppingBag size={18} />,
     label: "DIGITAL TWIN",
     title: "Digital Twin Technology",
-    desc: "Real-time virtual representation of your physical infrastructure for complete visibility.",
+    desc: "Create a living digital replica of your building. Monitor every floor, room, sensor, and asset through an interactive 3D environment.",
     demo: (
       <div style={{ marginTop: 20 }}>
         <div
@@ -89,7 +89,7 @@ const cards = [
           }}
         >
           <div style={{ width: 7, height: 7, borderRadius: "50%", background: "#22c55e", flexShrink: 0 }} />
-          <span style={{ fontWeight: 500 }}>Physical + Digital synced</span>
+          <span style={{ fontWeight: 500 }}>Physical + Digital synced live</span>
         </div>
       </div>
     ),
@@ -98,7 +98,7 @@ const cards = [
     icon: <Globe size={18} />,
     label: "IOT INTEGRATION",
     title: "Industrial IoT Platform",
-    desc: "Connected sensor networks for multi-site monitoring across 18+ industry verticals.",
+    desc: "Connect thousands of sensors, meters, and controllers using Modbus, BACnet, MQTT, OPC-UA, LoRaWAN, Zigbee, and REST APIs.",
     demo: (
       <div style={{ marginTop: 20, fontSize: "0.85rem", letterSpacing: "0.04em" }}>
         🏢 🏥 🏭 🏫 🏨 🏬
@@ -111,12 +111,12 @@ const cards = [
   {
     icon: <Zap size={18} />,
     label: "PLATFORM",
-    title: "The Probiz Automation Platform — Your Intelligent Building OS",
-    desc: "One dashboard to monitor, analyze, predict, and automate operations across every building in your portfolio.",
+    title: "One Unified Cloud Platform for All Building Operations",
+    desc: "Monitor, automate, optimize, and control every aspect of your building — from HVAC and lighting to utilities, assets, occupancy, and energy — all through one intelligent platform.",
     full: true,
     demo: (
       <div style={{ display: "flex", gap: 8, marginTop: 16, flexWrap: "wrap" }}>
-        {["Command Center", "Energy Dashboard", "Asset Manager", "Live Analytics", "Maintenance Hub"].map((f) => (
+        {["Command Center", "Energy Dashboard", "Digital Twin", "Asset Manager", "Tenant Billing"].map((f) => (
           <span key={f} className="tag">{f}</span>
         ))}
       </div>
@@ -142,9 +142,9 @@ export default function Solutions() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
         >
-          <span className="section-label">SOLUTIONS</span>
-          <h2 className="section-h2" style={{ maxWidth: 500 }}>
-            Everything you need for intelligent buildings
+          <span className="section-label">WHAT WE DO</span>
+          <h2 className="section-h2" style={{ maxWidth: 520 }}>
+            End-to-End Smart Building Solutions
           </h2>
         </motion.div>
 

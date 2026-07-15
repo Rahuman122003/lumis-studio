@@ -5,7 +5,7 @@ import { ArrowRight, Play } from "lucide-react";
 import { useInView } from "@/hooks/useInView";
 import { Spotlight } from "@/components/ui/spotlight";
 
-const cyclingWords = ["Intelligence", "Automation", "Efficiency", "Safety", "Performance"];
+const cyclingWords = ["Intelligence", "Automation", "Sustainability", "Efficiency", "Innovation"];
 
 export default function Hero() {
   const [wordIndex, setWordIndex] = useState(0);
@@ -101,7 +101,7 @@ export default function Hero() {
               letterSpacing: "0.12em",
             }}
           >
-             Smart Building & Industrial Automation
+             AI-Powered Building Automation & Energy Intelligence
           </span>
         </motion.div>
 
@@ -116,7 +116,7 @@ export default function Hero() {
             width: "100%",
           }}
         >
-           Building{" "}
+           Intelligent Buildings.{" "}
           <span
             style={{
               display: "inline-block",
@@ -146,7 +146,7 @@ export default function Hero() {
             </AnimatePresence>
           </span>
           <br />
-           Engineered
+           Connected Infrastructure.
         </motion.h1>
 
         {/* Sub-headline */}
@@ -162,7 +162,7 @@ export default function Hero() {
             marginBottom: 40,
           }}
         >
-          Probiz Automation transforms traditional infrastructure into intelligent, connected, and autonomous ecosystems using AI, IoT, BMS, and Digital Twin technologies.
+          Transform commercial buildings into intelligent, energy-efficient ecosystems with AI-driven automation, Digital Twin technology, IoT connectivity, and real-time analytics.
         </motion.p>
 
         {/* CTAs */}
@@ -188,7 +188,7 @@ export default function Hero() {
               fontSize: "0.9rem",
             }}
           >
-             Explore Platform <ArrowRight size={15} />
+             Book a Demo <ArrowRight size={15} />
           </a>
           <a
             href="#how-it-works"
@@ -200,7 +200,7 @@ export default function Hero() {
               fontSize: "0.9rem",
             }}
           >
-             <Play size={13} fill="currentColor" /> See How It Works
+             <Play size={13} fill="currentColor" /> Schedule Consultation
           </a>
         </motion.div>
 
@@ -219,9 +219,9 @@ export default function Hero() {
           }}
         >
           {[
-            { val: "200+",  label: "Buildings Automated" },
+            { val: "200+",  label: "Buildings Managed" },
             { val: "99.9%", label: "System Uptime" },
-            { val: "35%",   label: "Avg. Energy Savings" },
+            { val: "35%",   label: "Energy Cost Reduction" },
             { val: "18+",   label: "Industries Served" },
           ].map((s) => (
             <div key={s.label} style={{ textAlign: "center", padding: "var(--space-sm) 0" }}>

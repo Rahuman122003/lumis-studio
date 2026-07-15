@@ -6,14 +6,14 @@ import { useInView } from "@/hooks/useInView";
 const steps = [
   {
     num: "01",
-    title: "Assessment & Audit",
-    desc: "We conduct a comprehensive infrastructure audit — analysing existing building systems, energy patterns, equipment health, and operational workflows to build a data-driven automation strategy tailored to your facility.",
+    title: "Consultation & Site Assessment",
+    desc: "We understand your infrastructure, challenges, and business objectives — conducting a comprehensive site assessment to build a data-driven automation strategy tailored to your facility.",
     visual: (
       <div style={{ padding: 24, display: "flex", flexDirection: "column", gap: 10 }}>
         <p style={{ fontSize: "0.72rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--color-muted)", marginBottom: 4 }}>
            Assessment Dashboard
         </p>
-         {["System Audit", "Energy Analysis", "Equipment Map", "KPI Baseline"].map((t, i) => (
+         {["Infrastructure Audit", "Energy Analysis", "Equipment Map", "KPI Baseline"].map((t, i) => (
           <div
             key={t}
             style={{
@@ -38,15 +38,15 @@ const steps = [
   },
   {
     num: "02",
-    title: "Design & Integration",
-    desc: "Our engineering team designs intelligent automation architectures using IoT sensors, BMS controllers, and cloud platforms — giving you a complete digital blueprint before a single device is installed.",
+    title: "Solution Design & Implementation",
+    desc: "Our experts design a customised automation strategy — then execute hardware integration, IoT deployment, software configuration, and cloud onboarding with minimal disruption to your operations.",
     visual: (
       <div style={{ padding: 24, display: "flex", flexDirection: "column", gap: 12 }}>
         <p style={{ fontSize: "0.72rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--color-muted)", marginBottom: 4 }}>
-           Integration Pipeline
+           Implementation Pipeline
         </p>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
-           {[["System Design", false], ["Sensor Layout", false], ["BMS Config", true], ["Final Spec", false]].map(([t, active]) => (
+           {[["Solution Design", false], ["IoT Deployment", false], ["Cloud Config", true], ["Go Live", false]].map(([t, active]) => (
             <div
               key={t as string}
               style={{
@@ -68,25 +68,25 @@ const steps = [
           display: "flex", alignItems: "center", gap: 8,
         }}>
           <span style={{ color: "#16a34a", fontWeight: 600 }}>✓</span>
-           Client approved — ready for deployment phase
+           Client approved — ready for AI optimization phase
         </div>
       </div>
     ),
   },
   {
     num: "03",
-    title: "Deploy & Optimize",
-    desc: "From hardware installation to cloud platform deployment, our certified teams execute with precision — minimising downtime and ensuring every system integrates seamlessly with your existing infrastructure.",
+    title: "AI Optimization & Continuous Support",
+    desc: "Enable predictive analytics, Digital Twin visualization, and intelligent automation — backed by ongoing monitoring, maintenance, upgrades, and optimization services.",
     visual: (
       <div style={{ padding: 24, display: "flex", flexDirection: "column", gap: 16 }}>
         <p style={{ fontSize: "0.72rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--color-muted)", marginBottom: 4 }}>
-           Deployment Progress
+           AI Optimization Progress
         </p>
         {[
-           { label: "Hardware Setup", pct: 100 },
-           { label: "IoT Integration", pct: 100 },
-           { label: "Platform Deploy", pct: 78 },
-           { label: "QA Sign-off",     pct: 30 },
+           { label: "Digital Twin Active", pct: 100 },
+           { label: "AI Predictions Live", pct: 100 },
+           { label: "Energy Optimization", pct: 78 },
+           { label: "Predictive Alerts",   pct: 30 },
         ].map((s, i) => (
           <div key={s.label}>
             <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 6, fontSize: "0.8rem", fontWeight: 500 }}>
@@ -130,9 +130,9 @@ export default function HowItWorks() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
         >
-          <span className="section-label">HOW IT WORKS</span>
-          <h2 className="section-h2" style={{ maxWidth: 460 }}>
-            From concept to intelligent building in three steps
+          <span className="section-label">OUR PROCESS</span>
+          <h2 className="section-h2" style={{ maxWidth: 520 }}>
+            From Assessment to Intelligent Operations
           </h2>
         </motion.div>
 

@@ -68,7 +68,7 @@ export default function CTABanner() {
             maxWidth: 660,
           }}
         >
-          Ready to transform your infrastructure?
+          Ready to Build Smarter?
         </motion.h2>
 
         <motion.p
@@ -83,8 +83,7 @@ export default function CTABanner() {
             marginBottom: 40,
           }}
         >
-          Join 200+ leading organizations who trust Probiz Automation to monitor, optimize,
-          and automate their building operations.
+          Take control of your building with AI-powered automation, Digital Twin technology, and intelligent energy management. Discover how Probiz Automation can help you reduce operational costs, optimize energy usage, and create future-ready smart buildings.
         </motion.p>
 
         <motion.div
@@ -98,7 +97,7 @@ export default function CTABanner() {
             className="btn-primary"
             style={{ background: "#FFFFFF", color: "#080808", padding: "15px 30px", fontSize: "0.9rem" }}
           >
-            Book a Discovery Call <ArrowRight size={15} />
+            Book a Live Demo <ArrowRight size={15} />
           </a>
           <a
             href="#solutions"
@@ -110,7 +109,7 @@ export default function CTABanner() {
               fontSize: "0.9rem",
             }}
           >
-            View All Solutions
+            Talk to Our Experts
           </a>
         </motion.div>
 
@@ -125,7 +124,7 @@ export default function CTABanner() {
             letterSpacing: "0.02em",
           }}
         >
-          No commitment required · Response within 24 hours · Free initial assessment
+          Free initial assessment · No commitment required · Response within 24 hours
         </motion.p>
       </div>
     </section>

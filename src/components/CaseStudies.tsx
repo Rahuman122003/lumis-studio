@@ -6,32 +6,32 @@ import { useInView } from "@/hooks/useInView";
 const cases = [
   {
     category: "COMMERCIAL BUILDING",
-    company: "Metro Corporate Towers",
-    result: "35% energy reduction with AI-powered BMS integration",
+    company: "Corporate Office Tower",
+    result: "35% energy cost reduction through AI-powered BMS and real-time energy intelligence",
     img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=700&q=80",
   },
   {
     category: "HEALTHCARE",
-    company: "City General Hospital",
-    result: "99.9% uptime on critical HVAC and air quality systems",
+    company: "Multi-Specialty Hospital",
+    result: "99.9% uptime on critical HVAC and air quality systems with predictive maintenance",
     img: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=700&q=80",
   },
   {
     category: "MANUFACTURING",
-    company: "Apex Industrial Group",
-    result: "42% reduction in unplanned equipment downtime",
+    company: "Industrial Manufacturing Plant",
+    result: "42% reduction in unplanned equipment downtime via AI predictive analytics",
     img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=700&q=80",
   },
   {
     category: "DATA CENTER",
-    company: "CloudNex Infrastructure",
-    result: "28% improvement in PUE through smart cooling automation",
+    company: "Tier-3 Data Center",
+    result: "28% improvement in PUE through smart cooling automation and Digital Twin monitoring",
     img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=700&q=80",
   },
   {
     category: "SMART CAMPUS",
-    company: "National University",
-    result: "Unified automation across 12 buildings in 6 months",
+    company: "University Campus",
+    result: "Unified automation across 12 buildings with centralized energy and occupancy management",
     img: "https://images.unsplash.com/photo-1562774053-701939374585?w=700&q=80",
   },
 ];
@@ -104,7 +104,7 @@ export default function CaseStudies() {
           >
             <div className="section-header" style={{ marginBottom: 0 }}>
               <span className="section-label">CASE STUDIES</span>
-              <h2 className="section-h2">Results that speak for themselves</h2>
+              <h2 className="section-h2">Measurable Results That Matter</h2>
             </div>
           </motion.div>
         </div>

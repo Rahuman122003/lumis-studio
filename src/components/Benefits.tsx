@@ -7,25 +7,25 @@ import { TrendingUp, Clock, Users, Shield, Cpu, Award } from "lucide-react";
 const stats = [
   { target: 200, suffix: "+", label: "Buildings Managed" },
   { target: 99,  suffix: "%", label: "System Uptime" },
-  { target: 18,  suffix: "+", label: "Industries" },
-  { target: 35,  suffix: "%", label: "Energy Savings" },
+  { target: 35,  suffix: "%", label: "Energy Cost Reduction" },
+  { target: 18,  suffix: "+", label: "Industries Served" },
 ];
 
 const benefits = [
   {
     icon: <TrendingUp size={22} strokeWidth={1.5} />,
     title: "AI-Driven Automation",
-    desc: "Every automation decision is powered by artificial intelligence, delivering actionable insights not just raw data.",
+    desc: "Every automation decision is powered by artificial intelligence — delivering actionable insights, not just raw data.",
   },
   {
     icon: <Clock size={22} strokeWidth={1.5} />,
-    title: "Real-Time Monitoring",
-    desc: "Centralized dashboards provide instant visibility into every connected asset across multiple facilities.",
+    title: "Digital Twin Technology",
+    desc: "Visualize your entire building in real time through an interactive 3D environment synchronized with live data.",
   },
   {
     icon: <Users size={22} strokeWidth={1.5} />,
     title: "Predictive Maintenance",
-    desc: "AI continuously monitors equipment health to identify potential issues before they become failures.",
+    desc: "AI continuously monitors equipment health to predict failures and recommend optimization before problems occur.",
   },
   {
     icon: <Shield size={22} strokeWidth={1.5} />,
@@ -34,13 +34,13 @@ const benefits = [
   },
   {
     icon: <Cpu size={22} strokeWidth={1.5} />,
-    title: "Scalable Cloud Architecture",
-    desc: "Cloud-native platform that scales from a single building to enterprise portfolios with open system integration.",
+    title: "Open IoT Architecture",
+    desc: "Seamlessly connect thousands of sensors, meters, and devices using Modbus, BACnet, MQTT, OPC-UA, and more.",
   },
   {
     icon: <Award size={22} strokeWidth={1.5} />,
-    title: "Energy Optimization",
-    desc: "Intelligent energy management achieving an average 35% reduction in energy consumption across managed facilities.",
+    title: "Energy Cost Optimization",
+    desc: "Reduce energy costs by up to 35% through real-time monitoring, demand optimization, and intelligent automation.",
   },
 ];
 
@@ -86,9 +86,9 @@ export default function Benefits() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
         >
-          <span className="section-label">WHY PROBIZ AUTOMATION</span>
-          <h2 className="section-h2" style={{ maxWidth: 460 }}>
-            Built for intelligent infrastructure
+          <span className="section-label">WHY CHOOSE PROBIZ AUTOMATION</span>
+          <h2 className="section-h2" style={{ maxWidth: 520 }}>
+            Building Intelligence That Delivers Results
           </h2>
         </motion.div>
 
