@@ -5,6 +5,7 @@ import HowItWorks from "@/components/HowItWorks";
 import Solutions from "@/components/Solutions";
 import CaseStudies from "@/components/CaseStudies";
 import Benefits from "@/components/Benefits";
+import ExplainSection from "@/components/ExplainSection";
 import Testimonials from "@/components/Testimonials";
 import SecSection from "@/components/SecSection";
 import Pricing from "@/components/Pricing";
@@ -27,6 +28,7 @@ export default function Home() {
         <Solutions />
         <CaseStudies />
         <Benefits />
+        <ExplainSection />
         <Testimonials />
         <SecSection />
         <Pricing />

@@ -82,7 +82,7 @@ export default function FeatureSection() {
           {/* Center Circle */}
           <div className="w-24 h-24 rounded-full bg-white shadow-lg flex items-center justify-center p-3 z-20">
             <img
-              src="/logo1.png"
+              src="/logoauto.png"
               alt="Probiz Logo"
               className="w-full h-full object-contain"
             />
