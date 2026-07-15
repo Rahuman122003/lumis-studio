@@ -119,6 +119,15 @@ main {
   color: #86efac;
 }
 
+/* Cycling word inside h1 — underline accent */
+.hero-cycle-word {
+  text-decoration: underline;
+  text-decoration-color: rgba(134, 239, 172, 0.35);
+  text-underline-offset: 8px;
+  text-decoration-thickness: 1.5px;
+  color: inherit;
+}
+
 .section-h2 {
   font-size: clamp(1.8rem, 3vw, 2.8rem);
   font-weight: 700;

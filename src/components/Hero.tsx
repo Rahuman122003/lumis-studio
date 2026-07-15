@@ -1,22 +1,14 @@
 "use client";
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
 import { useInView } from "@/hooks/useInView";
 import { Spotlight } from "@/components/ui/spotlight";
+import AnimatedTextCycle from "@/components/ui/animated-text-cycle";
 
 const cyclingWords = ["Intelligence", "Automation", "Sustainability", "Efficiency", "Innovation"];
 
 export default function Hero() {
-  const [wordIndex, setWordIndex] = useState(0);
   const { ref: sectionRef, inView } = useInView(0.01);
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      setWordIndex((i) => (i + 1) % cyclingWords.length);
-    }, 2500);
-    return () => clearInterval(id);
-  }, []);
 
   return (
     <section
@@ -117,34 +109,11 @@ export default function Hero() {
           }}
         >
            Intelligent Buildings.{" "}
-          <span
-            style={{
-              display: "inline-block",
-              position: "relative",
-              minWidth: "6.5ch",
-              verticalAlign: "bottom",
-            }}
-          >
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={cyclingWords[wordIndex]}
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -14 }}
-                transition={{ duration: 0.28, ease: "easeOut" }}
-                style={{
-                  color: "inherit",
-                  textDecoration: "underline",
-                  textDecorationColor: "rgba(134,239,172,0.35)",
-                  textUnderlineOffset: "8px",
-                  textDecorationThickness: "1.5px",
-                  display: "inline-block",
-                }}
-              >
-                {cyclingWords[wordIndex]}
-              </motion.span>
-            </AnimatePresence>
-          </span>
+          <AnimatedTextCycle
+            words={cyclingWords}
+            interval={2500}
+            className="hero-cycle-word"
+          />
           <br />
            Connected Infrastructure.
         </motion.h1>
