@@ -9,26 +9,26 @@ import React from "react";
 
 export default function GlobeFeatureSection() {
   return (
-    <section className="relative w-full mx-auto overflow-hidden rounded-3xl bg-muted border border-gray-200 dark:border-gray-800 shadow-md px-6 py-16 md:px-16 md:py-24 mt-48 max-w-layout container">
+    <section className="relative w-full mx-auto overflow-hidden rounded-3xl bg-[#121212] border border-neutral-900 shadow-2xl px-6 py-16 md:px-16 md:py-24 my-24 max-w-layout container">
       <div className="flex flex-col-reverse items-center justify-between gap-10 md:flex-row">
         <div className="z-10 max-w-xl text-left">
-          <h1 className="text-3xl font-normal text-gray-900 dark:text-white">
-            Powered by <span className="text-[#86efac]">Probiz Technologies</span>{" "}
-            <span className="text-gray-500 dark:text-gray-400">
+          <h1 className="text-3xl md:text-4xl font-normal text-white leading-tight">
+            Powered by <span className="text-[#86efac] font-bold">Probiz Technologies</span>{" "}
+            <span className="block mt-4 text-neutral-400 text-sm md:text-base leading-relaxed">
               Probiz Automation is a division of Probiz Technologies. We empower global organizations with fast, elegant, and intelligent building automation and energy intelligence systems to optimize efficiency and drive sustainability.
             </span>
           </h1>
           <Button
             asChild
-            className="mt-6 inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2 text-sm font-semibold text-background transition hover:bg-black"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-white text-[#080808] hover:bg-neutral-200 px-6 py-2.5 text-sm font-semibold transition"
           >
             <a href="#contact">
               Explore Our Tech <ArrowRight className="h-4 w-4" />
             </a>
           </Button>
         </div>
-        <div className="relative h-[180px] w-full max-w-xl">
-          <Globe className="absolute -bottom-20 -right-40 scale-150" />
+        <div className="relative h-[250px] w-full max-w-md flex justify-center items-center overflow-visible">
+          <Globe className="absolute scale-110 md:scale-125" />
         </div>
       </div>
     </section>
@@ -69,12 +69,54 @@ export function Globe({
   className?: string;
   config?: Partial<COBEOptions>;
 }) {
-  let phi = 0;
-  let width = 0;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pointerInteracting = useRef<number | null>(null);
   const pointerInteractionMovement = useRef(0);
   const [r, setR] = useState(0);
+
+  useEffect(() => {
+    let phi = 0;
+    let width = 0;
+
+    const onResize = () => {
+      if (canvasRef.current) {
+        width = canvasRef.current.offsetWidth;
+      }
+    };
+
+    window.addEventListener("resize", onResize);
+    onResize();
+
+    // Fallback if width cannot be immediately computed
+    if (width === 0) {
+      width = 300;
+    }
+
+    const globe = createGlobe(canvasRef.current!, {
+      ...config,
+      width: width * 2,
+      height: width * 2,
+      onRender: (state: Record<string, any>) => {
+        if (!pointerInteracting.current) {
+          phi += 0.005;
+        }
+        state.phi = phi + r;
+        state.width = width * 2;
+        state.height = width * 2;
+      },
+    } as any);
+
+    setTimeout(() => {
+      if (canvasRef.current) {
+        canvasRef.current.style.opacity = "1";
+      }
+    });
+
+    return () => {
+      globe.destroy();
+      window.removeEventListener("resize", onResize);
+    };
+  }, [config, r]);
 
   const updatePointerInteraction = (value: number | null) => {
     pointerInteracting.current = value;
@@ -91,56 +133,10 @@ export function Globe({
     }
   };
 
-  const onRender = useCallback(
-    (state: Record<string, any>) => {
-      if (!pointerInteracting.current) phi += 0.005;
-      state.phi = phi + r;
-      state.width = width * 2;
-      state.height = width * 2;
-    },
-    [r]
-  );
-
-  const onResize = () => {
-    if (canvasRef.current) {
-      width = canvasRef.current.offsetWidth;
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("resize", onResize);
-    onResize();
-
-    const globe = createGlobe(canvasRef.current!, {
-      ...config,
-      width: width * 2,
-      height: width * 2,
-      onRender,
-    } as any);
-
-    setTimeout(() => {
-      if (canvasRef.current) {
-        canvasRef.current.style.opacity = "1";
-      }
-    });
-
-    return () => {
-      globe.destroy();
-      window.removeEventListener("resize", onResize);
-    };
-  }, []);
-
   return (
-    <div
-      className={cn(
-        "absolute inset-0 mx-auto aspect-[1/1] w-full max-w-[600px]",
-        className
-      )}
-    >
+    <div className={cn("aspect-square w-full max-w-[400px]", className)}>
       <canvas
-        className={cn(
-          "size-full opacity-0 transition-opacity duration-500 [contain:layout_paint_size]"
-        )}
+        className="w-full h-full opacity-0 transition-opacity duration-500 [contain:layout_paint_size]"
         ref={canvasRef}
         onPointerDown={(e) =>
           updatePointerInteraction(
