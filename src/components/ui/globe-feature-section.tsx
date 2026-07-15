@@ -9,29 +9,26 @@ import React from "react";
 
 export default function GlobeFeatureSection() {
   return (
-    <section className="relative w-full mx-auto overflow-hidden rounded-3xl bg-[#121212] border border-neutral-900 shadow-2xl px-6 py-16 md:px-16 md:py-24 my-24 max-w-layout container">
+    <section className="relative w-full mx-auto overflow-hidden rounded-3xl bg-muted border border-gray-200 dark:border-gray-800 shadow-md px-6 py-16 md:px-16 md:py-24 mt-48 max-w-layout container">
       <div className="flex flex-col-reverse items-center justify-between gap-10 md:flex-row">
         <div className="z-10 max-w-xl text-left">
-          <span className="text-xs font-semibold tracking-wide uppercase text-[#fde68a] bg-neutral-800/50 py-1 px-4 rounded-full">
-            GLOBAL REACH
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mt-6 leading-tight">
-            Powered by <span className="text-[#86efac]">Probiz Technologies</span>
-          </h2>
-          <p className="mt-4 text-neutral-400 leading-relaxed text-sm md:text-base">
-            Probiz Automation is a core division of Probiz Technologies. We empower global organizations with fast, elegant, and intelligent building automation and energy intelligence systems to optimize efficiency and drive sustainability.
-          </p>
+          <h1 className="text-3xl font-normal text-gray-900 dark:text-white">
+            Powered by <span className="text-[#86efac]">Probiz Technologies</span>{" "}
+            <span className="text-gray-500 dark:text-gray-400">
+              Probiz Automation is a division of Probiz Technologies. We empower global organizations with fast, elegant, and intelligent building automation and energy intelligence systems to optimize efficiency and drive sustainability.
+            </span>
+          </h1>
           <Button
             asChild
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-white text-[#080808] hover:bg-neutral-200 px-6 py-2.5 text-sm font-semibold transition"
+            className="mt-6 inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2 text-sm font-semibold text-background transition hover:bg-black"
           >
             <a href="#contact">
               Explore Our Tech <ArrowRight className="h-4 w-4" />
             </a>
           </Button>
         </div>
-        <div className="relative h-[280px] w-full max-w-md flex justify-center items-center">
-          <Globe className="absolute scale-110 md:scale-125" />
+        <div className="relative h-[180px] w-full max-w-xl">
+          <Globe className="absolute -bottom-20 -right-40 scale-150" />
         </div>
       </div>
     </section>
@@ -44,13 +41,13 @@ const GLOBE_CONFIG = {
   devicePixelRatio: 2,
   phi: 0,
   theta: 0.3,
-  dark: 1,
-  diffuse: 1.2,
+  dark: 0,
+  diffuse: 0.4,
   mapSamples: 16000,
-  mapBrightness: 6,
-  baseColor: [0.1, 0.1, 0.1] as [number, number, number],
-  markerColor: [134 / 255, 239 / 255, 172 / 255] as [number, number, number], // matching #86efac
-  glowColor: [0.15, 0.15, 0.15] as [number, number, number],
+  mapBrightness: 1.2,
+  baseColor: [1, 1, 1] as [number, number, number],
+  markerColor: [251 / 255, 100 / 255, 21 / 255] as [number, number, number],
+  glowColor: [1, 1, 1] as [number, number, number],
   markers: [
     { location: [14.5995, 120.9842] as [number, number], size: 0.03 },
     { location: [19.076, 72.8777] as [number, number], size: 0.1 },
