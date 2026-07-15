@@ -11,6 +11,7 @@ import Pricing from "@/components/Pricing";
 import Comparison from "@/components/Comparison";
 import FAQ from "@/components/FAQ";
 import CTABanner from "@/components/CTABanner";
+import StackFeatureSection from "@/components/ui/stack-feature-section";
 import Footer from "@/components/Footer";
 import ParallaxBackground from "@/components/ParallaxBackground";
 
@@ -32,6 +33,7 @@ export default function Home() {
         <Comparison />
         <FAQ />
         <CTABanner />
+        <StackFeatureSection />
       </main>
       <Footer />
     </>
