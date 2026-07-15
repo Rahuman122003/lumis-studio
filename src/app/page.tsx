@@ -6,6 +6,7 @@ import Solutions from "@/components/Solutions";
 import CaseStudies from "@/components/CaseStudies";
 import Benefits from "@/components/Benefits";
 import Testimonials from "@/components/Testimonials";
+import SecSection from "@/components/SecSection";
 import Pricing from "@/components/Pricing";
 import Comparison from "@/components/Comparison";
 import FAQ from "@/components/FAQ";
@@ -26,6 +27,7 @@ export default function Home() {
         <CaseStudies />
         <Benefits />
         <Testimonials />
+        <SecSection />
         <Pricing />
         <Comparison />
         <FAQ />
