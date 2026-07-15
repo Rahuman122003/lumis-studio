@@ -64,6 +64,7 @@ export default function SecSection() {
             <img
               src="/sec.png"
               alt="Infrastructure visualization"
+              loading="lazy"
               style={{
                 width: "100%",
                 height: "auto",
