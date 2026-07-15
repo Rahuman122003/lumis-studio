@@ -10,39 +10,68 @@ export default function SecSection() {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       style={{
-        paddingTop: "var(--space-lg)",
-        paddingBottom: "var(--space-lg)",
+        paddingTop: "var(--space-2xl)",
+        paddingBottom: "var(--space-2xl)",
         background: "var(--color-bg)",
         overflow: "hidden",
       }}
     >
-      <div className="container" style={{ display: "flex", justifyContent: "center" }}>
+      <div className="container">
+        {/* Header — centred */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          className="section-header section-header--center"
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          style={{
-            width: "100%",
-            borderRadius: "16px",
-            overflow: "hidden",
-            border: "0.5px solid var(--color-border)",
-            background: "rgba(255, 255, 255, 0.01)",
-            boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
+          transition={{ duration: 0.5 }}
+          style={{ marginBottom: "var(--space-lg)" }}
         >
-          <img
-            src="/sec.png"
-            alt="Infrastructure visualization"
+          <span className="section-label">PROBIZ TECHNOLOGIES</span>
+          <h2 className="section-h2" style={{ maxWidth: 580 }}>
+            Evolving How Buildings Connect & Automate
+          </h2>
+          <p
+            style={{
+              color: "var(--color-muted)",
+              fontSize: "1rem",
+              lineHeight: 1.65,
+              maxWidth: 480,
+              marginTop: 10,
+              marginLeft: "auto",
+              marginRight: "auto",
+            }}
+          >
+            Bridge the gap between physical infrastructure and cloud-based intelligence with our open IoT frameworks, BACnet/Modbus integrations, and Digital Twin architecture.
+          </p>
+        </motion.div>
+
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
             style={{
               width: "100%",
-              height: "auto",
-              display: "block",
+              borderRadius: "16px",
+              overflow: "hidden",
+              border: "0.5px solid var(--color-border)",
+              background: "rgba(255, 255, 255, 0.01)",
+              boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
             }}
-          />
-        </motion.div>
+          >
+            <img
+              src="/sec.png"
+              alt="Infrastructure visualization"
+              style={{
+                width: "100%",
+                height: "auto",
+                display: "block",
+              }}
+            />
+          </motion.div>
+        </div>
       </div>
     </section>
   );
