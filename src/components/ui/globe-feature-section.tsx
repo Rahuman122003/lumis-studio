@@ -22,7 +22,7 @@ export default function GlobeFeatureSection() {
           borderRadius: 24,
           background: "rgba(255,255,255,0.04)",
           border: "0.5px solid var(--color-border)",
-          padding: "clamp(2.5rem, 5vw, 4rem)",
+          padding: "clamp(2rem, 5vw, 4rem)",
         }}
       >
         <div
@@ -30,12 +30,12 @@ export default function GlobeFeatureSection() {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            gap: "3rem",
+            gap: "2.5rem",
             flexWrap: "wrap",
           }}
         >
           {/* Text side */}
-          <div style={{ flex: "1 1 380px", maxWidth: 520, zIndex: 2 }}>
+          <div style={{ flex: "1 1 400px", maxWidth: 560, zIndex: 2 }}>
             <h2
               style={{
                 fontSize: "clamp(1.6rem, 3vw, 2.4rem)",
@@ -71,14 +71,18 @@ export default function GlobeFeatureSection() {
             </a>
           </div>
 
-          {/* Globe side — fully visible, no clipping */}
+          {/* Globe side - perfectly aligned, not cut off */}
           <div
             style={{
-              flex: "0 0 320px",
-              height: 320,
+              flex: "1 1 300px",
+              maxWidth: "360px",
+              aspectRatio: "1 / 1",
               position: "relative",
               zIndex: 1,
               margin: "0 auto",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
             <Globe />
