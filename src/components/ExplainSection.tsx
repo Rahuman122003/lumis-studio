@@ -24,33 +24,28 @@ export default function ExplainSection() {
             overflow: "hidden",
           }}
         >
-          {/* Image banner — compact 3:1 ratio */}
+          {/* Image container — fully visible, no cropping */}
           <div
             style={{
               width: "100%",
-              aspectRatio: "3 / 1",
               overflow: "hidden",
               position: "relative",
+              background: "rgba(0,0,0,0.15)",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              borderBottom: "0.5px solid var(--color-border)",
             }}
           >
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                background:
-                  "linear-gradient(to top, rgba(10,10,10,0.9) 0%, transparent 60%)",
-                zIndex: 2,
-                pointerEvents: "none",
-              }}
-            />
             <img
               src="/explain.png"
               alt="Probiz Energy AI Cloud Platform"
               loading="lazy"
               style={{
                 width: "100%",
-                height: "100%",
-                objectFit: "cover",
+                height: "auto",
+                maxHeight: "400px",
+                objectFit: "contain",
                 display: "block",
               }}
             />
