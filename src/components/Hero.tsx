@@ -108,7 +108,7 @@ export default function Hero() {
             width: "100%",
           }}
         >
-           Intelligent Buildings.{" "}
+           Smart Buildings.{" "}
           <AnimatedTextCycle
             words={cyclingWords}
             interval={2500}

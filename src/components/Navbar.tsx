@@ -1,15 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Layers, Workflow, TrendingUp, DollarSign, HelpCircle } from "lucide-react";
+import { Layers, Workflow, TrendingUp, DollarSign, HelpCircle, BookOpen } from "lucide-react";
 import { NavBar } from "@/components/ui/tubelight-navbar";
 
 const navItems = [
-  { name: "Solutions", url: "#solutions", icon: Layers },
-  { name: "How It Works", url: "#how-it-works", icon: Workflow },
-  { name: "Case Studies", url: "#case-studies", icon: TrendingUp },
-  { name: "Pricing", url: "#pricing", icon: DollarSign },
-  { name: "FAQ", url: "#faq", icon: HelpCircle }
+  { name: "Solutions", url: "/#solutions", icon: Layers },
+  { name: "How It Works", url: "/#how-it-works", icon: Workflow },
+  { name: "Case Studies", url: "/#case-studies", icon: TrendingUp },
+  { name: "Blog", url: "/blog", icon: BookOpen },
+  { name: "Pricing", url: "/#pricing", icon: DollarSign },
+  { name: "FAQ", url: "/#faq", icon: HelpCircle }
 ];
 
 export default function Navbar() {

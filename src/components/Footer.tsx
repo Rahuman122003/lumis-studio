@@ -26,21 +26,21 @@ export default function Footer() {
     {
       title: "Solutions",
       links: [
-        { label: "Smart BMS", href: "#solutions" },
-        { label: "Energy Management", href: "#solutions" },
-        { label: "AI Analytics", href: "#solutions" },
-        { label: "Digital Twin", href: "#solutions" },
-        { label: "IoT Integration", href: "#solutions" },
+        { label: "Smart BMS", href: "/#solutions" },
+        { label: "Energy Management", href: "/#solutions" },
+        { label: "AI Analytics", href: "/#solutions" },
+        { label: "Digital Twin", href: "/#solutions" },
+        { label: "IoT Integration", href: "/#solutions" },
       ],
     },
     {
       title: "Company",
       links: [
-        { label: "About Us", href: "#" },
-        { label: "Engineering Team", href: "#" },
+        { label: "About Us", href: "/about" },
+        { label: "Engineering Team", href: "/about" },
         { label: "Careers", href: "#" },
-        { label: "Case Studies", href: "#case-studies" },
-        { label: "Contact", href: "#contact", pulse: true },
+        { label: "Case Studies", href: "/#case-studies" },
+        { label: "Contact", href: "/contact", pulse: true },
       ],
     },
     {
@@ -50,7 +50,7 @@ export default function Footer() {
         { label: "API Reference", href: "#" },
         { label: "Platform Guides", href: "#" },
         { label: "Partner Program", href: "#" },
-        { label: "Blog", href: "#" },
+        { label: "Blog", href: "/blog" },
       ],
     },
   ];
