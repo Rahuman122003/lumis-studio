@@ -8,7 +8,7 @@ const navItems = [
   { name: "Solutions", url: "/#solutions", icon: Layers },
   { name: "How It Works", url: "/#how-it-works", icon: Workflow },
   { name: "Case Studies", url: "/#case-studies", icon: TrendingUp },
-  { name: "Blog", url: "/blog", icon: BookOpen },
+  { name: "Blog", url: "https://blogsbyprobiz.vercel.app/probiz-automation/blogs", icon: BookOpen },
   { name: "Our Process", url: "/#process", icon: Activity },
   { name: "FAQ", url: "/#faq", icon: HelpCircle }
 ];
