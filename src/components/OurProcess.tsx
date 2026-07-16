@@ -63,12 +63,12 @@ const timelineData = [
   },
 ];
 
-export default function Pricing() {
+export default function OurProcess() {
   const { ref, inView } = useInView();
 
   return (
     <section
-      id="pricing"
+      id="process"
       ref={ref as React.RefObject<HTMLElement>}
       className="section-pad bg-transparent"
     >

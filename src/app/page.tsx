@@ -8,7 +8,7 @@ import Benefits from "@/components/Benefits";
 import ExplainSection from "@/components/ExplainSection";
 import Testimonials from "@/components/Testimonials";
 import SecSection from "@/components/SecSection";
-import Pricing from "@/components/Pricing";
+import OurProcess from "@/components/OurProcess";
 import Comparison from "@/components/Comparison";
 import FAQ from "@/components/FAQ";
 import CTABanner from "@/components/CTABanner";
@@ -31,7 +31,7 @@ export default function Home() {
         <ExplainSection />
         <Testimonials />
         <SecSection />
-        <Pricing />
+        <OurProcess />
         <Comparison />
         <FAQ />
         <CTABanner />

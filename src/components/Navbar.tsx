@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Layers, Workflow, TrendingUp, DollarSign, HelpCircle, BookOpen } from "lucide-react";
+import { Layers, Workflow, TrendingUp, Activity, HelpCircle, BookOpen } from "lucide-react";
 import { NavBar } from "@/components/ui/tubelight-navbar";
 
 const navItems = [
@@ -9,7 +9,7 @@ const navItems = [
   { name: "How It Works", url: "/#how-it-works", icon: Workflow },
   { name: "Case Studies", url: "/#case-studies", icon: TrendingUp },
   { name: "Blog", url: "/blog", icon: BookOpen },
-  { name: "Pricing", url: "/#pricing", icon: DollarSign },
+  { name: "Our Process", url: "/#process", icon: Activity },
   { name: "FAQ", url: "/#faq", icon: HelpCircle }
 ];
 
@@ -52,7 +52,7 @@ export default function Navbar() {
         >
           {/* Logo */}
           <a
-            href="#"
+            href="/"
             style={{
               textDecoration: "none",
               display: "flex",
@@ -70,15 +70,12 @@ export default function Navbar() {
                 objectFit: "contain",
               }}
             />
-            <span
-              style={{
-                fontWeight: 700,
-                fontSize: "1rem",
-                color: "#FFFFFF",
-                letterSpacing: "-0.015em",
-              }}
-            >
+            {/* Responsive Logo Text */}
+            <span className="hidden xl:inline-block font-bold text-white text-base tracking-tight whitespace-nowrap">
               Probiz Automation
+            </span>
+            <span className="hidden sm:inline-block xl:hidden font-bold text-white text-base tracking-tight whitespace-nowrap">
+              Probiz
             </span>
           </a>
 
