@@ -41,8 +41,10 @@ export default function Navbar() {
         }}
       >
         <div
-          className="container"
           style={{
+            width: "100%",
+            paddingLeft: "max(1.5rem, 4vw)",
+            paddingRight: "max(1.5rem, 4vw)",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",

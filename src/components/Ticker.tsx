@@ -70,21 +70,19 @@ export default function Ticker() {
               loading="lazy"
               draggable={false}
               style={{
-                height: 32,
+                height: 44,
                 width: "auto",
-                maxWidth: 120,
+                maxWidth: 140,
                 objectFit: "contain",
-                filter: "grayscale(100%) brightness(1.0) contrast(0.9)",
-                opacity: 0.65,
-                transition: "filter 0.3s ease, opacity 0.3s ease",
+                filter: "brightness(0) invert(1)",
+                opacity: 0.4,
+                transition: "opacity 0.3s ease",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.filter = "grayscale(0%) brightness(1) contrast(1)";
-                e.currentTarget.style.opacity = "1";
+                e.currentTarget.style.opacity = "0.95";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.filter = "grayscale(100%) brightness(1.0) contrast(0.9)";
-                e.currentTarget.style.opacity = "0.65";
+                e.currentTarget.style.opacity = "0.4";
               }}
             />
           </div>
