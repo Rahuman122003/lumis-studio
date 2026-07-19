@@ -8,6 +8,7 @@ interface Testimonial {
   image: string;
   name: string;
   role: string;
+  company: string;
 }
 
 // --- Data — Probiz Automation context ---
@@ -17,54 +18,63 @@ const testimonials: Testimonial[] = [
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150",
     name: "Sarah Mitchell",
     role: "Director of Facilities",
+    company: "Brigade Group",
   },
   {
     text: "The Digital Twin gave us real-time visibility across all 12 floors. We can now predict equipment issues days before they happen.",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150&h=150",
     name: "David Chen",
     role: "VP of Operations",
+    company: "Mercedes-Benz",
   },
   {
     text: "Our HVAC and air quality systems have maintained 99.9% uptime since deployment. The support team is exceptional — always available.",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150&h=150",
     name: "Dr. Priya Sharma",
     role: "Chief Operating Officer",
+    company: "NXP Semiconductors",
   },
   {
     text: "Unplanned downtime on our manufacturing floor dropped 42%. The predictive maintenance alerts have become the backbone of our strategy.",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150",
     name: "Marcus Webb",
     role: "Plant Manager",
+    company: "IBM",
   },
   {
     text: "PUE improved by 28% across our data center portfolio. The energy dashboard gives us granular control we never had before.",
     image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150&h=150",
     name: "Aisha Raza",
     role: "Infrastructure Lead",
+    company: "L&T",
   },
   {
     text: "Onboarding was smooth and fast. The Probiz team understood our hospital's unique compliance requirements from day one.",
     image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=150&h=150",
     name: "Dr. Anita Verma",
     role: "Facility Manager, Healthcare",
+    company: "Brigade Group",
   },
   {
     text: "We unified 8 campus buildings onto one platform in under 6 months. The centralized dashboard has been a game-changer for our team.",
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150&h=150",
     name: "James Okonkwo",
     role: "Campus Operations Director",
+    company: "Mercedes-Benz",
   },
   {
     text: "The IoT integration with our legacy systems was seamless. Modbus and BACnet devices connected without any infrastructure overhaul.",
     image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150&h=150",
     name: "Leila Nasser",
     role: "Building Technology Manager",
+    company: "NXP Semiconductors",
   },
   {
     text: "Energy benchmarking across our hotel chain is now automated. We reduced carbon emissions significantly within the first year.",
     image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150&h=150",
     name: "Omar Siddiqui",
     role: "Sustainability Director",
+    company: "L&T",
   },
 ];
 
@@ -103,7 +113,7 @@ const TestimonialsColumn = ({
     >
       {[...Array(2)].map((_, index) => (
         <React.Fragment key={index}>
-          {testimonials.map(({ text, image, name, role }, i) => (
+          {testimonials.map(({ text, image, company }, i) => (
             <motion.li
               key={`${index}-${i}`}
               aria-hidden={index === 1 ? "true" : "false"}
@@ -147,7 +157,7 @@ const TestimonialsColumn = ({
                     width={40}
                     height={40}
                     src={image}
-                    alt={`Photo of ${name}`}
+                    alt="Testimonial avatar"
                     style={{
                       width: 40,
                       height: 40,
@@ -158,25 +168,15 @@ const TestimonialsColumn = ({
                     }}
                   />
                   <div style={{ display: "flex", flexDirection: "column" }}>
-                    <cite
-                      style={{
-                        fontStyle: "normal",
-                        fontWeight: 600,
-                        fontSize: "0.875rem",
-                        color: "var(--color-text)",
-                        lineHeight: 1.3,
-                      }}
-                    >
-                      {name}
-                    </cite>
                     <span
                       style={{
-                        fontSize: "0.75rem",
-                        color: "var(--color-muted)",
-                        marginTop: 2,
+                        fontSize: "0.7rem",
+                        color: "#10b981",
+                        fontWeight: 600,
+                        letterSpacing: "0.02em",
                       }}
                     >
-                      {role}
+                      {company}
                     </span>
                   </div>
                 </footer>

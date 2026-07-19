@@ -88,7 +88,7 @@ const cards = [
             fontSize: "0.78rem",
           }}
         >
-          <div style={{ width: 7, height: 7, borderRadius: "50%", background: "#22c55e", flexShrink: 0 }} />
+          <div style={{ width: 7, height: 7, borderRadius: "50%", background: "#10b981", flexShrink: 0 }} />
           <span style={{ fontWeight: 500 }}>Physical + Digital synced live</span>
         </div>
       </div>

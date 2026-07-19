@@ -60,9 +60,9 @@ export default function ExplainSection() {
                 fontWeight: 600,
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
-                color: "#86efac",
-                background: "rgba(134,239,172,0.1)",
-                border: "1px solid rgba(134,239,172,0.2)",
+                color: "#6ee7b7",
+                background: "rgba(16,185,129,0.1)",
+                border: "1px solid rgba(16,185,129,0.2)",
                 padding: "4px 14px",
                 borderRadius: 999,
                 marginBottom: 16,
@@ -85,7 +85,7 @@ export default function ExplainSection() {
               Experience the future of building management with{" "}
               <span
                 style={{
-                  background: "linear-gradient(90deg, #86efac, #34d399)",
+                  background: "linear-gradient(90deg, #6ee7b7, #10b981)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                 }}

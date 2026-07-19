@@ -62,7 +62,7 @@ export default function CTABanner() {
             fontSize: "clamp(2.2rem, 5vw, 4rem)",
             fontWeight: 800,
             lineHeight: 1.08,
-            color: "#86efac",
+            color: "#10b981",
             letterSpacing: "-0.025em",
             marginBottom: 24,
             maxWidth: 660,

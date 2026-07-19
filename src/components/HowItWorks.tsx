@@ -67,7 +67,7 @@ const steps = [
           fontSize: "0.78rem", color: "var(--color-muted)",
           display: "flex", alignItems: "center", gap: 8,
         }}>
-          <span style={{ color: "#16a34a", fontWeight: 600 }}>✓</span>
+          <span style={{ color: "#10b981", fontWeight: 600 }}>✓</span>
            Client approved — ready for AI optimization phase
         </div>
       </div>

@@ -137,9 +137,11 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Text hover effect with PROBIZ branding placed above divider and bottom bar */}
-        <div className="lg:flex hidden h-[18rem] sm:h-[24rem] -mt-12 -mb-8 pointer-events-none select-none">
-          <TextHoverEffect text="PROBIZ" className="z-30 pointer-events-auto" />
+        {/* "Get in Touch" text hover effect — replaces PROBIZ branding */}
+        <div className="flex w-full h-[14rem] sm:h-[18rem] -mt-6 -mb-6 pointer-events-none select-none items-center justify-center">
+          <div className="w-full pointer-events-auto">
+            <TextHoverEffect text="Get in Touch" className="z-30" />
+          </div>
         </div>
 
         <hr className="border-t border-neutral-900/60 my-6" />

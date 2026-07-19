@@ -57,7 +57,7 @@ export default function FeatureSection() {
     <section className="relative max-w-6xl mx-auto my-32 pl-10 flex flex-col md:flex-row items-center justify-between min-h-[30rem] border border-neutral-900 bg-[#121212] overflow-hidden rounded-3xl p-8 md:p-12">
       {/* Left side: Heading and Text */}
       <div className="w-full md:w-1/2 z-10 text-left mb-8 md:mb-0">
-        <span className="text-xs font-semibold tracking-wide uppercase text-[#86efac] bg-neutral-800/50 py-1 px-4 rounded-full">
+        <span className="text-xs font-semibold tracking-wide uppercase text-[#10b981] bg-neutral-800/50 py-1 px-4 rounded-full">
           TECHNOLOGY STACK
         </span>
         <h2 className="text-4xl sm:text-5xl font-bold mt-6 mb-4 text-white leading-tight">

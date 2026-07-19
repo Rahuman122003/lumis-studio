@@ -62,14 +62,14 @@ export default function BlogPostDetail({
           {/* Back button */}
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-xs font-semibold text-[#86efac] hover:text-[#86efac]/80 transition-colors mb-6"
+            className="inline-flex items-center gap-2 text-xs font-semibold text-[#10b981] hover:text-[#10b981]/80 transition-colors mb-6"
           >
             <ArrowLeft size={12} /> Back to Insights Hub
           </Link>
 
           {/* Title Header */}
           <header className="mb-10 space-y-6">
-            <span className="inline-block text-[0.65rem] font-bold uppercase tracking-wider text-black bg-[#86efac] py-1 px-3.5 rounded-full">
+            <span className="inline-block text-[0.65rem] font-bold uppercase tracking-wider text-black bg-[#10b981] py-1 px-3.5 rounded-full">
               {post.category}
             </span>
             <h1 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
@@ -153,7 +153,7 @@ export default function BlogPostDetail({
               return (
                 <p
                   key={index}
-                  style={isItalic ? { fontStyle: "italic", color: "#86efac" } : {}}
+                  style={isItalic ? { fontStyle: "italic", color: "#10b981" } : {}}
                 >
                   {isItalic ? text.replace(/\*/g, "") : text}
                 </p>

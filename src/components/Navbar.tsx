@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Layers, Workflow, TrendingUp, Activity, HelpCircle, BookOpen } from "lucide-react";
+import { Layers, Workflow, TrendingUp, Activity, HelpCircle, BookOpen, Package } from "lucide-react";
 import { NavBar } from "@/components/ui/tubelight-navbar";
 
 const navItems = [
   { name: "Solutions", url: "/#solutions", icon: Layers },
-  { name: "How It Works", url: "/#how-it-works", icon: Workflow },
+  { name: "Products", url: "/products", icon: Package },
+  { name: "Work", url: "/#how-it-works", icon: Workflow },
   { name: "Case Studies", url: "/#case-studies", icon: TrendingUp },
   { name: "Blog", url: "https://blogsbyprobiz.vercel.app/probiz-automation/blogs", icon: BookOpen },
   { name: "Our Process", url: "/#process", icon: Activity },

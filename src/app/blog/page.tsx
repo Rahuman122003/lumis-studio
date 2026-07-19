@@ -24,7 +24,7 @@ export default function BlogIndex() {
             transition={{ duration: 0.5 }}
             className="space-y-4"
           >
-            <span className="text-xs font-semibold tracking-wide uppercase text-[#86efac] bg-[#86efac]/10 py-1.5 px-4 rounded-full border border-[#86efac]/20">
+            <span className="text-xs font-semibold tracking-wide uppercase text-[#10b981] bg-[#10b981]/10 py-1.5 px-4 rounded-full border border-[#10b981]/20">
               Our Insights
             </span>
             <h1 className="text-4xl md:text-6xl font-extrabold text-white tracking-tight leading-none mt-4">
@@ -56,7 +56,7 @@ export default function BlogIndex() {
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                     />
-                    <span className="absolute top-4 left-4 z-10 text-[0.65rem] font-bold uppercase tracking-wider text-black bg-[#86efac] py-1 px-3 rounded-full">
+                    <span className="absolute top-4 left-4 z-10 text-[0.65rem] font-bold uppercase tracking-wider text-black bg-[#10b981] py-1 px-3 rounded-full">
                       {post.category}
                     </span>
                   </div>
@@ -74,7 +74,7 @@ export default function BlogIndex() {
                       </span>
                     </div>
 
-                    <h2 className="text-lg font-semibold text-white group-hover:text-[#86efac] transition-colors duration-200 line-clamp-2 leading-snug mb-3">
+                    <h2 className="text-lg font-semibold text-white group-hover:text-[#10b981] transition-colors duration-200 line-clamp-2 leading-snug mb-3">
                       <Link href={`/blog/${post.slug}`}>
                         {post.title}
                       </Link>
@@ -106,7 +106,7 @@ export default function BlogIndex() {
 
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="inline-flex items-center justify-center w-8 h-8 rounded-full border border-neutral-800 text-neutral-400 group-hover:text-black group-hover:bg-[#86efac] group-hover:border-[#86efac] transition-all duration-300"
+                    className="inline-flex items-center justify-center w-8 h-8 rounded-full border border-neutral-800 text-neutral-400 group-hover:text-black group-hover:bg-[#10b981] group-hover:border-[#10b981] transition-all duration-300"
                   >
                     <ArrowRight size={14} />
                   </Link>
