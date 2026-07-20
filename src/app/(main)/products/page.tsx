@@ -1,15 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
-import Navbar from "@/components/Navbar";
+import React from "react";
 import Footer from "@/components/Footer";
-import ParallaxBackground from "@/components/ParallaxBackground";
 import { motion } from "framer-motion";
 import {
-  Zap, Wifi, Sun, CheckCircle2, ArrowRight, BarChart2,
-  Building2, Users, ShoppingCart, Cpu, Cloud, Shield,
-  Globe, TrendingUp, Bell, Thermometer, Database, Lock,
-  Smartphone, RefreshCw, Receipt, Map, Activity, Layers,
+  Zap, Sun, ArrowRight, BarChart2,
+  Cloud, Shield, Globe, Bell, Thermometer, Database,
+  Receipt, Map, Activity, Cpu, Layers, Lock, RefreshCw, Wifi,
 } from "lucide-react";
 
 // ─── shared fade-up variant ────────────────────────────────────────────────
@@ -18,39 +15,39 @@ const fadeUp = {
   show:   { opacity: 1, y: 0,  transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
 };
 
-// ─── Probiz Energy (Solar & Renewables) ──────────────────────────────────────
+// ─── Probiz Energy AI (BMS Command Control Centre) ───────────────────────────
 const probizEnergy = {
   id: "probiz-energy",
-  badge: "Renewable Solar Energy",
-  name: "Probiz Energy",
-  tagline: "Save Energy up to 40% with Premium Renewable Solar",
+  badge: "AI Building Command Centre",
+  name: "Probiz Energy AI",
+  tagline: "The Intelligent BMS Command & Control Centre for Smart Buildings",
   description:
-    "Probiz Energy designs, installs, and maintains cutting-edge solar and renewable energy systems for residential and commercial clients across South India. With over 5 years of excellence and hundreds of successful installations, we make clean energy accessible, affordable, and reliable — backed by an industry-leading 25-year warranty.",
-  color: "#f59e0b",
-  colorMuted: "rgba(245,158,11,0.1)",
-  colorBorder: "rgba(245,158,11,0.22)",
-  heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=900&q=80",
+    "Probiz Energy AI is an advanced AI-powered Building Management System platform that gives facility operators complete command and control over every building system from a single intelligent interface. From HVAC orchestration and energy optimisation to predictive fault detection and Digital Twin visualisation — it is the central brain of your smart building.",
+  color: "#10b981",
+  colorMuted: "rgba(16,185,129,0.1)",
+  colorBorder: "rgba(16,185,129,0.22)",
+  heroImage: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80",
   stats: [
-    { val: "40%",  label: "Energy Savings" },
-    { val: "25 Yr", label: "Warranty Coverage" },
-    { val: "100+", label: "Homeowners Served" },
-    { val: "100%", label: "Carbon Neutral Plans" },
+    { val: "35%",  label: "Energy Cost Reduction" },
+    { val: "99.9%", label: "System Uptime" },
+    { val: "200+", label: "Buildings Deployed" },
+    { val: "4 Mo", label: "Average ROI Cycle" },
   ],
-  clients: ["Brigade Group", "Puravankara", "BMRCL", "Divyasree", "Infiniti"],
-  locations: "Bengaluru · Hosur · Coimbatore · Chennai · Trichy · Madurai · Nellai · Nagercoil",
+  clients: ["Brigade Group", "IBM", "NXP", "Mercedes-Benz", "L&T"],
+  locations: "Bengaluru · Mumbai · Delhi · Hyderabad · Chennai · Pune",
   features: [
-    { icon: <Sun size={18} />,        title: "Premium Solar Installation",   desc: "High-efficiency solar panel systems engineered for maximum generation and a minimal rooftop footprint — from residential rooftops to large commercial arrays." },
-    { icon: <Database size={18} />,   title: "Advanced Energy Storage",      desc: "Lithium-ion battery solutions store surplus solar energy for round-the-clock power, ensuring zero downtime even on cloudy days or grid outages." },
-    { icon: <Shield size={18} />,     title: "25-Year Warranty",             desc: "Industry-leading warranty coverage protecting your entire investment — panels, inverters, mounting systems, and workmanship included." },
-    { icon: <Globe size={18} />,      title: "Carbon Neutral Programs",      desc: "Comprehensive green energy plans that track, offset, and reduce your Scope 1 & 2 carbon emissions to verifiable zero." },
-    { icon: <Zap size={18} />,        title: "Wind Energy Systems",          desc: "Small and utility-scale wind turbine installations for industrial and agricultural sites with high wind resource potential." },
-    { icon: <Activity size={18} />,   title: "Energy Consulting & Audit",    desc: "Site assessments, energy audits, and bespoke system design to identify the highest-ROI renewable solution for every property." },
+    { icon: <Cpu size={18} />,        title: "BMS Command Control Centre",   desc: "Unified command dashboard to monitor, control, and automate HVAC, lighting, fire safety, access control, elevators, and utilities — all from one intelligent interface." },
+    { icon: <Zap size={18} />,        title: "AI Energy Optimisation",       desc: "Machine learning models analyse real-time consumption data and autonomously optimise setpoints, schedules, and loads to cut energy costs by up to 35%." },
+    { icon: <Layers size={18} />,     title: "Digital Twin Visualisation",   desc: "A live 3D virtual replica of your building synchronised with physical sensors — enabling real-time monitoring, scenario simulation, and anomaly detection." },
+    { icon: <RefreshCw size={18} />,  title: "Predictive Maintenance",       desc: "AI continuously monitors equipment health — predicting failures days in advance and scheduling maintenance at the optimal time to prevent downtime." },
+    { icon: <Wifi size={18} />,       title: "IoT & Protocol Integration",   desc: "Connect thousands of sensors and controllers via BACnet, Modbus, MQTT, OPC-UA, LoRaWAN, and REST APIs without replacing existing infrastructure." },
+    { icon: <Shield size={18} />,     title: "Automated Alarms & Reports",   desc: "Intelligent alarm management with priority routing, root-cause diagnostics, and automated compliance reports for ASHRAE, ISO 50001, and ESG requirements." },
   ],
   steps: [
-    { num: "01", title: "Free Site Assessment", desc: "Our engineers visit your site, analyse your energy consumption, roof orientation, and shade factors." },
-    { num: "02", title: "Custom System Design", desc: "We design a bespoke solar + storage solution optimised for your load profile and budget." },
-    { num: "03", title: "Professional Installation", desc: "Certified installers deploy your system with zero disruption — typically completed in 1–3 days." },
-    { num: "04", title: "Monitoring & Maintenance", desc: "Continuous remote monitoring and scheduled maintenance keep your system at peak efficiency for decades." },
+    { num: "01", title: "Site Assessment & Audit",      desc: "Our engineers assess your existing building systems, protocols, equipment, and energy baseline to design the optimal integration roadmap." },
+    { num: "02", title: "Edge Gateway Deployment",      desc: "Secure on-premise edge gateways are installed to bridge your legacy BMS hardware to the Probiz Energy AI cloud platform." },
+    { num: "03", title: "AI Platform Configuration",   desc: "Dashboards, automation rules, alarm thresholds, and Digital Twin models are configured and validated for your specific facility." },
+    { num: "04", title: "Live Monitoring & Optimise",  desc: "Continuous AI-driven optimisation, predictive alerts, and scheduled reporting keep your building running at peak performance." },
   ],
 };
 
@@ -92,35 +89,6 @@ const proSmartEnergy = {
     { tag: "COMMERCIAL PORTFOLIO",  kpi: "100% Billing Accuracy", desc: "PROsmart replaced manual meter walks across 14 office towers — eliminating disputes and reclaiming 60+ hours of facility-team work every month." },
     { tag: "HOSPITALITY CHAIN",     kpi: "ISO 50001 Achieved",    desc: "A national hotel group hit ISO 50001 in 8 months using PROsmart's continuous diagnostics, audit-ready reports, and AI anomaly alerts." },
   ],
-};
-
-// ─── Probiz Connect (eB2B SaaS) ───────────────────────────────────────────────
-const probizConnect = {
-  id: "probiz-connect",
-  badge: "AI-Powered eB2B Platform",
-  name: "Probiz Connect",
-  tagline: "Digitise, Automate & Optimise Your B2B Sales & Distribution",
-  description:
-    "Probiz Connect is an AI-powered eB2B cloud platform built for consumer goods brands of all sizes — from micro to enterprise. It digitises and automates B2B sales operations involving retailers, distributors, and field sales teams, providing 360° visibility and control across your entire distribution network.",
-  color: "#a855f7",
-  colorMuted: "rgba(168,85,247,0.1)",
-  colorBorder: "rgba(168,85,247,0.22)",
-  heroImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80",
-  stats: [
-    { val: "360°", label: "Visibility & Control" },
-    { val: "25+",  label: "Integrations" },
-    { val: "Real-time", label: "Order Processing" },
-    { val: "AI",   label: "Powered Analytics" },
-  ],
-  modules: [
-    { icon: <TrendingUp size={18} />,  title: "Sales Connect",    desc: "Real-time order processing, inventory tracking, performance analytics, incentive management, route optimisation, and customisable stakeholder access for your sales team." },
-    { icon: <Building2 size={18} />,   title: "Dealer Connect",   desc: "A Dealer & Distributor Management module that streamlines order processing, inventory tracking, performance analysis, and communication across your entire dealer and retailer network." },
-    { icon: <Users size={18} />,       title: "Employee Connect", desc: "Empower field sales and distribution teams with the tools to excel — mobile order capture, attendance, beat planning, and powerful reporting for sales insights." },
-    { icon: <Globe size={18} />,       title: "Partner Connect",  desc: "Leverage influencer networks, channel partners, and loyalty programmes to grow brand presence and leave a lasting impression in competitive markets." },
-    { icon: <Zap size={18} />,         title: "Reward Schemes",   desc: "Design flexible rewards that match your business goals — choose between points-based rewards or instant cash incentives to drive partner engagement." },
-    { icon: <ShoppingCart size={18} />, title: "Loyalty Program", desc: "Easily establish a brand loyalty programme for partners — reward points for actions like scanning in-product coupons and strengthen your market presence." },
-  ],
-  integrations: ["Tally", "Zoho", "Amazon", "Freshworks", "Razorpay", "SAP", "QuickBooks", "WhatsApp", "Paytm", "IndiaMART", "Keka", "Greytip"],
 };
 
 // ─── Reusable Badge ───────────────────────────────────────────────────────────
@@ -226,14 +194,14 @@ function ProbizEnergySection() {
           <a href="https://probizenergy.com/#contact" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full font-semibold text-sm px-6 py-3 transition-opacity duration-200 hover:opacity-80"
             style={{ background: p.color, color: "#080808" }}>
-            Get a Free Quote <ArrowRight size={15} />
+            Explore Platform <ArrowRight size={15} />
           </a>
         </motion.div>
       </div>
 
       {/* Features */}
       <div className="mb-14">
-        <p className="text-xs font-bold uppercase tracking-widest text-neutral-500 mb-6">Services & Capabilities</p>
+        <p className="text-xs font-bold uppercase tracking-widest text-neutral-500 mb-6">Key Capabilities</p>
         <motion.div variants={{ show: { transition: { staggerChildren: 0.07 } } }}
           initial="hidden" whileInView="show" viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -351,92 +319,16 @@ function ProSmartEnergySection() {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// SECTION 3 — Probiz Connect
-// ═══════════════════════════════════════════════════════════════════════════════
-function ProbizConnectSection() {
-  const p = probizConnect;
-  return (
-    <section id={p.id} className="container max-w-6xl mx-auto px-6">
-      {/* Header */}
-      <motion.div variants={fadeUp} className="text-center mb-14">
-        <Badge label={p.badge} color={p.color} muted={p.colorMuted} border={p.colorBorder} />
-        <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-none mt-5 mb-4" style={{ color: p.color }}>{p.name}</h2>
-        <p className="text-lg md:text-xl text-neutral-300 font-medium max-w-2xl mx-auto">{p.tagline}</p>
-      </motion.div>
-
-      {/* Hero — image left, content right */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mb-16">
-        <motion.div variants={fadeUp} className="relative rounded-2xl overflow-hidden border shadow-2xl aspect-[16/10]"
-          style={{ borderColor: p.colorBorder }}>
-          <img src={p.heroImage} alt={p.name} className="w-full h-full object-cover" />
-          <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${p.colorMuted} 0%, transparent 55%)` }} />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center">
-              <div className="text-4xl font-black" style={{ color: p.color }}>360°</div>
-              <div className="text-white text-sm font-semibold mt-1">Visibility & Control</div>
-            </div>
-          </div>
-        </motion.div>
-
-        <motion.div variants={fadeUp} className="space-y-6">
-          <p className="text-neutral-400 leading-relaxed text-[0.95rem]">{p.description}</p>
-          <StatGrid stats={p.stats} color={p.color} muted={p.colorMuted} border={p.colorBorder} />
-          <a href="https://probizconnect.io/#/book-a-demo" target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full font-semibold text-sm px-6 py-3 transition-opacity duration-200 hover:opacity-80"
-            style={{ background: p.color, color: "#fff" }}>
-            Book a Demo <ArrowRight size={15} />
-          </a>
-        </motion.div>
-      </div>
-
-      {/* Modules */}
-      <div className="mb-14">
-        <p className="text-xs font-bold uppercase tracking-widest text-neutral-500 mb-6">Platform Modules</p>
-        <motion.div variants={{ show: { transition: { staggerChildren: 0.07 } } }}
-          initial="hidden" whileInView="show" viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {p.modules.map((f, i) => (
-            <FeatureCard key={i} {...f} color={p.color} muted={p.colorMuted} border={p.colorBorder} />
-          ))}
-        </motion.div>
-      </div>
-
-      {/* Integrations */}
-      <div className="rounded-2xl p-8" style={{ background: "var(--color-surface)", border: "0.5px solid var(--color-border)" }}>
-        <p className="text-xs font-bold uppercase tracking-widest text-neutral-500 mb-2">25+ Ecosystem Integrations</p>
-        <p className="text-neutral-400 text-sm mb-5">Unlock limitless possibilities with seamless connectivity across your favourite tools and services.</p>
-        <div className="flex flex-wrap gap-2">
-          {p.integrations.map((tag, i) => (
-            <span key={i} className="text-xs font-semibold px-3 py-1.5 rounded-full"
-              style={{ background: p.colorMuted, color: p.color, border: `0.5px solid ${p.colorBorder}` }}>
-              {tag}
-            </span>
-          ))}
-          <span className="text-xs font-semibold px-3 py-1.5 rounded-full"
-            style={{ background: "var(--color-border)", color: "var(--color-muted)" }}>
-            +13 more
-          </span>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ═══════════════════════════════════════════════════════════════════════════════
 // PAGE
 // ═══════════════════════════════════════════════════════════════════════════════
 const navProducts = [
-  { id: "probiz-energy",   label: "Probiz Energy",   color: "#f59e0b", icon: <Sun size={14} /> },
-  { id: "prosmart-energy", label: "ProSmart Energy", color: "#3b82f6", icon: <BarChart2 size={14} /> },
-  { id: "probiz-connect",  label: "Probiz Connect",  color: "#a855f7", icon: <Wifi size={14} /> },
+  { id: "probiz-energy",   label: "Probiz Energy AI", color: "#10b981", icon: <Cpu size={14} /> },
+  { id: "prosmart-energy", label: "ProSmart Energy",  color: "#3b82f6", icon: <BarChart2 size={14} /> },
 ];
 
 export default function ProductsPage() {
   return (
     <>
-      <ParallaxBackground />
-      <Navbar />
-
       <main className="min-h-screen pt-32 pb-24 text-white">
 
         {/* ── Page Hero ─────────────────────────────────────────────────────── */}
@@ -448,11 +340,12 @@ export default function ProductsPage() {
               Product Suite
             </span>
             <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-none mt-5 mb-5">
-              Three Platforms.<br className="hidden md:block" /> One Ecosystem.
+              Two Platforms.<br className="hidden md:block" /> One Ecosystem.
             </h1>
             <p className="text-neutral-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-              Probiz Automation's suite covers renewable energy, intelligent building management,
-              and AI-powered B2B sales — built to work independently or as a unified stack.
+              Probiz Automation's suite covers AI-powered BMS command control
+              and next-gen energy monitoring with automated tenant billing —
+              built to work independently or as a unified stack.
             </p>
           </motion.div>
 
@@ -482,19 +375,11 @@ export default function ProductsPage() {
           <ProSmartEnergySection />
         </motion.div>
 
-        <SectionDivider />
-
-        {/* ── Product 3: Probiz Connect ─────────────────────────────────────── */}
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.08 }}
-          variants={{ show: { transition: { staggerChildren: 0.1 } } }}>
-          <ProbizConnectSection />
-        </motion.div>
-
         {/* ── Bottom CTA ────────────────────────────────────────────────────── */}
         <div className="mt-28 container max-w-6xl mx-auto px-6">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp}
             className="rounded-3xl p-10 md:p-16 text-center"
-            style={{ background: "linear-gradient(135deg, rgba(245,158,11,0.07), rgba(59,130,246,0.07), rgba(168,85,247,0.07))", border: "0.5px solid var(--color-border)" }}>
+            style={{ background: "linear-gradient(135deg, rgba(16,185,129,0.07), rgba(59,130,246,0.08))", border: "0.5px solid var(--color-border)" }}>
             <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Not Sure Which Product Fits?</h2>
             <p className="text-neutral-400 max-w-lg mx-auto mb-8 leading-relaxed">
               Our team will assess your facility, sales operation, or energy footprint and recommend

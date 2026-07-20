@@ -2,9 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ParallaxBackground from "@/components/ParallaxBackground";
 import { blogPosts } from "@/data/blogs";
 import { ArrowRight, Calendar, Clock, User } from "lucide-react";
 import { motion } from "framer-motion";
@@ -12,9 +10,6 @@ import { motion } from "framer-motion";
 export default function BlogIndex() {
   return (
     <>
-      <ParallaxBackground />
-      <Navbar />
-
       <main className="min-h-screen pt-32 pb-24">
         {/* Header Block */}
         <section className="container max-w-6xl mx-auto px-6 mb-16 text-center">

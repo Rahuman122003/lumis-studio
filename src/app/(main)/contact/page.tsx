@@ -1,9 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ParallaxBackground from "@/components/ParallaxBackground";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send, MessageSquare } from "lucide-react";
 
@@ -41,9 +39,6 @@ export default function ContactPage() {
 
   return (
     <>
-      <ParallaxBackground />
-      <Navbar />
-
       <main className="min-h-screen pt-32 pb-24 text-white">
         {/* Header Block */}
         <section className="container max-w-6xl mx-auto px-6 mb-16 text-center">

@@ -2,9 +2,7 @@
 
 import React, { use } from "react";
 import Link from "next/link";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ParallaxBackground from "@/components/ParallaxBackground";
 import { blogPosts } from "@/data/blogs";
 import { ArrowLeft, Calendar, Clock, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
@@ -21,8 +19,6 @@ export default function BlogPostDetail({
   if (!post) {
     return (
       <>
-        <ParallaxBackground />
-        <Navbar />
         <main className="min-h-screen pt-32 pb-24 flex flex-col items-center justify-center text-center">
           <h1 className="text-4xl font-extrabold text-white mb-4">Post Not Found</h1>
           <p className="text-neutral-400 mb-8">
@@ -39,9 +35,6 @@ export default function BlogPostDetail({
 
   return (
     <>
-      <ParallaxBackground />
-      <Navbar />
-
       <main className="min-h-screen pt-32 pb-24">
         <article className="container max-w-4xl mx-auto px-6">
           {/* Breadcrumbs */}

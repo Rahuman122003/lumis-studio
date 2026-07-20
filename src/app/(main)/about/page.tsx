@@ -1,9 +1,7 @@
 "use client";
 
 import React from "react";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ParallaxBackground from "@/components/ParallaxBackground";
 import { motion } from "framer-motion";
 import { Shield, Zap, Heart, Award } from "lucide-react";
 
@@ -40,9 +38,6 @@ export default function AboutPage() {
 
   return (
     <>
-      <ParallaxBackground />
-      <Navbar />
-
       <main className="min-h-screen pt-32 pb-24 text-white">
         {/* Hero Section */}
         <section className="container max-w-6xl mx-auto px-6 mb-20 text-center">
