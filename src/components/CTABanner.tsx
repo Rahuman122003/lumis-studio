@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "@/hooks/useInView";
 import { ArrowRight } from "lucide-react";
+import { MetalButton } from "@/components/ui/metal-button";
 
 export default function CTABanner() {
   const { ref, inView } = useInView();
@@ -92,25 +93,12 @@ export default function CTABanner() {
           transition={{ duration: 0.5, delay: 0.24 }}
           style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}
         >
-          <a
-            href="mailto:hello@probiz.io"
-            className="btn-primary"
-            style={{ background: "#FFFFFF", color: "#080808", padding: "15px 30px", fontSize: "0.9rem" }}
-          >
+          <MetalButton href="mailto:hello@probiz.io" variant="primary" external>
             Book a Live Demo <ArrowRight size={15} />
-          </a>
-          <a
-            href="#solutions"
-            className="btn-secondary"
-            style={{
-              borderColor: "rgba(255,255,255,0.22)",
-              color: "#FFFFFF",
-              padding: "15px 30px",
-              fontSize: "0.9rem",
-            }}
-          >
+          </MetalButton>
+          <MetalButton href="#solutions" variant="secondary">
             Talk to Our Experts
-          </a>
+          </MetalButton>
         </motion.div>
 
         <motion.p

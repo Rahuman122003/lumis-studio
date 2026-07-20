@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send, MessageSquare } from "lucide-react";
+import { MetalButton } from "@/components/ui/metal-button";
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", org: "", msg: "" });
@@ -112,13 +113,11 @@ export default function ContactPage() {
                     <p className="text-neutral-400 max-w-md mx-auto text-sm">
                       Thank you for contacting Probiz Automation. An automation engineer from our team will review your request and get back to you within 24 hours.
                     </p>
-                    <button
-                      onClick={() => setSubmitted(false)}
-                      className="btn-primary mt-6"
-                      style={{ padding: "10px 24px", fontSize: "0.85rem" }}
-                    >
-                      Send Another Message
-                    </button>
+                    <div className="mt-6">
+                      <MetalButton onClick={() => setSubmitted(false)} variant="primary">
+                        Send Another Message
+                      </MetalButton>
+                    </div>
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6 text-left">
@@ -179,12 +178,9 @@ export default function ContactPage() {
                       />
                     </div>
 
-                    <button
-                      type="submit"
-                      className="btn-primary w-full md:w-auto inline-flex items-center justify-center gap-2 rounded-full py-3 px-8 text-sm font-semibold transition-all"
-                    >
+                    <MetalButton type="submit" variant="primary">
                       Send Message <Send size={14} />
-                    </button>
+                    </MetalButton>
                   </form>
                 )}
               </div>

@@ -8,6 +8,7 @@ import {
   Cloud, Shield, Globe, Bell, Thermometer, Database,
   Receipt, Map, Activity, Cpu, Layers, Lock, RefreshCw, Wifi,
 } from "lucide-react";
+import { MetalButton } from "@/components/ui/metal-button";
 
 // ─── shared fade-up variant ────────────────────────────────────────────────
 const fadeUp = {
@@ -191,11 +192,9 @@ function ProbizEnergySection() {
             <Globe size={12} style={{ color: p.color }} />
             <span>{p.locations}</span>
           </div>
-          <a href="https://probizenergy.com/#contact" target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full font-semibold text-sm px-6 py-3 transition-opacity duration-200 hover:opacity-80"
-            style={{ background: p.color, color: "#080808" }}>
+          <MetalButton href="https://probizenergy.com/#contact" target="_blank" variant="primary">
             Explore Platform <ArrowRight size={15} />
-          </a>
+          </MetalButton>
         </motion.div>
       </div>
 
@@ -253,11 +252,9 @@ function ProSmartEnergySection() {
               ))}
             </div>
           </div>
-          <a href="https://prosmartenergy.io/book-demo" target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full font-semibold text-sm px-6 py-3 transition-opacity duration-200 hover:opacity-80"
-            style={{ background: p.color, color: "#fff" }}>
+          <MetalButton href="https://prosmartenergy.io/book-demo" target="_blank" variant="primary">
             Book a Demo <ArrowRight size={15} />
-          </a>
+          </MetalButton>
         </motion.div>
 
         <motion.div variants={fadeUp} className="relative rounded-2xl overflow-hidden border shadow-2xl aspect-[16/10] order-1 lg:order-2"
@@ -386,12 +383,12 @@ export default function ProductsPage() {
               the right platform — or a combination. Free consultation, no commitment.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <a href="mailto:info@probiztech.com" className="btn-primary" style={{ padding: "14px 30px", fontSize: "0.9rem" }}>
+              <MetalButton href="mailto:info@probiztech.com" variant="primary">
                 Talk to Our Team <ArrowRight size={15} />
-              </a>
-              <a href="/#solutions" className="btn-secondary" style={{ padding: "14px 30px", fontSize: "0.9rem" }}>
+              </MetalButton>
+              <MetalButton href="/#solutions" variant="secondary">
                 Explore Solutions
-              </a>
+              </MetalButton>
             </div>
           </motion.div>
         </div>

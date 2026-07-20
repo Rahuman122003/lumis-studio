@@ -31,6 +31,7 @@ import {
   Phone,
 } from "lucide-react";
 import { useState, useEffect } from "react";
+import { MetalButton } from "@/components/ui/metal-button";
 
 /* ─── helpers ──────────────────────────────────────────────────────────────── */
 const fadeUp = {
@@ -590,20 +591,12 @@ export default function ProxPage() {
                 variants={fadeUp}
                 className="flex gap-4 justify-center flex-wrap"
               >
-                <Link
-                  href="/#contact"
-                  className="btn-primary"
-                  style={{ padding: "14px 28px", fontSize: "0.95rem" }}
-                >
+                <MetalButton href="/#contact" variant="primary">
                   Chat with Prox <MessageCircle size={15} />
-                </Link>
-                <Link
-                  href="/products"
-                  className="btn-secondary"
-                  style={{ padding: "14px 28px", fontSize: "0.95rem" }}
-                >
+                </MetalButton>
+                <MetalButton href="/products" variant="secondary">
                   Explore Products <ArrowRight size={15} />
-                </Link>
+                </MetalButton>
               </motion.div>
             </motion.div>
           </motion.div>
@@ -849,13 +842,9 @@ export default function ProxPage() {
                     </motion.li>
                   ))}
                 </ul>
-                <Link
-                  href="/#contact"
-                  className="btn-primary"
-                  style={{ padding: "13px 26px", fontSize: "0.875rem" }}
-                >
+                <MetalButton href="/#contact" variant="primary">
                   Talk to Prox Now <ArrowRight size={14} />
-                </Link>
+                </MetalButton>
               </motion.div>
 
               <motion.div
@@ -944,20 +933,12 @@ export default function ProxPage() {
                 your building tech actually talks back — helpfully.
               </p>
               <div className="flex flex-wrap gap-4 justify-center relative z-10">
-                <Link
-                  href="/#contact"
-                  className="btn-primary"
-                  style={{ padding: "14px 30px", fontSize: "0.9rem" }}
-                >
+                <MetalButton href="/#contact" variant="primary">
                   Start a Conversation <MessageCircle size={15} />
-                </Link>
-                <Link
-                  href="/products"
-                  className="btn-secondary"
-                  style={{ padding: "14px 30px", fontSize: "0.9rem" }}
-                >
+                </MetalButton>
+                <MetalButton href="/products" variant="secondary">
                   See Our Products
-                </Link>
+                </MetalButton>
               </div>
             </motion.div>
           </div>

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle, Sparkles, Zap, Heart } from "lucide-react";
-import Link from "next/link";
+import { MetalButton } from "@/components/ui/metal-button";
 
 const traits = [
   { icon: <MessageCircle size={16} />, label: "Always Available",   desc: "24/7 conversational support — no hold music, no tickets." },
@@ -120,12 +120,12 @@ export default function ProxSectionInner() {
             </div>
 
             <div className="flex gap-3 pt-2 flex-wrap">
-              <Link href="/prox" className="btn-primary" style={{ padding: "12px 24px", fontSize: "0.875rem" }}>
+              <MetalButton href="/prox" variant="primary">
                 Meet Prox <ArrowRight size={14} />
-              </Link>
-              <Link href="/#contact" className="btn-secondary" style={{ padding: "12px 24px", fontSize: "0.875rem" }}>
+              </MetalButton>
+              <MetalButton href="/#contact" variant="secondary">
                 Chat with Us
-              </Link>
+              </MetalButton>
             </div>
           </motion.div>
 

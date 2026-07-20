@@ -11,6 +11,7 @@ import {
   Youtube,
 } from "lucide-react";
 import { FooterBackgroundGradient, TextHoverEffect } from "@/components/ui/hover-footer";
+import { MetalButton } from "@/components/ui/metal-button";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -104,9 +105,7 @@ export default function Footer() {
                     required
                     className="border border-neutral-800 bg-neutral-950 text-neutral-200 text-xs rounded-full py-2 px-4 outline-none focus:border-neutral-700 transition-colors flex-1"
                   />
-                  <button type="submit" className="btn-primary" style={{ padding: "8px 16px", fontSize: "0.75rem" }}>
-                    Subscribe
-                  </button>
+                  <MetalButton type="submit" variant="primary">Subscribe</MetalButton>
                 </form>
               )}
             </div>

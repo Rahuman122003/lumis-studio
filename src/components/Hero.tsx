@@ -4,6 +4,7 @@ import { ArrowRight, Play } from "lucide-react";
 import { useInView } from "@/hooks/useInView";
 import { Spotlight } from "@/components/ui/spotlight";
 import AnimatedTextCycle from "@/components/ui/animated-text-cycle";
+import { MetalButton } from "@/components/ui/metal-button";
 
 const cyclingWords = ["Intelligence", "Automation", "Sustainability", "Efficiency", "Innovation"];
 
@@ -147,30 +148,12 @@ export default function Hero() {
             marginBottom: 72,
           }}
         >
-          <a
-            href="#solutions"
-            className="btn-primary"
-            style={{
-              background: "#FFFFFF",
-              color: "#080808",
-              padding: "14px 28px",
-              fontSize: "0.9rem",
-            }}
-          >
-             Book a Demo <ArrowRight size={15} />
-          </a>
-          <a
-            href="#how-it-works"
-            className="btn-secondary"
-            style={{
-              borderColor: "rgba(255,255,255,0.28)",
-              color: "#FFFFFF",
-              padding: "14px 28px",
-              fontSize: "0.9rem",
-            }}
-          >
-             <Play size={13} fill="currentColor" /> Schedule Consultation
-          </a>
+          <MetalButton href="#solutions" variant="primary">
+            Book a Demo <ArrowRight size={15} />
+          </MetalButton>
+          <MetalButton href="#how-it-works" variant="secondary">
+            <Play size={13} fill="currentColor" /> Schedule Consultation
+          </MetalButton>
         </motion.div>
 
         {/* Stats row */}

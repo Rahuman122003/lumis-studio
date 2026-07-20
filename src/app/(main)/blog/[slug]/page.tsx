@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { blogPosts } from "@/data/blogs";
 import { ArrowLeft, Calendar, Clock, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { MetalButton } from "@/components/ui/metal-button";
 
 export default function BlogPostDetail({
   params,
@@ -24,9 +25,9 @@ export default function BlogPostDetail({
           <p className="text-neutral-400 mb-8">
             The article you are looking for does not exist or has been moved.
           </p>
-          <Link href="/blog" className="btn-primary">
+          <MetalButton href="/blog" variant="primary">
             Back to Blog Hub
-          </Link>
+          </MetalButton>
         </main>
         <Footer />
       </>
