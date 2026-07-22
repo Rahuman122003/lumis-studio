@@ -192,7 +192,7 @@ function ProbizEnergySection() {
             <Globe size={12} style={{ color: p.color }} />
             <span>{p.locations}</span>
           </div>
-          <MetalButton href="https://probizenergy.com/#contact" target="_blank" variant="primary">
+          <MetalButton href="https://prosmartenergy.io/#contact" target="_blank" variant="primary">
             Explore Platform <ArrowRight size={15} />
           </MetalButton>
         </motion.div>
