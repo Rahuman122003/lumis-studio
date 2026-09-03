@@ -8,14 +8,19 @@
    DESIGN TOKENS
 ───────────────────────────────────────── */
 :root {
-  --color-bg: #080808;
-  --color-surface: #121212;
-  --color-border: #1F1F1F;
-  --color-text: #F5F5F5;
-  --color-muted: #A0A0A0;
-  --color-accent: #FFFFFF;
-  --color-off-white: #181818;
-  --grid-color: rgba(255, 255, 255, 0.015);
+  --color-bg: #B5B5B5;
+  --color-surface: #E5E5E5;
+  --color-border: #8E8E8E;
+  --color-text: #111111;
+  --color-muted: #333333;
+  --color-accent: #000000;
+  --color-off-white: #F5F5F5;
+  --palette-1: #FFFFFF;
+  --palette-2: #F5F5F5;
+  --palette-3: #B5B5B5;
+  --palette-4: #8E8E8E;
+  --palette-5: #333333;
+  --grid-color: rgba(0, 0, 0, 0.06);
 
   --space-xs:  0.5rem;   /*  8px */
   --space-sm:  1rem;     /* 16px */
@@ -116,16 +121,16 @@ main {
   font-weight: 800;
   line-height: 1.08;
   letter-spacing: -0.025em;
-  color: #10b981;
+  color: #111111;
 }
 
 /* Cycling word inside h1 — underline accent */
 .hero-cycle-word {
   text-decoration: underline;
-  text-decoration-color: rgba(59, 130, 246, 0.45);
+  text-decoration-color: rgba(0, 0, 0, 0.45);
   text-underline-offset: 8px;
   text-decoration-thickness: 1.5px;
-  color: #3b82f6;
+  color: #222222;
 }
 
 .section-h2 {
@@ -133,14 +138,14 @@ main {
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.02em;
-  color: #10b981;
+  color: #111111;
 }
 
 .card-title {
   font-size: 1.05rem;
   font-weight: 600;
   line-height: 1.3;
-  color: #93c5fd;
+  color: #111111;
 }
 
 .section-label {
@@ -148,7 +153,7 @@ main {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #fde68a;
+  color: #333333;
   display: block;
 }
 
@@ -159,7 +164,7 @@ main {
   border: 0.5px solid var(--color-border);
   border-radius: 16px;
   transition: border-color 200ms ease, transform 200ms ease;
-  background: var(--color-bg);
+  background: var(--color-surface);
 }
 
 .card:hover {
@@ -171,12 +176,12 @@ main {
    BUTTONS
 ───────────────────────────────────────── */
 .btn-primary {
-  background: #FFFFFF;
-  color: #080808;
+  background: #111111;
+  color: #FFFFFF;
   border-radius: 999px;
   padding: 13px 26px;
   font-size: 0.875rem;
-  font-weight: 500;
+  font-weight: 600;
   border: none;
   cursor: pointer;
   display: inline-flex;
@@ -188,16 +193,16 @@ main {
   line-height: 1;
 }
 
-.btn-primary:hover { background: #E5E5E5; }
+.btn-primary:hover { background: #333333; }
 
 .btn-secondary {
   background: transparent;
-  color: #FFFFFF;
+  color: #111111;
   border-radius: 999px;
   padding: 13px 26px;
   font-size: 0.875rem;
-  font-weight: 500;
-  border: 0.5px solid rgba(255, 255, 255, 0.28);
+  font-weight: 600;
+  border: 1px solid #111111;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -208,7 +213,7 @@ main {
   line-height: 1;
 }
 
-.btn-secondary:hover { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.5); }
+.btn-secondary:hover { background: rgba(0, 0, 0, 0.08); }
 
 /* ─────────────────────────────────────────
    TAG / PILL
@@ -218,8 +223,9 @@ main {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.09em;
-  background: #F4F4F4;
-  color: #6B6B6B;
+  background: #E5E5E5;
+  color: #111111;
+  border: 0.5px solid #8E8E8E;
   border-radius: 4px;
   padding: 4px 9px;
   display: inline-block;
@@ -298,10 +304,10 @@ main {
    HERO
 ───────────────────────────────────────── */
 .hero-grid-bg {
-  background-color: #0D0D0D;
+  background-color: #B5B5B5;
   background-image:
-    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+    linear-gradient(rgba(0,0,0,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.06) 1px, transparent 1px);
   background-size: 44px 44px;
 }
 
@@ -318,7 +324,7 @@ main {
   width: 700px;
   height: 700px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,255,255,0.055) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0,0,0,0.05) 0%, transparent 70%);
   pointer-events: none;
   left: var(--mx, 50%);
   top: var(--my, 50%);
@@ -331,7 +337,7 @@ main {
 ───────────────────────────────────────── */
 ::-webkit-scrollbar { width: 5px; height: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #444444; border-radius: 99px; }
+::-webkit-scrollbar-thumb { background: #8E8E8E; border-radius: 99px; }
 
 /* ─────────────────────────────────────────
    RESPONSIVE HELPERS
@@ -398,7 +404,7 @@ main {
 }
 
 .bg-gradient-orbital {
-  background: linear-gradient(to bottom right, #6366f1, #3b82f6, #14b8a6);
+  background: linear-gradient(to bottom right, #FFFFFF, #B5B5B5, #333333);
 }
 
 .z-10 {
@@ -446,7 +452,7 @@ main {
 }
 
 .bg-black\/90 {
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(18, 18, 18, 0.95);
 }
 
 .bg-white\/50 {

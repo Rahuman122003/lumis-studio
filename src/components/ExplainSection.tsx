@@ -11,7 +11,7 @@ export default function ExplainSection() {
     <section className="section-pad">
       <div className="container">
         <motion.div
-          ref={ref as any}
+          ref={ref as React.RefObject<HTMLDivElement>}
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
@@ -20,7 +20,7 @@ export default function ExplainSection() {
             width: "100%",
             borderRadius: 20,
             border: "0.5px solid var(--color-border)",
-            background: "rgba(10,10,10,0.5)",
+            background: "var(--color-surface)",
             overflow: "hidden",
           }}
         >
@@ -30,7 +30,7 @@ export default function ExplainSection() {
               width: "100%",
               overflow: "hidden",
               position: "relative",
-              background: "rgba(0,0,0,0.15)",
+              background: "rgba(0,0,0,0.03)",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
@@ -75,7 +75,7 @@ export default function ExplainSection() {
               style={{
                 fontSize: "clamp(1.4rem, 2.5vw, 2rem)",
                 fontWeight: 700,
-                color: "#fff",
+                color: "#111111",
                 lineHeight: 1.2,
                 letterSpacing: "-0.02em",
                 marginBottom: 16,
@@ -101,16 +101,16 @@ export default function ExplainSection() {
                 gap: 16,
               }}
             >
-              <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.85rem", lineHeight: 1.65 }}>
+              <p style={{ color: "#333333", fontSize: "0.85rem", lineHeight: 1.65 }}>
                 Transform your building management with an advanced AI cloud platform. Seamlessly control ACs, FCUs, lights, and HVAC equipment for optimal comfort.
               </p>
-              <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.85rem", lineHeight: 1.65 }}>
+              <p style={{ color: "#333333", fontSize: "0.85rem", lineHeight: 1.65 }}>
                 A cutting-edge energy monitoring solution harnessing real-time analytics, reporting, and intelligent alarms to empower facility managers.
               </p>
-              <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.85rem", lineHeight: 1.65 }}>
+              <p style={{ color: "#333333", fontSize: "0.85rem", lineHeight: 1.65 }}>
                 Performance prediction delivers invaluable insights for cost savings, improved efficiency, and positive societal impact.
               </p>
-              <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.85rem", lineHeight: 1.65 }}>
+              <p style={{ color: "#333333", fontSize: "0.85rem", lineHeight: 1.65 }}>
                 Continuous automated monitoring with self-sustaining, self-correcting systems that autonomously identify and resolve issues.
               </p>
             </div>

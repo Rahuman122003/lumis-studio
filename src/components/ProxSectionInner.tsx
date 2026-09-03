@@ -38,7 +38,7 @@ export default function ProxSectionInner() {
               <div
                 className="relative rounded-3xl overflow-hidden border"
                 style={{
-                  background: "linear-gradient(135deg, rgba(16,185,129,0.08) 0%, rgba(8,8,8,0.9) 60%)",
+                  background: "linear-gradient(135deg, rgba(16,185,129,0.08) 0%, rgba(229,229,229,0.9) 60%)",
                   borderColor: "rgba(16,185,129,0.2)",
                   padding: "2rem 2rem 0",
                   maxWidth: 360,
@@ -49,10 +49,10 @@ export default function ProxSectionInner() {
                   <span className="text-xs font-semibold text-[#10b981] uppercase tracking-widest">Online · Probiz HQ</span>
                 </div>
                 <div
-                  className="rounded-2xl rounded-tl-sm px-4 py-3 mb-5 text-sm text-neutral-200 leading-relaxed"
+                  className="rounded-2xl rounded-tl-sm px-4 py-3 mb-5 text-sm text-[#222222] leading-relaxed"
                   style={{ background: "rgba(16,185,129,0.1)", border: "0.5px solid rgba(16,185,129,0.2)" }}
                 >
-                  Hey! I&apos;m <strong className="text-white">Prox</strong> — your virtual friend at Probiz. 👋<br />
+                  Hey! I&apos;m <strong className="text-[#111111]">Prox</strong> — your virtual friend at Probiz. 👋<br />
                   Ask me anything about our products, solutions, or how we can help your building.
                 </div>
                 <img
@@ -66,13 +66,13 @@ export default function ProxSectionInner() {
 
             <div
               className="absolute top-6 -right-2 md:right-4 text-xs font-semibold px-3 py-1.5 rounded-full backdrop-blur-md"
-              style={{ background: "rgba(8,8,8,0.8)", border: "0.5px solid rgba(16,185,129,0.3)", color: "#10b981" }}
+              style={{ background: "rgba(229,229,229,0.9)", border: "0.5px solid rgba(16,185,129,0.3)", color: "#10b981" }}
             >
               🏢 Smart Buildings
             </div>
             <div
               className="absolute bottom-16 -right-2 md:right-2 text-xs font-semibold px-3 py-1.5 rounded-full backdrop-blur-md"
-              style={{ background: "rgba(8,8,8,0.8)", border: "0.5px solid rgba(59,130,246,0.3)", color: "#3b82f6" }}
+              style={{ background: "rgba(229,229,229,0.9)", border: "0.5px solid rgba(59,130,246,0.3)", color: "#3b82f6" }}
             >
               ⚡ Energy AI
             </div>
@@ -112,8 +112,8 @@ export default function ProxSectionInner() {
                     {t.icon}
                   </div>
                   <div>
-                    <p className="text-white text-sm font-semibold mb-0.5">{t.label}</p>
-                    <p className="text-neutral-500 text-xs leading-relaxed">{t.desc}</p>
+                    <p className="text-[#111111] text-sm font-semibold mb-0.5">{t.label}</p>
+                    <p className="text-[#333333] text-xs leading-relaxed">{t.desc}</p>
                   </div>
                 </motion.div>
               ))}

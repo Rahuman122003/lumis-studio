@@ -38,7 +38,7 @@ export default function AboutPage() {
 
   return (
     <>
-      <main className="min-h-screen pt-32 pb-24 text-white">
+      <main className="min-h-screen pt-32 pb-24 text-[#111111]">
         {/* Hero Section */}
         <section className="container max-w-6xl mx-auto px-6 mb-20 text-center">
           <motion.div
@@ -53,9 +53,9 @@ export default function AboutPage() {
             <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-none mt-4">
               About Probiz Automation
             </h1>
-            <p className="text-neutral-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+            <p className="text-[#333333] text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
               We are a proud division of{" "}
-              <span className="text-white font-semibold">Probiz Technologies</span>,
+              <span className="text-[#111111] font-semibold">Probiz Technologies</span>,
               on a mission to redefine commercial and industrial building operations
               through cloud intelligence.
             </p>
@@ -74,13 +74,13 @@ export default function AboutPage() {
               <h2 className="text-2xl md:text-3xl font-bold">
                 Bridging Hardware and AI Cloud Systems
               </h2>
-              <p className="text-neutral-400 leading-relaxed">
+              <p className="text-[#333333] leading-relaxed">
                 Founded under the corporate umbrella of Probiz Technologies, Probiz
                 Automation emerged to address a massive inefficiency: commercial buildings
                 running heavy HVAC, lighting, and air handling equipment on rigid, static,
                 and outdated operational rules.
               </p>
-              <p className="text-neutral-400 leading-relaxed">
+              <p className="text-[#333333] leading-relaxed">
                 By designing secure edge connectors and localized translations layers, we
                 allow standard building hardware protocols (like BACnet and Modbus) to communicate
                 directly with cloud-native deep learning pipelines. The result is a self-sustaining,
@@ -92,7 +92,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="relative rounded-3xl overflow-hidden border border-neutral-900 aspect-video shadow-2xl bg-neutral-950"
+              className="relative rounded-3xl overflow-hidden border border-[#8E8E8E] aspect-video shadow-xl bg-[#E5E5E5]"
             >
               <img
                 src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80"
@@ -105,13 +105,13 @@ export default function AboutPage() {
 
         {/* Stats Grid */}
         <section className="container max-w-6xl mx-auto px-6 mb-24">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 bg-[#0c0c0c]/40 border border-neutral-900 rounded-3xl p-8 text-center backdrop-blur-md">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 bg-[#E5E5E5]/80 border border-[#8E8E8E] rounded-3xl p-8 text-center backdrop-blur-md">
             {stats.map((stat, idx) => (
               <div key={idx} className="space-y-1">
                 <p className="text-3xl md:text-4xl font-extrabold text-[#10b981]">
                   {stat.value}
                 </p>
-                <p className="text-xs text-neutral-500 font-medium uppercase tracking-wider">
+                <p className="text-xs text-[#333333] font-medium uppercase tracking-wider">
                   {stat.label}
                 </p>
               </div>
@@ -123,7 +123,7 @@ export default function AboutPage() {
         <section className="container max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold">Our Core Philosophy</h2>
-            <p className="text-neutral-500 text-sm mt-2">
+            <p className="text-[#333333] text-sm mt-2">
               The principles that drive our engineering and customer relations daily.
             </p>
           </div>
@@ -132,14 +132,14 @@ export default function AboutPage() {
             {values.map((val, idx) => (
               <div
                 key={idx}
-                className="flex items-start gap-4 p-6 bg-[#0c0c0c]/30 border border-neutral-900/60 rounded-2xl"
+                className="flex items-start gap-4 p-6 bg-[#E5E5E5]/60 border border-[#8E8E8E]/60 rounded-2xl"
               >
-                <div className="p-3 bg-neutral-900/80 rounded-xl border border-neutral-800/50">
+                <div className="p-3 bg-[#F5F5F5] rounded-xl border border-[#8E8E8E]/50">
                   {val.icon}
                 </div>
                 <div className="space-y-1.5 text-left">
-                  <h3 className="text-lg font-semibold text-white">{val.title}</h3>
-                  <p className="text-neutral-400 text-sm leading-relaxed">
+                  <h3 className="text-lg font-semibold text-[#111111]">{val.title}</h3>
+                  <p className="text-[#333333] text-sm leading-relaxed">
                     {val.desc}
                   </p>
                 </div>

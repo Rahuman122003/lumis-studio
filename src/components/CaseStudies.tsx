@@ -166,7 +166,7 @@ export default function CaseStudies() {
                   style={{
                     fontSize: "0.72rem",
                     fontWeight: 600,
-                    color: "#FFFFFF",
+                    color: "#555555",
                     textTransform: "uppercase",
                     letterSpacing: "0.08em",
                     marginBottom: 8,
@@ -174,7 +174,7 @@ export default function CaseStudies() {
                 >
                   {c.company}
                 </div>
-                <p className="card-title" style={{ color: "#FFFFFF" }}>{c.result}</p>
+                <p className="card-title" style={{ color: "#111111" }}>{c.result}</p>
               </div>
             </motion.div>
           ))}

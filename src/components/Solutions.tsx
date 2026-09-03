@@ -17,8 +17,8 @@ const cards = [
             key={s}
             style={{
               flex: 1,
-              background: i === 3 ? "#FFFFFF" : "var(--color-surface)",
-              color: i === 3 ? "#080808" : "var(--color-muted)",
+              background: i === 3 ? "#111111" : "var(--color-surface)",
+              color: i === 3 ? "#FFFFFF" : "var(--color-muted)",
               borderRadius: 8, padding: "9px 6px",
               fontSize: "0.68rem", fontWeight: 600,
               textAlign: "center",
@@ -45,7 +45,7 @@ const cards = [
               flex: 1,
               height: `${h * 0.58}%`,
               borderRadius: "4px 4px 0 0",
-              background: i === 5 ? "#FFFFFF" : "var(--color-border)",
+              background: i === 5 ? "#111111" : "var(--color-border)",
             }}
           />
         ))}
@@ -88,7 +88,7 @@ const cards = [
             fontSize: "0.78rem",
           }}
         >
-          <div style={{ width: 7, height: 7, borderRadius: "50%", background: "#10b981", flexShrink: 0 }} />
+          <div style={{ width: 7, height: 7, borderRadius: "50%", background: "#111111", flexShrink: 0 }} />
           <span style={{ fontWeight: 500 }}>Physical + Digital synced live</span>
         </div>
       </div>

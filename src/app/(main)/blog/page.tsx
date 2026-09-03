@@ -19,13 +19,13 @@ export default function BlogIndex() {
             transition={{ duration: 0.5 }}
             className="space-y-4"
           >
-            <span className="text-xs font-semibold tracking-wide uppercase text-[#10b981] bg-[#10b981]/10 py-1.5 px-4 rounded-full border border-[#10b981]/20">
+            <span className="text-xs font-semibold tracking-wide uppercase text-[#333333] bg-[#333333]/10 py-1.5 px-4 rounded-full border border-[#333333]/20">
               Our Insights
             </span>
-            <h1 className="text-4xl md:text-6xl font-extrabold text-white tracking-tight leading-none mt-4">
+            <h1 className="text-4xl md:text-6xl font-extrabold text-[#111111] tracking-tight leading-none mt-4">
               The Probiz Intelligence Hub
             </h1>
-            <p className="text-neutral-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+            <p className="text-[#333333] text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
               Explore the latest in smart building automation, IoT engineering, sustainability practices, and AI-driven energy management.
             </p>
           </motion.div>
@@ -40,25 +40,25 @@ export default function BlogIndex() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="group relative flex flex-col justify-between rounded-2xl border border-neutral-900 bg-[#0c0c0c]/60 overflow-hidden hover:border-neutral-800/80 transition-all duration-300 shadow-xl"
+                className="group relative flex flex-col justify-between rounded-2xl border border-[#8E8E8E] bg-[#E5E5E5] overflow-hidden hover:border-[#333333] transition-all duration-300 shadow-lg"
               >
                 <div>
                   {/* Blog Image */}
-                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-neutral-900 border-b border-neutral-900">
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#D1D1D1] border-b border-[#8E8E8E]">
                     <img
                       src={post.image}
                       alt={post.title}
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                     />
-                    <span className="absolute top-4 left-4 z-10 text-[0.65rem] font-bold uppercase tracking-wider text-black bg-[#10b981] py-1 px-3 rounded-full">
+                    <span className="absolute top-4 left-4 z-10 text-[0.65rem] font-bold uppercase tracking-wider text-[#FFFFFF] bg-[#111111] py-1 px-3 rounded-full">
                       {post.category}
                     </span>
                   </div>
 
                   {/* Blog Meta & Content */}
                   <div className="p-6">
-                    <div className="flex items-center gap-4 text-xs text-neutral-500 mb-3">
+                    <div className="flex items-center gap-4 text-xs text-[#333333] mb-3">
                       <span className="flex items-center gap-1">
                         <Calendar size={12} />
                         {post.date}
@@ -69,31 +69,31 @@ export default function BlogIndex() {
                       </span>
                     </div>
 
-                    <h2 className="text-lg font-semibold text-white group-hover:text-[#10b981] transition-colors duration-200 line-clamp-2 leading-snug mb-3">
+                    <h2 className="text-lg font-semibold text-[#111111] group-hover:text-[#333333] transition-colors duration-200 line-clamp-2 leading-snug mb-3">
                       <Link href={`/blog/${post.slug}`}>
                         {post.title}
                       </Link>
                     </h2>
 
-                    <p className="text-xs sm:text-sm text-neutral-400 line-clamp-3 leading-relaxed mb-4">
+                    <p className="text-xs sm:text-sm text-[#333333] line-clamp-3 leading-relaxed mb-4">
                       {post.excerpt}
                     </p>
                   </div>
                 </div>
 
                 {/* Bottom metadata / Author */}
-                <div className="p-6 pt-0 flex items-center justify-between border-t border-neutral-900/60 mt-auto">
+                <div className="p-6 pt-0 flex items-center justify-between border-t border-[#8E8E8E]/60 mt-auto">
                   <div className="flex items-center gap-2.5">
                     <img
                       src={post.author.avatar}
                       alt={post.author.name}
-                      className="w-7 h-7 rounded-full object-cover border border-neutral-800"
+                      className="w-7 h-7 rounded-full object-cover border border-[#8E8E8E]"
                     />
                     <div className="text-left">
-                      <p className="text-[0.7rem] font-medium text-neutral-300">
+                      <p className="text-[0.7rem] font-medium text-[#111111]">
                         {post.author.name}
                       </p>
-                      <p className="text-[0.6rem] text-neutral-500">
+                      <p className="text-[0.6rem] text-[#333333]">
                         {post.author.role}
                       </p>
                     </div>
@@ -101,7 +101,7 @@ export default function BlogIndex() {
 
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="inline-flex items-center justify-center w-8 h-8 rounded-full border border-neutral-800 text-neutral-400 group-hover:text-black group-hover:bg-[#10b981] group-hover:border-[#10b981] transition-all duration-300"
+                    className="inline-flex items-center justify-center w-8 h-8 rounded-full border border-[#8E8E8E] text-[#333333] group-hover:text-white group-hover:bg-[#111111] group-hover:border-[#111111] transition-all duration-300"
                   >
                     <ArrowRight size={14} />
                   </Link>

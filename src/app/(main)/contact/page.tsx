@@ -40,7 +40,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <main className="min-h-screen pt-32 pb-24 text-white">
+      <main className="min-h-screen pt-32 pb-24 text-[#111111]">
         {/* Header Block */}
         <section className="container max-w-6xl mx-auto px-6 mb-16 text-center">
           <motion.div
@@ -55,7 +55,7 @@ export default function ContactPage() {
             <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-none mt-4">
               Contact Our Experts
             </h1>
-            <p className="text-neutral-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+            <p className="text-[#333333] text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
               Have questions about integrating your building management systems with Probiz Energy AI? We are here to help.
             </p>
           </motion.div>
@@ -70,19 +70,19 @@ export default function ContactPage() {
               {contactInfo.map((info, idx) => (
                 <div
                   key={idx}
-                  className="flex items-start gap-4 p-5 bg-[#0c0c0c]/40 border border-neutral-900 rounded-2xl text-left"
+                  className="flex items-start gap-4 p-5 bg-[#E5E5E5]/80 border border-[#8E8E8E] rounded-2xl text-left"
                 >
-                  <div className="p-3 bg-neutral-900 border border-neutral-800/80 rounded-xl">
+                  <div className="p-3 bg-[#F5F5F5] border border-[#8E8E8E]/60 rounded-xl">
                     {info.icon}
                   </div>
                   <div className="space-y-1">
-                    <p className="text-xs font-bold uppercase tracking-wider text-neutral-500">
+                    <p className="text-xs font-bold uppercase tracking-wider text-[#333333]">
                       {info.label}
                     </p>
-                    <p className="text-sm font-semibold text-white">
+                    <p className="text-sm font-semibold text-[#111111]">
                       {info.value}
                     </p>
-                    <p className="text-xs text-neutral-400">{info.sub}</p>
+                    <p className="text-xs text-[#333333]">{info.sub}</p>
                   </div>
                 </div>
               ))}
@@ -91,7 +91,7 @@ export default function ContactPage() {
                 <div className="flex items-center gap-2 text-[#10b981] font-bold text-sm">
                   <MessageSquare size={16} /> Support Channels
                 </div>
-                <p className="text-xs text-neutral-400 leading-relaxed">
+                <p className="text-xs text-[#333333] leading-relaxed">
                   Existing clients can also open service tickets directly through the Probiz Technologies portal or email support@probiztech.com.
                 </p>
               </div>
@@ -99,7 +99,7 @@ export default function ContactPage() {
 
             {/* Form panel (8 cols) */}
             <div className="lg:col-span-8">
-              <div className="bg-[#0c0c0c]/40 border border-neutral-900 rounded-3xl p-8 md:p-10 backdrop-blur-md">
+              <div className="bg-[#E5E5E5]/80 border border-[#8E8E8E] rounded-3xl p-8 md:p-10 backdrop-blur-md">
                 {submitted ? (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
@@ -109,8 +109,8 @@ export default function ContactPage() {
                     <div className="w-16 h-16 bg-[#10b981]/10 text-[#10b981] rounded-full flex items-center justify-center mx-auto border border-[#10b981]/20 text-2xl font-bold">
                       ✓
                     </div>
-                    <h2 className="text-2xl font-bold text-white">Message Sent!</h2>
-                    <p className="text-neutral-400 max-w-md mx-auto text-sm">
+                    <h2 className="text-2xl font-bold text-[#111111]">Message Sent!</h2>
+                    <p className="text-[#333333] max-w-md mx-auto text-sm">
                       Thank you for contacting Probiz Automation. An automation engineer from our team will review your request and get back to you within 24 hours.
                     </p>
                     <div className="mt-6">
@@ -123,7 +123,7 @@ export default function ContactPage() {
                   <form onSubmit={handleSubmit} className="space-y-6 text-left">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <label className="text-xs font-bold uppercase tracking-wider text-neutral-400">
+                        <label className="text-xs font-bold uppercase tracking-wider text-[#333333]">
                           Your Name *
                         </label>
                         <input
@@ -131,13 +131,13 @@ export default function ContactPage() {
                           required
                           value={form.name}
                           onChange={(e) => setForm({ ...form, name: e.target.value })}
-                          className="w-full bg-neutral-950 border border-neutral-800 rounded-xl py-3 px-4 text-sm text-neutral-200 focus:border-[#10b981] outline-none transition-colors"
+                          className="w-full bg-white border border-[#8E8E8E] rounded-xl py-3 px-4 text-sm text-[#111111] focus:border-[#10b981] outline-none transition-colors"
                           placeholder="John Doe"
                         />
                       </div>
 
                       <div className="space-y-2">
-                        <label className="text-xs font-bold uppercase tracking-wider text-neutral-400">
+                        <label className="text-xs font-bold uppercase tracking-wider text-[#333333]">
                           Work Email *
                         </label>
                         <input
@@ -145,27 +145,27 @@ export default function ContactPage() {
                           required
                           value={form.email}
                           onChange={(e) => setForm({ ...form, email: e.target.value })}
-                          className="w-full bg-neutral-950 border border-neutral-800 rounded-xl py-3 px-4 text-sm text-neutral-200 focus:border-[#10b981] outline-none transition-colors"
+                          className="w-full bg-white border border-[#8E8E8E] rounded-xl py-3 px-4 text-sm text-[#111111] focus:border-[#10b981] outline-none transition-colors"
                           placeholder="john@organization.com"
                         />
                       </div>
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-xs font-bold uppercase tracking-wider text-neutral-400">
+                      <label className="text-xs font-bold uppercase tracking-wider text-[#333333]">
                         Organization / Company
                       </label>
                       <input
                         type="text"
                         value={form.org}
                         onChange={(e) => setForm({ ...form, org: e.target.value })}
-                        className="w-full bg-neutral-950 border border-neutral-800 rounded-xl py-3 px-4 text-sm text-neutral-200 focus:border-[#10b981] outline-none transition-colors"
+                        className="w-full bg-white border border-[#8E8E8E] rounded-xl py-3 px-4 text-sm text-[#111111] focus:border-[#10b981] outline-none transition-colors"
                         placeholder="ACME Corp"
                       />
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-xs font-bold uppercase tracking-wider text-neutral-400">
+                      <label className="text-xs font-bold uppercase tracking-wider text-[#333333]">
                         Message / Project Scope *
                       </label>
                       <textarea
@@ -173,7 +173,7 @@ export default function ContactPage() {
                         rows={5}
                         value={form.msg}
                         onChange={(e) => setForm({ ...form, msg: e.target.value })}
-                        className="w-full bg-neutral-950 border border-neutral-800 rounded-xl py-3 px-4 text-sm text-neutral-200 focus:border-[#10b981] outline-none transition-colors resize-none"
+                        className="w-full bg-white border border-[#8E8E8E] rounded-xl py-3 px-4 text-sm text-[#111111] focus:border-[#10b981] outline-none transition-colors resize-none"
                         placeholder="Tell us about your building facilities (number of buildings, current controllers, BMS protocols, etc.)."
                       />
                     </div>

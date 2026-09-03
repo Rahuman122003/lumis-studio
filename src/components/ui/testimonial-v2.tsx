@@ -137,9 +137,10 @@ const TestimonialsColumn = ({
               <blockquote style={{ margin: 0, padding: 0 }}>
                 <p
                   style={{
-                    color: "rgba(255,255,255,0.65)",
+                    color: "#111111",
                     lineHeight: 1.65,
                     fontSize: "0.875rem",
+                    fontWeight: 500,
                     margin: 0,
                   }}
                 >
@@ -170,9 +171,9 @@ const TestimonialsColumn = ({
                   <div style={{ display: "flex", flexDirection: "column" }}>
                     <span
                       style={{
-                        fontSize: "0.7rem",
-                        color: "#10b981",
-                        fontWeight: 600,
+                        fontSize: "0.75rem",
+                        color: "#111111",
+                        fontWeight: 700,
                         letterSpacing: "0.02em",
                       }}
                     >

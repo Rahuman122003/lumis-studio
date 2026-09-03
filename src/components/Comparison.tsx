@@ -92,12 +92,12 @@ export default function Comparison() {
           {products.map((p) => (
             <div key={p.id} className="h-[24rem] w-full flex items-center justify-center relative">
               <PinContainer title={p.pinText} href={p.href}>
-                <div className="flex flex-col p-5 tracking-tight text-neutral-300 w-[20rem] h-[24rem] bg-gradient-to-b from-neutral-900/90 to-neutral-950/95 border border-neutral-800/80 rounded-2xl">
+                <div className="flex flex-col p-5 tracking-tight text-[#333333] w-[20rem] h-[24rem] bg-gradient-to-b from-[#E5E5E5] to-[#F5F5F5] border border-[#8E8E8E] rounded-2xl">
                   {/* Card Top */}
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <div className={`size-2.5 rounded-full ${p.accentBg} animate-pulse`} />
-                      <div className="text-[10px] uppercase font-bold tracking-wider text-neutral-500">Live Telemetry</div>
+                      <div className="text-[10px] uppercase font-bold tracking-wider text-[#333333]">Live Telemetry</div>
                     </div>
                     {p.icon}
                   </div>
@@ -105,25 +105,25 @@ export default function Comparison() {
                   {/* Card Contents */}
                   <div className="flex-1 mt-6 flex flex-col justify-between">
                     <div>
-                      <h3 className="text-xl font-bold text-white tracking-tight">
+                      <h3 className="text-xl font-bold text-[#111111] tracking-tight">
                         {p.title}
                       </h3>
-                      <p className="text-[10px] text-neutral-500 font-medium uppercase mt-0.5 tracking-wider">
+                      <p className="text-[10px] text-[#333333] font-medium uppercase mt-0.5 tracking-wider">
                         {p.subtitle}
                       </p>
                       
-                      <p className="text-xs text-neutral-400 mt-4 leading-relaxed font-normal">
+                      <p className="text-xs text-[#333333] mt-4 leading-relaxed font-normal">
                         {p.desc}
                       </p>
                     </div>
 
                     {/* Stats Metric */}
-                    <div className="my-3 py-3 border-t border-b border-neutral-900 flex justify-between items-center">
+                    <div className="my-3 py-3 border-t border-b border-[#8E8E8E] flex justify-between items-center">
                       <div className="space-y-0.5">
                         <div className={`text-3xl font-extrabold tracking-tight ${p.colorClass}`}>
                           {p.metric}
                         </div>
-                        <div className="text-[10px] text-neutral-500 uppercase font-semibold">
+                        <div className="text-[10px] text-[#333333] uppercase font-semibold">
                           {p.metricLabel}
                         </div>
                       </div>
@@ -131,16 +131,16 @@ export default function Comparison() {
                       {/* Detail attributes */}
                       <div className="text-right space-y-1">
                         {p.details.map((detail, idx) => (
-                          <div key={idx} className="text-[10px] text-neutral-400">
-                            <span className="text-neutral-600 mr-1">{detail.label}:</span>
-                            <span className="font-mono text-white">{detail.val}</span>
+                          <div key={idx} className="text-[10px] text-[#333333]">
+                            <span className="text-[#8E8E8E] mr-1">{detail.label}:</span>
+                            <span className="font-mono text-[#111111]">{detail.val}</span>
                           </div>
                         ))}
                       </div>
                     </div>
 
                     {/* Footer */}
-                    <div className="flex justify-between items-center text-[11px] text-neutral-500">
+                    <div className="flex justify-between items-center text-[11px] text-[#333333]">
                       <div className="flex items-center gap-1 font-medium">
                         <Activity size={10} className={p.colorClass} />
                         Connected

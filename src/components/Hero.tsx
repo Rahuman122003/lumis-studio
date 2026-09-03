@@ -44,13 +44,22 @@ export default function Hero() {
           loop
           muted
           playsInline
+          aria-hidden="true"
+          className="w-full h-full object-cover pointer-events-none"
           style={{
             width: "100%",
             height: "100%",
             objectFit: "cover",
-            opacity: 0.3,
+            opacity: 0.35,
+            mixBlendMode: "luminosity",
+          }}
+          ref={(el) => {
+            if (el) {
+              el.play().catch(() => {});
+            }
           }}
         >
+          <source src="/herov.webm" type="video/webm" />
           <source src="/herobg.mp4" type="video/mp4" />
         </video>
         {/* Dark gradient overlay for readability */}
@@ -59,7 +68,7 @@ export default function Hero() {
             position: "absolute",
             inset: 0,
             background:
-              "linear-gradient(to bottom, rgba(8,8,8,0.4) 0%, rgba(8,8,8,0.7) 60%, rgba(8,8,8,1) 100%)",
+              "linear-gradient(to bottom, rgba(181,181,181,0.2) 0%, rgba(181,181,181,0.75) 60%, rgba(181,181,181,1) 100%)",
           }}
         />
       </div>
@@ -88,9 +97,9 @@ export default function Hero() {
           <span
             className="tag"
             style={{
-              background: "rgba(255,255,255,0.09)",
-              color: "rgba(255,255,255,0.58)",
-              border: "0.5px solid rgba(255,255,255,0.12)",
+              background: "#E5E5E5",
+              color: "#111111",
+              border: "0.5px solid #8E8E8E",
               letterSpacing: "0.12em",
             }}
           >
@@ -125,7 +134,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.22 }}
           style={{
-            color: "rgba(255,255,255,0.6)",
+            color: "#222222",
             fontSize: "clamp(1rem, 2vw, 1.15rem)",
             maxWidth: 500,
             lineHeight: 1.65,
@@ -167,7 +176,7 @@ export default function Hero() {
             gridTemplateColumns: "repeat(4, 1fr)",
             gap: "var(--space-sm)",
             paddingTop: "var(--space-lg)",
-            borderTop: "0.5px solid rgba(255,255,255,0.1)",
+            borderTop: "0.5px solid #8E8E8E",
           }}
         >
           {[
@@ -181,7 +190,7 @@ export default function Hero() {
                 style={{
                   fontSize: "clamp(1.6rem, 3vw, 2.2rem)",
                   fontWeight: 800,
-                  color: "#FFFFFF",
+                  color: "#111111",
                   lineHeight: 1,
                   letterSpacing: "-0.02em",
                   marginBottom: 8,
@@ -192,7 +201,7 @@ export default function Hero() {
               <div
                 style={{
                   fontSize: "0.72rem",
-                  color: "rgba(255,255,255,0.45)",
+                  color: "#333333",
                   fontWeight: 500,
                   textTransform: "uppercase",
                   letterSpacing: "0.1em",

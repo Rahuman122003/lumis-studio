@@ -32,7 +32,7 @@ function FloatingNavInner({ items }: { items: typeof navItems }) {
   }, [pathname, items]);
 
   return (
-    <div className="flex items-center gap-0.5 bg-neutral-950/70 border border-neutral-800/60 backdrop-blur-xl py-1 px-1.5 rounded-full shadow-2xl">
+    <div className="flex items-center gap-0.5 bg-[#E5E5E5]/95 border border-[#8E8E8E] backdrop-blur-xl py-1 px-1.5 rounded-full shadow-xl">
       {items.map((item) => {
         const Icon = item.icon;
         const isActive = activeTab === item.name;
@@ -47,14 +47,12 @@ function FloatingNavInner({ items }: { items: typeof navItems }) {
             {isActive && (
               <motion.div
                 layoutId="lamp"
-                className="absolute inset-0 w-full bg-white/5 rounded-full -z-10"
+                className="absolute inset-0 w-full bg-black/10 rounded-full -z-10"
                 initial={false}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
               >
-                <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-white rounded-t-full">
-                  <div className="absolute w-12 h-6 bg-white/20 rounded-full blur-md -top-2 -left-2" />
-                  <div className="absolute w-8 h-6 bg-white/20 rounded-full blur-md -top-1" />
-                  <div className="absolute w-4 h-4 bg-white/20 rounded-full blur-sm top-0 left-2" />
+                <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-black rounded-t-full">
+                  <div className="absolute w-12 h-6 bg-black/15 rounded-full blur-md -top-2 -left-2" />
                 </div>
               </motion.div>
             )}
@@ -63,8 +61,8 @@ function FloatingNavInner({ items }: { items: typeof navItems }) {
 
         const cls = cn(
           "relative cursor-pointer text-xs sm:text-sm font-semibold px-3 sm:px-5 py-2 rounded-full transition-colors select-none",
-          "text-neutral-400 hover:text-white",
-          isActive && "text-white"
+          "text-[#333333] hover:text-[#111111]",
+          isActive && "text-[#111111] font-bold"
         );
 
         return isExternal ? (
@@ -87,9 +85,9 @@ function FloatingNav() {
   return (
     <div className="fixed bottom-4 sm:bottom-auto sm:top-[76px] left-1/2 -translate-x-1/2 z-50">
       <Suspense fallback={
-        <div className="flex items-center gap-0.5 bg-neutral-950/70 border border-neutral-800/60 backdrop-blur-xl py-1 px-1.5 rounded-full shadow-2xl opacity-60">
+        <div className="flex items-center gap-0.5 bg-[#E5E5E5]/95 border border-[#8E8E8E] backdrop-blur-xl py-1 px-1.5 rounded-full shadow-xl opacity-60">
           {navItems.map((item) => (
-            <span key={item.name} className="text-xs sm:text-sm font-semibold px-3 sm:px-5 py-2 rounded-full text-neutral-600 hidden sm:inline">
+            <span key={item.name} className="text-xs sm:text-sm font-semibold px-3 sm:px-5 py-2 rounded-full text-[#333333] hidden sm:inline">
               {item.name}
             </span>
           ))}
@@ -119,7 +117,7 @@ export default function Navbar() {
           top: 0, left: 0, right: 0,
           zIndex: 40,
           transition: "background 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease",
-          background: scrolled ? "rgba(8,8,8,0.65)" : "transparent",
+          background: scrolled ? "rgba(181,181,181,0.88)" : "transparent",
           backdropFilter: scrolled ? "blur(16px)" : "none",
           WebkitBackdropFilter: scrolled ? "blur(16px)" : "none",
           borderBottom: `0.5px solid ${scrolled ? "var(--color-border)" : "transparent"}`,
@@ -136,8 +134,8 @@ export default function Navbar() {
         }}>
           <a href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}>
             <img src="/logoauto.png" alt="Probiz Automation Logo" style={{ height: 38, width: "auto", objectFit: "contain" }} />
-            <span className="hidden xl:inline-block font-bold text-white text-base tracking-tight whitespace-nowrap">Probiz Automation</span>
-            <span className="hidden sm:inline-block xl:hidden font-bold text-white text-base tracking-tight whitespace-nowrap">Probiz</span>
+            <span className="hidden xl:inline-block font-bold text-[#111111] text-base tracking-tight whitespace-nowrap">Probiz Automation</span>
+            <span className="hidden sm:inline-block xl:hidden font-bold text-[#111111] text-base tracking-tight whitespace-nowrap">Probiz</span>
           </a>
           <div style={{ display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}>
             <a href="/#contact" className="btn-primary" style={{ fontSize: "0.82rem", padding: "10px 22px" }}>

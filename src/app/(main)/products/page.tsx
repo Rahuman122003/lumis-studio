@@ -4,92 +4,17 @@ import React from "react";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import {
-  Zap, Sun, ArrowRight, BarChart2,
-  Cloud, Shield, Globe, Bell, Thermometer, Database,
-  Receipt, Map, Activity, Cpu, Layers, Lock, RefreshCw, Wifi,
+  Zap, ArrowRight, BarChart2,
+  Cloud, Shield, Globe, Bell, Thermometer,
+  Receipt, Map, Cpu, Layers, RefreshCw, Wifi, CheckCircle2,
+  TrendingUp, Activity, Award, Check, Settings, Server, Database, Lock
 } from "lucide-react";
 import { MetalButton } from "@/components/ui/metal-button";
 
-// ─── shared fade-up variant ────────────────────────────────────────────────
+// ─── Shared fade-up variant ────────────────────────────────────────────────
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
   show:   { opacity: 1, y: 0,  transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
-};
-
-// ─── Probiz Energy AI (BMS Command Control Centre) ───────────────────────────
-const probizEnergy = {
-  id: "probiz-energy",
-  badge: "AI Building Command Centre",
-  name: "Probiz Energy AI",
-  tagline: "The Intelligent BMS Command & Control Centre for Smart Buildings",
-  description:
-    "Probiz Energy AI is an advanced AI-powered Building Management System platform that gives facility operators complete command and control over every building system from a single intelligent interface. From HVAC orchestration and energy optimisation to predictive fault detection and Digital Twin visualisation — it is the central brain of your smart building.",
-  color: "#10b981",
-  colorMuted: "rgba(16,185,129,0.1)",
-  colorBorder: "rgba(16,185,129,0.22)",
-  heroImage: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80",
-  stats: [
-    { val: "35%",  label: "Energy Cost Reduction" },
-    { val: "99.9%", label: "System Uptime" },
-    { val: "200+", label: "Buildings Deployed" },
-    { val: "4 Mo", label: "Average ROI Cycle" },
-  ],
-  clients: ["Brigade Group", "IBM", "NXP", "Mercedes-Benz", "L&T"],
-  locations: "Bengaluru · Mumbai · Delhi · Hyderabad · Chennai · Pune",
-  features: [
-    { icon: <Cpu size={18} />,        title: "BMS Command Control Centre",   desc: "Unified command dashboard to monitor, control, and automate HVAC, lighting, fire safety, access control, elevators, and utilities — all from one intelligent interface." },
-    { icon: <Zap size={18} />,        title: "AI Energy Optimisation",       desc: "Machine learning models analyse real-time consumption data and autonomously optimise setpoints, schedules, and loads to cut energy costs by up to 35%." },
-    { icon: <Layers size={18} />,     title: "Digital Twin Visualisation",   desc: "A live 3D virtual replica of your building synchronised with physical sensors — enabling real-time monitoring, scenario simulation, and anomaly detection." },
-    { icon: <RefreshCw size={18} />,  title: "Predictive Maintenance",       desc: "AI continuously monitors equipment health — predicting failures days in advance and scheduling maintenance at the optimal time to prevent downtime." },
-    { icon: <Wifi size={18} />,       title: "IoT & Protocol Integration",   desc: "Connect thousands of sensors and controllers via BACnet, Modbus, MQTT, OPC-UA, LoRaWAN, and REST APIs without replacing existing infrastructure." },
-    { icon: <Shield size={18} />,     title: "Automated Alarms & Reports",   desc: "Intelligent alarm management with priority routing, root-cause diagnostics, and automated compliance reports for ASHRAE, ISO 50001, and ESG requirements." },
-  ],
-  steps: [
-    { num: "01", title: "Site Assessment & Audit",      desc: "Our engineers assess your existing building systems, protocols, equipment, and energy baseline to design the optimal integration roadmap." },
-    { num: "02", title: "Edge Gateway Deployment",      desc: "Secure on-premise edge gateways are installed to bridge your legacy BMS hardware to the Probiz Energy AI cloud platform." },
-    { num: "03", title: "AI Platform Configuration",   desc: "Dashboards, automation rules, alarm thresholds, and Digital Twin models are configured and validated for your specific facility." },
-    { num: "04", title: "Live Monitoring & Optimise",  desc: "Continuous AI-driven optimisation, predictive alerts, and scheduled reporting keep your building running at peak performance." },
-  ],
-};
-
-// ─── ProSmart Energy ──────────────────────────────────────────────────────────
-const proSmartEnergy = {
-  id: "prosmart-energy",
-  badge: "Smart Energy Platform",
-  name: "ProSmart Energy",
-  tagline: "Effortless Energy Monitoring & Automated Tenant Billing",
-  description:
-    "PROsmart Energy is the next-gen energy intelligence platform that unifies EB, DG, HVAC, Water, and Gas into one live dashboard — with automated tenant billing, an interactive 3D building map, and ISO 50001-ready compliance reporting. Built for real-estate developers, commercial portfolios, and enterprise facility teams.",
-  color: "#3b82f6",
-  colorMuted: "rgba(59,130,246,0.1)",
-  colorBorder: "rgba(59,130,246,0.22)",
-  heroImage: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=80",
-  stats: [
-    { val: "30%",   label: "Avg. Energy Cost Reduction" },
-    { val: "100%",  label: "Automated Tenant Billing" },
-    { val: "24/7",  label: "Real-Time Monitoring" },
-    { val: "ISO",   label: "50001 Compliance Ready" },
-  ],
-  clients: ["Prestige", "DLF", "Brigade", "Godrej", "Oberoi", "Sobha", "Lodha", "Embassy"],
-  features: [
-    { icon: <BarChart2 size={18} />,   title: "Live Energy Dashboard",        desc: "Monitor EB, DG, HVAC, Water, and Gas consumption through ring charts and live load curves — every watt visible in real time." },
-    { icon: <Receipt size={18} />,     title: "Automated Tenant Billing",     desc: "Generate accurate, tenant-wise invoices automatically every billing cycle — no spreadsheets, no manual meter walks, no disputes." },
-    { icon: <Map size={18} />,         title: "Interactive 3D Building Map",  desc: "Explore live energy, HVAC, water, and gas telemetry floor-by-floor through a fully interactive 3D building model of your portfolio." },
-    { icon: <Thermometer size={18} />, title: "BTU Meter Integration",        desc: "Precise billing for cooling systems via BTU meters — a critical requirement for commercial buildings in India and the Middle East." },
-    { icon: <Bell size={18} />,        title: "AI Anomaly Detection",         desc: "Machine learning continuously scans consumption patterns and fires instant alerts when faults, waste, or unusual demand are detected." },
-    { icon: <Cloud size={18} />,       title: "ISO 50001 Compliance",         desc: "Audit-ready energy reports, efficiency programme tracking, and continuous diagnostics to achieve and maintain ISO 50001 certification." },
-  ],
-  steps: [
-    { num: "01", title: "Install Smart Meters",    desc: "Plug-and-play BTU, energy, and multi-utility meters integrate with existing electrical infrastructure in hours, not weeks." },
-    { num: "02", title: "Stream to the Cloud",     desc: "Secure edge gateways push real-time consumption data to the PROsmart cloud over BACnet, Modbus, or LoRaWAN." },
-    { num: "03", title: "Visualise & Optimise",    desc: "Live dashboards, AI anomaly detection, and ISO 50001 reports help facility teams cut waste and prove savings." },
-    { num: "04", title: "Automate Billing",        desc: "Generate accurate tenant-wise invoices automatically every cycle — zero manual effort, zero disputes." },
-  ],
-  impacts: [
-    { tag: "MIXED-USE DEVELOPMENT", kpi: "₹38L Annual Savings",   desc: "A 24-tower premium residential project automated tenant billing across 1,800 units and cut common-area energy waste by 22% in the first year." },
-    { tag: "COMMERCIAL PORTFOLIO",  kpi: "100% Billing Accuracy", desc: "PROsmart replaced manual meter walks across 14 office towers — eliminating disputes and reclaiming 60+ hours of facility-team work every month." },
-    { tag: "HOSPITALITY CHAIN",     kpi: "ISO 50001 Achieved",    desc: "A national hotel group hit ISO 50001 in 8 months using PROsmart's continuous diagnostics, audit-ready reports, and AI anomaly alerts." },
-  ],
 };
 
 // ─── Reusable Badge ───────────────────────────────────────────────────────────
@@ -102,73 +27,148 @@ function Badge({ label, color, muted, border }: { label: string; color: string; 
   );
 }
 
-// ─── Step Card ────────────────────────────────────────────────────────────────
-function StepCard({ num, title, desc, color, border, muted }: {
-  num: string; title: string; desc: string; color: string; border: string; muted: string;
+// ─── Reusable Feature Card ────────────────────────────────────────────────────
+function FeatureCardDetailed({ icon, title, desc, highlights, color, muted, border }: {
+  icon: React.ReactNode; title: string; desc: string; highlights: string[]; color: string; muted: string; border: string;
 }) {
   return (
-    <div className="flex gap-4 p-5 rounded-2xl" style={{ background: muted, border: `0.5px solid ${border}` }}>
-      <div className="text-2xl font-black tracking-tight flex-shrink-0 w-10" style={{ color }}>{num}</div>
-      <div>
-        <h4 className="text-white font-semibold text-sm mb-1">{title}</h4>
-        <p className="text-neutral-400 text-xs leading-relaxed">{desc}</p>
-      </div>
-    </div>
-  );
-}
-
-// ─── Feature Card ─────────────────────────────────────────────────────────────
-function FeatureCard({ icon, title, desc, color, muted, border }: {
-  icon: React.ReactNode; title: string; desc: string; color: string; muted: string; border: string;
-}) {
-  return (
-    <motion.div variants={fadeUp} className="rounded-2xl p-5 flex flex-col gap-3"
+    <motion.div variants={fadeUp} className="rounded-2xl p-6 flex flex-col justify-between"
       style={{ background: "var(--color-surface)", border: "0.5px solid var(--color-border)" }}>
-      <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-        style={{ background: muted, color, border: `0.5px solid ${border}` }}>
-        {icon}
-      </div>
       <div>
-        <h4 className="text-white font-semibold text-sm mb-1.5">{title}</h4>
-        <p className="text-neutral-400 text-xs leading-relaxed">{desc}</p>
+        <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
+          style={{ background: muted, color, border: `0.5px solid ${border}` }}>
+          {icon}
+        </div>
+        <h4 className="text-[#111111] font-bold text-base mb-2">{title}</h4>
+        <p className="text-[#333333] text-xs leading-relaxed mb-4">{desc}</p>
       </div>
+      <ul className="space-y-2 pt-3 border-t border-black/10">
+        {highlights.map((item, idx) => (
+          <li key={idx} className="flex items-start gap-2 text-[0.72rem] text-[#222222]">
+            <Check size={13} className="text-[#10b981] flex-shrink-0 mt-0.5" />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
     </motion.div>
   );
 }
 
 // ─── Section Divider ─────────────────────────────────────────────────────────
 function SectionDivider() {
-  return <div className="w-full h-px my-28" style={{ background: "linear-gradient(90deg, transparent, var(--color-border), transparent)" }} />;
-}
-
-// ─── Stat Pills ───────────────────────────────────────────────────────────────
-function StatGrid({ stats, color, muted, border }: {
-  stats: { val: string; label: string }[]; color: string; muted: string; border: string;
-}) {
-  return (
-    <div className="grid grid-cols-2 gap-3">
-      {stats.map((s, i) => (
-        <div key={i} className="rounded-xl p-4 text-center" style={{ background: muted, border: `0.5px solid ${border}` }}>
-          <div className="text-2xl font-extrabold tracking-tight" style={{ color }}>{s.val}</div>
-          <div className="text-[0.66rem] text-neutral-400 font-medium uppercase tracking-wider mt-1">{s.label}</div>
-        </div>
-      ))}
-    </div>
-  );
+  return <div className="w-full h-px my-24" style={{ background: "linear-gradient(90deg, transparent, var(--color-border), transparent)" }} />;
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// SECTION 1 — Probiz Energy
+// SECTION 1 — Probiz Energy AI (Brain for Your Building)
 // ═══════════════════════════════════════════════════════════════════════════════
 function ProbizEnergySection() {
-  const p = probizEnergy;
+  const p = {
+    id: "probiz-energy",
+    badge: "The Smartest Brain for Your Building",
+    name: "Probiz Energy AI",
+    tagline: "Move from reactive operations to proactive, intelligent building management.",
+    description:
+      "Transform the way your building operates with Probiz Energy AI — an intelligent building energy platform designed to optimise performance, reduce energy costs, and simplify facility operations. Built for facility managers, building operations teams, sustainability officers, and modern property owners, it combines AI analytics, IoT connectivity, real-time monitoring, automation, and intelligent energy management into one connected ecosystem.",
+    color: "#111111",
+    colorMuted: "rgba(0,0,0,0.06)",
+    colorBorder: "rgba(0,0,0,0.2)",
+    heroImage: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80",
+    stats: [
+      { val: "35%", label: "Avg. Energy Cost Savings" },
+      { val: "99.9%", label: "System Gateway Uptime" },
+      { val: "200+", label: "Facilities Integrated" },
+      { val: "14+ Yrs", label: "Industry Expertise" },
+    ],
+    features: [
+      {
+        icon: <Cpu size={20} />,
+        title: "AI-Powered HVAC Optimisation",
+        desc: "Optimise heating, ventilation, and air-conditioning systems using intelligent control loops and deep data-driven insights.",
+        highlights: [
+          "Dynamic setpoint adjustments based on live occupancy & weather",
+          "Chiller plant & Air Handling Unit (AHU) load balancing",
+          "Prevents cooling/heating overlap & unnecessary peak demand",
+          "Saves up to 35% on central HVAC power usage"
+        ]
+      },
+      {
+        icon: <Zap size={20} />,
+        title: "Smart Lighting Management",
+        desc: "Reduce unnecessary lighting consumption across commercial floors, common areas, and parking facilities with intelligent lighting controls.",
+        highlights: [
+          "Occupancy-based auto-dimming and scheduling",
+          "Daylight harvesting sensors for perimeter zones",
+          "Integration with DALI and BACnet lighting controllers",
+          "Extends fixture lifespan while lowering electricity bills"
+        ]
+      },
+      {
+        icon: <Wifi size={20} />,
+        title: "IoT & Field Sensor Integration",
+        desc: "Connect your building's physical infrastructure with a universal mesh of intelligent edge devices and multi-protocol adapters.",
+        highlights: [
+          "Real-time tracking of energy, water, gas, and environmental sensors",
+          "Supports BACnet IP/MSTP, Modbus RTU/TCP, MQTT, and LoRaWAN",
+          "Zero downtime deployment over existing legacy controllers",
+          "Continuous telemetry ingestion for total building visibility"
+        ]
+      },
+      {
+        icon: <Layers size={20} />,
+        title: "AI Analytics & Predictive Intelligence",
+        desc: "Turn raw building telemetry into meaningful, decision-ready insights through self-learning algorithms.",
+        highlights: [
+          "Pre-emptively detects equipment degradation before failure",
+          "Historical consumption baseline modeling & anomaly scoring",
+          "Peak demand forecasting & load shifting recommendations",
+          "Root-cause diagnostics for operational disruptions"
+        ]
+      },
+      {
+        icon: <Activity size={20} />,
+        title: "Centralised Command & Visibility",
+        desc: "Consolidate multi-facility portfolios into a single cloud-native dashboard for facility managers and leadership.",
+        highlights: [
+          "Multi-building portfolio aggregation with floor plan mapping",
+          "Role-based access control (RBAC) for engineering teams",
+          "Customisable KPI widgets & live power distribution diagrams",
+          "Accessible from desktop, tablet, and mobile browsers"
+        ]
+      },
+      {
+        icon: <Shield size={20} />,
+        title: "Automated Operations & ESG Reporting",
+        desc: "Eliminate manual compliance tracking while sustaining energy efficiency benchmarks automatically.",
+        highlights: [
+          "Automated ASHRAE, ISO 50001, and ESG compliance reports",
+          "Self-correcting control feedback loops for temperature/pressure",
+          "Instant alarm escalation via SMS, Email, and Push Notifications",
+          "Audit-ready sustainability documentation"
+        ]
+      }
+    ],
+    fourPillars: [
+      { label: "Monitor", desc: "Track energy consumption instantly and gain actionable visibility across all electrical and mechanical assets." },
+      { label: "Analyse", desc: "Understand consumption behaviour, equipment degradation, peak demand spikes, and environmental conditions." },
+      { label: "Predict", desc: "Identify patterns and anticipate future energy and operational requirements before equipment breakdowns occur." },
+      { label: "Optimise & Automate", desc: "Use intelligent insights and automated feedback loops to continuously refine building efficiency without manual effort." },
+    ],
+    architectureSteps: [
+      { step: "01", title: "Field Layer", desc: "BACnet/Modbus Chillers, AHUs, Meters, Lighting, VFDs, and Environmental Sensors." },
+      { step: "02", title: "Edge Layer", desc: "Probiz Edge Connectors parse protocol packets locally with offline fail-safe logic." },
+      { step: "03", title: "AI Cloud Engine", desc: "Real-time stream processing, neural net forecasting, anomaly detection & rule engines." },
+      { step: "04", title: "Control & Action", desc: "Autonomous VFD/Setpoint adjustments, automated alerts, and executive ESG dashboards." }
+    ]
+  };
+
   return (
     <section id={p.id} className="container max-w-6xl mx-auto px-6">
       {/* Header */}
       <motion.div variants={fadeUp} className="text-center mb-14">
         <Badge label={p.badge} color={p.color} muted={p.colorMuted} border={p.colorBorder} />
         <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-none mt-5 mb-4" style={{ color: p.color }}>{p.name}</h2>
-        <p className="text-lg md:text-xl text-neutral-300 font-medium max-w-2xl mx-auto">{p.tagline}</p>
+        <p className="text-lg md:text-xl text-[#333333] font-medium max-w-3xl mx-auto leading-relaxed">{p.tagline}</p>
       </motion.div>
 
       {/* Hero — image left, content right */}
@@ -177,45 +177,84 @@ function ProbizEnergySection() {
           style={{ borderColor: p.colorBorder }}>
           <img src={p.heroImage} alt={p.name} className="w-full h-full object-cover" />
           <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${p.colorMuted} 0%, transparent 55%)` }} />
-          <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2">
-            {p.clients.map((c, i) => (
-              <span key={i} className="text-[0.65rem] font-bold px-2.5 py-1 rounded-full backdrop-blur-md"
-                style={{ background: "rgba(0,0,0,0.55)", border: `0.5px solid ${p.colorBorder}`, color: p.color }}>{c}</span>
-            ))}
+          <div className="absolute bottom-4 left-4 right-4 bg-white/85 backdrop-blur-md p-4 rounded-xl border border-black/10">
+            <p className="text-xs font-bold text-[#111111] uppercase tracking-wider mb-1">Intelligent Energy. Smarter Buildings.</p>
+            <p className="text-[0.75rem] text-[#333333]">Turning operational and energy data into continuous actionable intelligence.</p>
           </div>
         </motion.div>
 
         <motion.div variants={fadeUp} className="space-y-6">
-          <p className="text-neutral-400 leading-relaxed text-[0.95rem]">{p.description}</p>
-          <StatGrid stats={p.stats} color={p.color} muted={p.colorMuted} border={p.colorBorder} />
-          <div className="text-xs text-neutral-500 flex items-center gap-2">
-            <Globe size={12} style={{ color: p.color }} />
-            <span>{p.locations}</span>
+          <p className="text-[#222222] leading-relaxed text-[0.95rem]">{p.description}</p>
+          
+          {/* Detailed stats grid */}
+          <div className="grid grid-cols-2 gap-3">
+            {p.stats.map((s, i) => (
+              <div key={i} className="rounded-xl p-4 text-center border" style={{ background: p.colorMuted, borderColor: p.colorBorder }}>
+                <div className="text-2xl font-extrabold tracking-tight" style={{ color: p.color }}>{s.val}</div>
+                <div className="text-[0.66rem] text-[#333333] font-medium uppercase tracking-wider mt-1">{s.label}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-xs text-neutral-600 flex items-center gap-2">
+            <Globe size={13} style={{ color: p.color }} />
+            <span>AI + IoT + Automation + Energy Analytics + BMS Integration</span>
           </div>
           <MetalButton href="https://prosmartenergy.io/#contact" target="_blank" variant="primary">
-            Explore Platform <ArrowRight size={15} />
+            Learn More <ArrowRight size={15} />
           </MetalButton>
         </motion.div>
       </div>
 
-      {/* Features */}
-      <div className="mb-14">
-        <p className="text-xs font-bold uppercase tracking-widest text-neutral-500 mb-6">Key Capabilities</p>
+      {/* 4 Pillars: Monitor, Analyse, Predict, Optimise */}
+      <div className="mb-16">
+        <div className="text-center max-w-xl mx-auto mb-8">
+          <p className="text-xs font-bold uppercase tracking-widest text-neutral-500 mb-2">Operational Shift</p>
+          <h3 className="text-2xl font-bold text-[#111111]">From Reactive Management to Proactive Optimisation</h3>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {p.fourPillars.map((item, i) => (
+            <div key={i} className="p-6 rounded-2xl border bg-white/70 shadow-sm flex flex-col justify-between" style={{ borderColor: p.colorBorder }}>
+              <div>
+                <div className="flex items-center gap-2 mb-3">
+                  <CheckCircle2 size={18} className="text-[#10b981]" />
+                  <h4 className="font-bold text-sm text-[#111111] uppercase tracking-wider">{item.label}</h4>
+                </div>
+                <p className="text-xs text-[#333333] leading-relaxed">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Deep Capabilities Grid */}
+      <div className="mb-16">
+        <div className="text-center max-w-xl mx-auto mb-8">
+          <p className="text-xs font-bold uppercase tracking-widest text-neutral-500 mb-2">Core Ecosystem</p>
+          <h3 className="text-2xl md:text-3xl font-bold text-[#111111]">One Intelligent Platform for Your Entire Building</h3>
+        </div>
         <motion.div variants={{ show: { transition: { staggerChildren: 0.07 } } }}
           initial="hidden" whileInView="show" viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {p.features.map((f, i) => (
-            <FeatureCard key={i} {...f} color={p.color} muted={p.colorMuted} border={p.colorBorder} />
+            <FeatureCardDetailed key={i} {...f} color={p.color} muted={p.colorMuted} border={p.colorBorder} />
           ))}
         </motion.div>
       </div>
 
-      {/* How It Works */}
-      <div>
-        <p className="text-xs font-bold uppercase tracking-widest text-neutral-500 mb-6">How It Works</p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {p.steps.map((s, i) => (
-            <StepCard key={i} {...s} color={p.color} border={p.colorBorder} muted={p.colorMuted} />
+      {/* Technical Integration Architecture */}
+      <div className="p-8 md:p-10 rounded-3xl border bg-white/60 shadow-lg" style={{ borderColor: p.colorBorder }}>
+        <div className="text-center max-w-xl mx-auto mb-8">
+          <p className="text-xs font-bold uppercase tracking-widest text-neutral-500 mb-1">Architecture</p>
+          <h3 className="text-xl md:text-2xl font-bold text-[#111111]">End-to-End Data Integration Flow</h3>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          {p.architectureSteps.map((s, idx) => (
+            <div key={idx} className="p-4 rounded-xl border bg-white/80" style={{ borderColor: "rgba(0,0,0,0.1)" }}>
+              <span className="text-xs font-black text-[#10b981]">{s.step}</span>
+              <h4 className="text-sm font-bold text-[#111111] mt-1 mb-1">{s.title}</h4>
+              <p className="text-[0.72rem] text-[#333333] leading-relaxed">{s.desc}</p>
+            </div>
           ))}
         </div>
       </div>
@@ -224,36 +263,111 @@ function ProbizEnergySection() {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// SECTION 2 — ProSmart Energy
+// SECTION 2 — PROsmart (Effortless Energy Monitoring & Billing)
 // ═══════════════════════════════════════════════════════════════════════════════
-function ProSmartEnergySection() {
-  const p = proSmartEnergy;
+function PROsmartSection() {
+  const p = {
+    id: "prosmart",
+    badge: "Next-Generation Energy Monitoring & Billing",
+    name: "PROsmart",
+    tagline: "Effortless Energy Monitoring & Tenant Billing within the Probiz Ecosystem.",
+    description:
+      "PROsmart is the next-generation energy monitoring and tenant billing platform within the Probiz ecosystem. Designed to simplify the way energy is measured, monitored, billed, and managed, PROsmart replaces complex manual processes with a transparent and automated digital experience. Whether you're managing a commercial property, utility operation, or multi-tenant building, PROsmart provides the visibility and accuracy required for modern energy management.",
+    color: "#222222",
+    colorMuted: "rgba(0,0,0,0.06)",
+    colorBorder: "rgba(0,0,0,0.2)",
+    heroImage: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=80",
+    enables: [
+      {
+        icon: <BarChart2 size={20} />,
+        title: "Real-Time Energy Monitoring",
+        desc: "Track energy consumption instantly and gain actionable visibility into utility usage.",
+        highlights: [
+          "Live sub-metering across EB, DG, Solar, and Battery Backup",
+          "Granular load profile curves down to 1-minute intervals",
+          "Phase-wise voltage, current, power factor & harmonic tracking",
+          "Custom threshold alerts for over-consumption & low power factor"
+        ]
+      },
+      {
+        icon: <Receipt size={20} />,
+        title: "Automated Tenant Billing",
+        desc: "Generate accurate, automated bills while reducing manual calculations and billing errors.",
+        highlights: [
+          "Flexible tariff structures (TOD, Flat, Slab, Common Area Allocation)",
+          "Automated monthly/weekly invoice PDF generation & email delivery",
+          "Integrated online payment gateway & tenant portal options",
+          "Eliminates billing disputes and manual meter reading walks"
+        ]
+      },
+      {
+        icon: <Layers size={20} />,
+        title: "Multi-Utility Management",
+        desc: "Bring electricity, water, and gas consumption together through a unified monitoring and billing platform.",
+        highlights: [
+          "Single dashboard for Electricity, Water, Gas, and Diesel Usage",
+          "Smart water meter integration for tenant & common area supply",
+          "Gas volume temperature/pressure compensated flow metering",
+          "Unified utility statement for multi-tenant portfolios"
+        ]
+      },
+      {
+        icon: <Thermometer size={20} />,
+        title: "Cooling & BTU Meter Integration",
+        desc: "Support precise cooling-system measurement and billing through BTU meter integration.",
+        highlights: [
+          "Chilled water thermal energy (BTU/TR) precise consumption tracking",
+          "Fair cost distribution for centralized chiller plant usage",
+          "Delta-T performance diagnostics for cooling coil efficiency",
+          "Ideal for commercial IT parks, malls, and mixed-use towers"
+        ]
+      },
+      {
+        icon: <RefreshCw size={20} />,
+        title: "BMS & BACnet Connectivity",
+        desc: "Connect with modern Building Management Systems through BACnet integration for centralised monitoring and control.",
+        highlights: [
+          "Native BACnet IP & Modbus gateway compatibility",
+          "Bi-directional sync with central BMS supervisory software",
+          "Centralised alarm log aggregation across all utility meters",
+          "Plug-and-play setup with existing smart meters"
+        ]
+      },
+      {
+        icon: <TrendingUp size={20} />,
+        title: "Energy Optimisation & ISO 50001",
+        desc: "Use consumption insights to identify inefficiencies, improve operational decisions, and reduce unnecessary energy costs.",
+        highlights: [
+          "ISO 50001 audit-ready energy baseline & EnPI reports",
+          "Specific Energy Consumption (SEC) benchmarking per sq. ft.",
+          "Identify ghost loads, off-hour waste, and phase imbalance",
+          "Verifiable ROI tracking for energy conservation measures (ECMs)"
+        ]
+      }
+    ]
+  };
+
   return (
     <section id={p.id} className="container max-w-6xl mx-auto px-6">
       {/* Header */}
       <motion.div variants={fadeUp} className="text-center mb-14">
         <Badge label={p.badge} color={p.color} muted={p.colorMuted} border={p.colorBorder} />
         <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-none mt-5 mb-4" style={{ color: p.color }}>{p.name}</h2>
-        <p className="text-lg md:text-xl text-neutral-300 font-medium max-w-2xl mx-auto">{p.tagline}</p>
+        <p className="text-lg md:text-xl text-[#333333] font-medium max-w-3xl mx-auto leading-relaxed">{p.tagline}</p>
       </motion.div>
 
       {/* Hero — content left, image right */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mb-16">
         <motion.div variants={fadeUp} className="space-y-6 order-2 lg:order-1">
-          <p className="text-neutral-400 leading-relaxed text-[0.95rem]">{p.description}</p>
-          <StatGrid stats={p.stats} color={p.color} muted={p.colorMuted} border={p.colorBorder} />
-          {/* Trusted clients ticker */}
-          <div>
-            <p className="text-[0.65rem] font-bold uppercase tracking-widest text-neutral-600 mb-2">Trusted By</p>
-            <div className="flex flex-wrap gap-2">
-              {p.clients.map((c, i) => (
-                <span key={i} className="text-[0.7rem] font-semibold px-2.5 py-1 rounded-full"
-                  style={{ background: p.colorMuted, color: p.color, border: `0.5px solid ${p.colorBorder}` }}>{c}</span>
-              ))}
-            </div>
+          <p className="text-[#222222] leading-relaxed text-[0.95rem]">{p.description}</p>
+          <div className="p-5 rounded-2xl border bg-white/70 space-y-2 shadow-sm" style={{ borderColor: p.colorBorder }}>
+            <p className="text-xs font-bold uppercase tracking-wider text-[#111111]">Built for Commercial, Utility & Multi-Tenant Properties</p>
+            <p className="text-xs text-[#333333] leading-relaxed">
+              PROsmart eliminates manual spreadsheet work, prevents revenue leakage, and gives property managers total clarity over multi-utility consumption.
+            </p>
           </div>
           <MetalButton href="https://prosmartenergy.io/book-demo" target="_blank" variant="primary">
-            Book a Demo <ArrowRight size={15} />
+            Explore PROsmart <ArrowRight size={15} />
           </MetalButton>
         </motion.div>
 
@@ -261,53 +375,91 @@ function ProSmartEnergySection() {
           style={{ borderColor: p.colorBorder }}>
           <img src={p.heroImage} alt={p.name} className="w-full h-full object-cover" />
           <div className="absolute inset-0" style={{ background: `linear-gradient(225deg, ${p.colorMuted} 0%, transparent 55%)` }} />
-          {/* Live stats overlay */}
           <div className="absolute top-4 right-4 flex flex-col gap-2">
-            <div className="text-[0.65rem] font-bold px-3 py-1.5 rounded-full backdrop-blur-md"
-              style={{ background: "rgba(0,0,0,0.65)", border: `0.5px solid ${p.colorBorder}`, color: p.color }}>
-              ● LIVE CONSUMPTION 847 kWh ↓18%
+            <div className="text-[0.65rem] font-bold px-3 py-1.5 rounded-full backdrop-blur-md bg-white/85 border border-black/10 text-[#111111]">
+              ● REAL-TIME MONITORING ACTIVE
             </div>
-            <div className="text-[0.65rem] font-bold px-3 py-1.5 rounded-full backdrop-blur-md"
-              style={{ background: "rgba(0,0,0,0.65)", border: `0.5px solid ${p.colorBorder}`, color: "#fff" }}>
-              2,341 Tenants Billed · 100% Auto
+            <div className="text-[0.65rem] font-bold px-3 py-1.5 rounded-full backdrop-blur-md bg-white/85 border border-black/10 text-[#111111]">
+              Electricity · Water · Gas · BTU
             </div>
           </div>
         </motion.div>
       </div>
 
-      {/* Features */}
+      {/* What PROsmart Enables */}
       <div className="mb-14">
-        <p className="text-xs font-bold uppercase tracking-widest text-neutral-500 mb-6">Platform Features</p>
+        <div className="text-center max-w-xl mx-auto mb-8">
+          <p className="text-xs font-bold uppercase tracking-widest text-neutral-500 mb-2">Capabilities</p>
+          <h3 className="text-2xl md:text-3xl font-bold text-[#111111]">What PROsmart Enables</h3>
+        </div>
         <motion.div variants={{ show: { transition: { staggerChildren: 0.07 } } }}
           initial="hidden" whileInView="show" viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {p.features.map((f, i) => (
-            <FeatureCard key={i} {...f} color={p.color} muted={p.colorMuted} border={p.colorBorder} />
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {p.enables.map((f, i) => (
+            <FeatureCardDetailed key={i} {...f} color={p.color} muted={p.colorMuted} border={p.colorBorder} />
           ))}
         </motion.div>
       </div>
+    </section>
+  );
+}
 
-      {/* How It Works */}
-      <div className="mb-14">
-        <p className="text-xs font-bold uppercase tracking-widest text-neutral-500 mb-6">From Meter to Invoice — Fully Automated</p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {p.steps.map((s, i) => (
-            <StepCard key={i} {...s} color={p.color} border={p.colorBorder} muted={p.colorMuted} />
-          ))}
+// ═══════════════════════════════════════════════════════════════════════════════
+// SECTION 3 — Why Probiz Energy AI (14+ Years Experience)
+// ═══════════════════════════════════════════════════════════════════════════════
+function WhyProbizSection() {
+  const points = [
+    {
+      title: "Centralised Visibility",
+      desc: "Bring critical building information into one intelligent environment.",
+      detail: "Single-pane-of-glass dashboard across all HVAC, electrical, water, and security infrastructure."
+    },
+    {
+      title: "Real-Time Intelligence",
+      desc: "Access live energy and operational information for faster, data-driven decisions.",
+      detail: "Sub-second sensor streaming with real-time anomaly alerts to prevent unexpected outages."
+    },
+    {
+      title: "Automated Operations",
+      desc: "Reduce repetitive manual work and improve operational efficiency.",
+      detail: "Closed-loop automated setpoint tuning, automated tenant invoicing, and scheduled diagnostics."
+    },
+    {
+      title: "Predictive Insights",
+      desc: "Move beyond historical reporting with proactive intelligence and predictive analysis.",
+      detail: "Machine-learning models anticipate peak loads, equipment failure risks, and seasonal shifts."
+    },
+    {
+      title: "Sustainable Performance",
+      desc: "Improve energy efficiency while supporting long-term sustainability objectives.",
+      detail: "Verifiable carbon footprint tracking, GRESB/LEED data support, and ISO 50001 compliance."
+    },
+  ];
+
+  return (
+    <section className="container max-w-6xl mx-auto px-6 mb-16">
+      <div className="rounded-3xl p-8 md:p-12 border bg-white/80 backdrop-blur-md shadow-xl" style={{ borderColor: "rgba(0,0,0,0.15)" }}>
+        <div className="max-w-3xl mx-auto text-center mb-10 space-y-4">
+          <Badge label="14+ Years of Industry Leadership" color="#111111" muted="rgba(0,0,0,0.06)" border="rgba(0,0,0,0.2)" />
+          <h2 className="text-3xl md:text-4xl font-extrabold text-[#111111] tracking-tight">Why Probiz Energy AI?</h2>
+          <p className="text-[#333333] text-sm md:text-base leading-relaxed">
+            With <strong>14+ years of experience in energy management and smart infrastructure</strong>, Probiz Automation brings deep industry knowledge together with modern digital technologies. Our strength lies in creating seamless integrations between systems, devices, data, and people — helping organisations build reliable and efficient smart infrastructure.
+          </p>
+          <p className="text-[#111111] font-bold text-base md:text-lg pt-2 italic">
+            "We don't just connect technology. We connect your entire building into one intelligent ecosystem."
+          </p>
         </div>
-      </div>
 
-      {/* Real-world impact */}
-      <div>
-        <p className="text-xs font-bold uppercase tracking-widest text-neutral-500 mb-6">Real-World Impact</p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {p.impacts.map((item, i) => (
-            <motion.div key={i} variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}
-              className="rounded-2xl p-6" style={{ background: p.colorMuted, border: `0.5px solid ${p.colorBorder}` }}>
-              <span className="text-[0.6rem] font-black uppercase tracking-widest" style={{ color: p.color }}>{item.tag}</span>
-              <p className="text-white font-extrabold text-xl mt-2 mb-2">{item.kpi}</p>
-              <p className="text-neutral-400 text-xs leading-relaxed">{item.desc}</p>
-            </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 pt-4">
+          {points.map((pt, i) => (
+            <div key={i} className="p-4 rounded-xl border bg-white/60 space-y-1.5 flex flex-col justify-between" style={{ borderColor: "rgba(0,0,0,0.1)" }}>
+              <div>
+                <Award size={18} className="text-[#111111] mb-2" />
+                <h4 className="text-xs font-bold text-[#111111] mb-1">{pt.title}</h4>
+                <p className="text-[0.72rem] text-[#333333] font-medium leading-relaxed mb-2">{pt.desc}</p>
+              </div>
+              <p className="text-[0.66rem] text-neutral-500 pt-2 border-t border-black/10">{pt.detail}</p>
+            </div>
           ))}
         </div>
       </div>
@@ -319,30 +471,28 @@ function ProSmartEnergySection() {
 // PAGE
 // ═══════════════════════════════════════════════════════════════════════════════
 const navProducts = [
-  { id: "probiz-energy",   label: "Probiz Energy AI", color: "#10b981", icon: <Cpu size={14} /> },
-  { id: "prosmart-energy", label: "ProSmart Energy",  color: "#3b82f6", icon: <BarChart2 size={14} /> },
+  { id: "probiz-energy", label: "Probiz Energy AI", color: "#111111", icon: <Cpu size={14} /> },
+  { id: "prosmart",      label: "PROsmart",        color: "#222222", icon: <BarChart2 size={14} /> },
 ];
 
 export default function ProductsPage() {
   return (
     <>
-      <main className="min-h-screen pt-32 pb-24 text-white">
+      <main className="min-h-screen pt-32 pb-24 text-[#111111]">
 
         {/* ── Page Hero ─────────────────────────────────────────────────────── */}
         <motion.section
           initial="hidden" animate="show" variants={{ show: { transition: { staggerChildren: 0.1 } } }}
           className="container max-w-6xl mx-auto px-6 mb-16 text-center">
           <motion.div variants={fadeUp}>
-            <span className="text-xs font-semibold tracking-wide uppercase text-[#10b981] bg-[#10b981]/10 py-1.5 px-4 rounded-full border border-[#10b981]/20">
-              Product Suite
+            <span className="text-xs font-semibold tracking-wide uppercase text-[#333333] bg-[#333333]/10 py-1.5 px-4 rounded-full border border-[#333333]/20">
+              Probiz Energy AI Suite
             </span>
             <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-none mt-5 mb-5">
-              Two Platforms.<br className="hidden md:block" /> One Ecosystem.
+              The Smartest Brain<br className="hidden md:block" /> for Your Building.
             </h1>
-            <p className="text-neutral-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-              Probiz Automation's suite covers AI-powered BMS command control
-              and next-gen energy monitoring with automated tenant billing —
-              built to work independently or as a unified stack.
+            <p className="text-[#333333] text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+              Transform the way your building operates with Probiz Energy AI — combining AI analytics, IoT connectivity, real-time monitoring, automation, and intelligent energy management into one connected ecosystem.
             </p>
           </motion.div>
 
@@ -358,7 +508,7 @@ export default function ProductsPage() {
           </motion.div>
         </motion.section>
 
-        {/* ── Product 1: Probiz Energy ──────────────────────────────────────── */}
+        {/* ── Product 1: Probiz Energy AI ───────────────────────────────────── */}
         <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.08 }}
           variants={{ show: { transition: { staggerChildren: 0.1 } } }}>
           <ProbizEnergySection />
@@ -366,28 +516,35 @@ export default function ProductsPage() {
 
         <SectionDivider />
 
-        {/* ── Product 2: ProSmart Energy ────────────────────────────────────── */}
+        {/* ── Product 2: PROsmart ───────────────────────────────────────────── */}
         <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.08 }}
           variants={{ show: { transition: { staggerChildren: 0.1 } } }}>
-          <ProSmartEnergySection />
+          <PROsmartSection />
         </motion.div>
 
-        {/* ── Bottom CTA ────────────────────────────────────────────────────── */}
-        <div className="mt-28 container max-w-6xl mx-auto px-6">
+        <SectionDivider />
+
+        {/* ── Why Probiz Energy AI ──────────────────────────────────────────── */}
+        <WhyProbizSection />
+
+        {/* ── Bottom Call To Action ─────────────────────────────────────────── */}
+        <div className="container max-w-6xl mx-auto px-6">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp}
             className="rounded-3xl p-10 md:p-16 text-center"
-            style={{ background: "linear-gradient(135deg, rgba(16,185,129,0.07), rgba(59,130,246,0.08))", border: "0.5px solid var(--color-border)" }}>
-            <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Not Sure Which Product Fits?</h2>
-            <p className="text-neutral-400 max-w-lg mx-auto mb-8 leading-relaxed">
-              Our team will assess your facility, sales operation, or energy footprint and recommend
-              the right platform — or a combination. Free consultation, no commitment.
+            style={{ background: "linear-gradient(135deg, rgba(229,229,229,0.8), rgba(245,245,245,0.6))", border: "0.5px solid var(--color-border)" }}>
+            <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-[#111111]">Your Building Is Already Generating Data.</h2>
+            <p className="text-lg md:text-xl text-[#333333] font-medium max-w-xl mx-auto mb-6">
+              It's time to make that data intelligent.
+            </p>
+            <p className="text-sm text-[#333333] max-w-lg mx-auto mb-8 leading-relaxed">
+              Experience the power of Probiz Energy AI. Monitor smarter. Operate better. Optimise continuously.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <MetalButton href="mailto:info@probiztech.com" variant="primary">
-                Talk to Our Team <ArrowRight size={15} />
+                Book a Platform Demo <ArrowRight size={15} />
               </MetalButton>
-              <MetalButton href="/#solutions" variant="secondary">
-                Explore Solutions
+              <MetalButton href="/#contact" variant="secondary">
+                Contact Our Experts
               </MetalButton>
             </div>
           </motion.div>

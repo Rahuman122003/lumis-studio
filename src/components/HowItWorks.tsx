@@ -148,9 +148,9 @@ export default function HowItWorks() {
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.5, delay: i * 0.09 }}
                 style={{
-                  background: active === i ? "#FFFFFF" : "var(--color-bg)",
-                  color: active === i ? "#080808" : "var(--color-text)",
-                  border: `0.5px solid ${active === i ? "#FFFFFF" : "var(--color-border)"}`,
+                  background: active === i ? "#111111" : "var(--color-surface)",
+                  color: active === i ? "#FFFFFF" : "var(--color-text)",
+                  border: `0.5px solid ${active === i ? "#111111" : "var(--color-border)"}`,
                   borderRadius: 14,
                   padding: "20px 22px",
                   textAlign: "left",
@@ -159,29 +159,29 @@ export default function HowItWorks() {
                   width: "100%",
                 }}
               >
-                <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: active === i ? 10 : 0 }}>
+                <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 14, marginBottom: active === i ? 10 : 0 }}>
                   <span
                     style={{
                       fontWeight: 700,
                       fontSize: "0.68rem",
-                      color: active === i ? "rgba(8, 8, 8, 0.55)" : "var(--color-muted)",
+                      color: active === i ? "rgba(255, 255, 255, 0.7)" : "var(--color-muted)",
                       letterSpacing: "0.06em",
                       minWidth: 20,
                     }}
                   >
                     {step.num}
                   </span>
-                  <span className="card-title" style={{ color: "inherit" }}>{step.title}</span>
+                  <span className="card-title" style={{ color: active === i ? "#FFFFFF" : "#111111" }}>{step.title}</span>
                   {active === i && (
                     <span
                       style={{
                         marginLeft: "auto",
-                        background: "rgba(0,0,0,0.07)",
-                        color: "rgba(0,0,0,0.7)",
+                        background: "rgba(255,255,255,0.15)",
+                        color: "#FFFFFF",
                         borderRadius: 999,
                         padding: "3px 12px",
                         fontSize: "0.65rem",
-                        fontWeight: 600,
+                        fontWeight: 700,
                         letterSpacing: "0.06em",
                         textTransform: "uppercase",
                         whiteSpace: "nowrap",
@@ -198,7 +198,7 @@ export default function HowItWorks() {
                     transition={{ duration: 0.3 }}
                     style={{
                       fontSize: "0.875rem",
-                      color: "rgba(255,255,255,0.65)",
+                      color: "#E5E5E5",
                       lineHeight: 1.65,
                       marginTop: 2,
                     }}

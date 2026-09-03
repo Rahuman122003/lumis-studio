@@ -41,10 +41,10 @@ export default function Ticker() {
         <span
           style={{
             fontSize: "0.68rem",
-            fontWeight: 600,
+            fontWeight: 700,
             textTransform: "uppercase",
             letterSpacing: "0.12em",
-            color: "rgba(255,255,255,0.35)",
+            color: "#111111",
           }}
         >
           Trusted by Industry Leaders
@@ -74,15 +74,15 @@ export default function Ticker() {
                 width: "auto",
                 maxWidth: 140,
                 objectFit: "contain",
-                filter: "brightness(0) invert(1)",
-                opacity: 0.4,
+                filter: "brightness(0)",
+                opacity: 0.85,
                 transition: "opacity 0.3s ease",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.opacity = "0.95";
+                e.currentTarget.style.opacity = "1";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.opacity = "0.4";
+                e.currentTarget.style.opacity = "0.85";
               }}
             />
           </div>

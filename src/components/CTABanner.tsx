@@ -29,7 +29,7 @@ export default function CTABanner() {
       onMouseMove={handleMouseMove}
       className="cta-glow"
       style={{
-        background: "#080808",
+        background: "var(--color-bg)",
         padding: "var(--space-2xl) 0",
       }}
     >
@@ -50,7 +50,7 @@ export default function CTABanner() {
           initial={{ opacity: 0, y: 14 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.45 }}
-          style={{ color: "#fde68a", marginBottom: 20 }}
+          style={{ color: "#333333", marginBottom: 20 }}
         >
           GET STARTED
         </motion.span>
@@ -63,7 +63,7 @@ export default function CTABanner() {
             fontSize: "clamp(2.2rem, 5vw, 4rem)",
             fontWeight: 800,
             lineHeight: 1.08,
-            color: "#10b981",
+            color: "#111111",
             letterSpacing: "-0.025em",
             marginBottom: 24,
             maxWidth: 660,
@@ -77,7 +77,7 @@ export default function CTABanner() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.16 }}
           style={{
-            color: "rgba(255,255,255,0.5)",
+            color: "#222222",
             fontSize: "1.05rem",
             maxWidth: 480,
             lineHeight: 1.65,
@@ -107,7 +107,7 @@ export default function CTABanner() {
           transition={{ duration: 0.6, delay: 0.38 }}
           style={{
             fontSize: "0.76rem",
-            color: "rgba(255,255,255,0.28)",
+            color: "#444444",
             marginTop: 28,
             letterSpacing: "0.02em",
           }}
