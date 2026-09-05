@@ -67,44 +67,41 @@ export function MetalButton({
   }
 
   // --- Primary variant: liquid metal shader wrapper ---
-  // Extract plain text from children for the shader label
+  // Primary variant: liquid metal shader wrapper with bright white text & icons
   const label = extractText(children);
 
-  // The shader button is purely visual — we layer a real <a> or <button> on top
-  // so navigation and semantics still work correctly.
-  return (
-    <div className={`relative inline-flex items-center justify-center ${className}`} style={style}>
-      {/* Shader visual — pointer-events none so the real element captures clicks */}
-      <div style={{ pointerEvents: "none" }} aria-hidden>
-        <LiquidMetalButton label={label} />
-      </div>
-
-      {/* Real interactive element stretched over the shader */}
-      {href ? (
-        isExternal ? (
-          <a
-            href={href}
-            target={target || "_blank"}
-            rel="noopener noreferrer"
-            className="absolute inset-0 rounded-full z-50"
-            aria-label={label}
-          />
-        ) : (
-          <Link
-            href={href}
-            className="absolute inset-0 rounded-full z-50"
-            aria-label={label}
-          />
-        )
-      ) : (
-        <button
-          type={type}
-          onClick={onClick}
-          disabled={disabled}
-          className="absolute inset-0 rounded-full z-50 bg-transparent border-none cursor-pointer"
+  if (href) {
+    if (isExternal) {
+      return (
+        <a
+          href={href}
+          target={target || "_blank"}
+          rel="noopener noreferrer"
+          className={`inline-flex items-center justify-center text-white no-underline ${className}`}
+          style={style}
           aria-label={label}
-        />
-      )}
+        >
+          <LiquidMetalButton label={label}>{children}</LiquidMetalButton>
+        </a>
+      );
+    }
+    return (
+      <Link
+        href={href}
+        className={`inline-flex items-center justify-center text-white no-underline ${className}`}
+        style={style}
+        aria-label={label}
+      >
+        <LiquidMetalButton label={label}>{children}</LiquidMetalButton>
+      </Link>
+    );
+  }
+
+  return (
+    <div className={`inline-flex items-center justify-center ${className}`} style={style}>
+      <LiquidMetalButton label={label} onClick={onClick}>
+        {children}
+      </LiquidMetalButton>
     </div>
   );
 }

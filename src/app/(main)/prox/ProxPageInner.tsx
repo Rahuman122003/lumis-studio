@@ -160,22 +160,13 @@ function ParallaxRoleCard({
   role: (typeof proxRoles)[0];
   index: number;
 }) {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: cardRef,
-    offset: ["start end", "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [60, -60]);
-  const springY = useSpring(y, { stiffness: 100, damping: 30 });
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0.6]);
-  const scale = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.92, 1, 1, 0.96]);
-
   return (
     <motion.div
-      ref={cardRef}
-      style={{ y: springY, opacity, scale }}
-      className="group relative"
+      initial={{ opacity: 0, y: 35 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+      className="group relative transform-gpu"
     >
       <div
         className="relative rounded-3xl overflow-hidden transition-all duration-500"
@@ -201,7 +192,7 @@ function ParallaxRoleCard({
         />
 
         <div className="grid grid-cols-1 md:grid-cols-5 items-center gap-0">
-          {/* Left — Mascot with parallax */}
+          {/* Left — Mascot */}
           <div
             className="relative md:col-span-2 flex items-end justify-center overflow-hidden"
             style={{ minHeight: 280 }}
@@ -248,7 +239,7 @@ function ParallaxRoleCard({
             >
               {role.title}
             </h3>
-            <p className="text-neutral-400 text-sm md:text-[0.95rem] leading-relaxed mb-6 max-w-md">
+            <p className="text-neutral-200 text-sm md:text-[0.95rem] leading-relaxed mb-6 max-w-md">
               {role.desc}
             </p>
 
@@ -258,7 +249,7 @@ function ParallaxRoleCard({
                 className="w-2 h-2 rounded-full animate-pulse"
                 style={{ background: role.color }}
               />
-              <span className="text-xs text-neutral-500 font-medium">
+              <span className="text-xs text-neutral-400 font-medium">
                 Active & Ready
               </span>
             </div>
@@ -506,11 +497,11 @@ export default function ProxPage() {
             >
               <motion.div variants={fadeUp}>
                 <span
-                  className="inline-block text-xs font-bold uppercase tracking-widest py-1.5 px-4 rounded-full mb-6 backdrop-blur-md"
+                  className="inline-block text-xs font-extrabold uppercase tracking-widest py-1.5 px-4 rounded-full mb-6 backdrop-blur-md"
                   style={{
-                    color: "#10b981",
-                    background: "rgba(16,185,129,0.08)",
-                    border: "1px solid rgba(16,185,129,0.2)",
+                    color: "#1E3A8A",
+                    background: "rgba(30, 58, 138, 0.12)",
+                    border: "1px solid rgba(30, 58, 138, 0.3)",
                   }}
                 >
                   Probiz Technologies · Virtual Mascot
@@ -577,10 +568,10 @@ export default function ProxPage() {
 
               <motion.p
                 variants={fadeUp}
-                className="text-lg md:text-xl text-neutral-400 leading-relaxed max-w-xl mx-auto mb-8"
+                className="text-lg md:text-xl text-black leading-relaxed max-w-xl mx-auto mb-8 font-medium"
               >
                 Your virtual friend and digital companion at{" "}
-                <span className="text-white font-semibold">
+                <span className="text-black font-extrabold">
                   Probiz Technologies
                 </span>
                 . I&apos;m here to guide, assist, and make every interaction
@@ -591,10 +582,10 @@ export default function ProxPage() {
                 variants={fadeUp}
                 className="flex gap-4 justify-center flex-wrap"
               >
-                <MetalButton href="/#contact" variant="primary">
+                <MetalButton href="/contact" variant="primary">
                   Chat with Prox <MessageCircle size={15} />
                 </MetalButton>
-                <MetalButton href="/products" variant="secondary">
+                <MetalButton href="/products" variant="secondary" className="!text-white !border-white hover:!bg-white/10">
                   Explore Products <ArrowRight size={15} />
                 </MetalButton>
               </motion.div>
@@ -626,8 +617,7 @@ export default function ProxPage() {
 
         {/* ── WHAT PROX DOES — Glassmorphism Cards ─────────────────────────── */}
         <section
-          className="section-pad relative"
-          style={{ background: "var(--color-surface)" }}
+          className="section-pad relative bg-[#0a0a0a]"
         >
           {/* Section glow */}
           <div
@@ -646,11 +636,11 @@ export default function ProxPage() {
               variants={{ show: { transition: { staggerChildren: 0.08 } } }}
             >
               <motion.div variants={fadeUp} className="text-center mb-14">
-                <span className="section-label mb-3 block">What Prox Does</span>
-                <h2 className="section-h2">
+                <span className="text-[#10b981] text-xs font-bold uppercase tracking-widest mb-3 block">What Prox Does</span>
+                <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
                   Built to assist. Designed to delight.
                 </h2>
-                <p className="text-neutral-400 max-w-xl mx-auto mt-3 text-[0.95rem] leading-relaxed">
+                <p className="text-neutral-300 max-w-xl mx-auto mt-4 text-base leading-relaxed">
                   Prox isn&apos;t just a mascot — it&apos;s a fully capable
                   virtual assistant that understands Probiz inside out and adapts
                   to whatever you need.
@@ -665,8 +655,8 @@ export default function ProxPage() {
                     className="group relative p-6 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1"
                     style={{
                       background:
-                        "linear-gradient(145deg, rgba(18,18,18,0.9), rgba(8,8,8,0.95))",
-                      border: "0.5px solid var(--color-border)",
+                        "linear-gradient(145deg, rgba(24,24,27,0.9), rgba(12,12,14,0.95))",
+                      border: "0.5px solid rgba(255,255,255,0.12)",
                       backdropFilter: "blur(12px)",
                     }}
                   >
@@ -693,10 +683,10 @@ export default function ProxPage() {
                         {c.icon}
                       </div>
                       <div>
-                        <h3 className="text-white font-semibold text-sm mb-1.5">
+                        <h3 className="text-white font-semibold text-base mb-1.5">
                           {c.title}
                         </h3>
-                        <p className="text-neutral-500 text-xs leading-relaxed">
+                        <p className="text-neutral-300 text-xs leading-relaxed">
                           {c.desc}
                         </p>
                       </div>
@@ -709,7 +699,7 @@ export default function ProxPage() {
         </section>
 
         {/* ── ROLES GALLERY — Parallax Scroll Cards ──────────────────────────── */}
-        <section className="py-24 md:py-32 relative">
+        <section className="py-24 md:py-32 relative bg-[#060606]">
           {/* Vertical line accent */}
           <div
             className="absolute left-1/2 top-0 bottom-0 w-[1px] -translate-x-1/2 pointer-events-none hidden lg:block"
@@ -728,14 +718,14 @@ export default function ProxPage() {
               className="text-center mb-20"
             >
               <motion.div variants={fadeUp}>
-                <span className="section-label mb-3 block">Prox Roles</span>
+                <span className="text-[#10b981] text-xs font-bold uppercase tracking-widest mb-3 block">Prox Roles</span>
               </motion.div>
-              <motion.h2 variants={fadeUp} className="section-h2">
+              <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
                 Many faces. One mission.
               </motion.h2>
               <motion.p
                 variants={fadeUp}
-                className="text-neutral-400 max-w-lg mx-auto mt-3 text-[0.95rem] leading-relaxed"
+                className="text-neutral-300 max-w-lg mx-auto mt-4 text-base leading-relaxed"
               >
                 Prox shows up differently depending on what you need — always
                 helpful, always friendly.
@@ -777,7 +767,7 @@ export default function ProxPage() {
                 <p className="text-white font-bold text-lg mb-2 relative z-10">
                   More roles coming soon
                 </p>
-                <p className="text-neutral-500 text-sm max-w-sm mx-auto relative z-10">
+                <p className="text-neutral-300 text-sm max-w-sm mx-auto relative z-10">
                   Prox is always evolving with new skills, personas, and
                   capabilities to serve you better.
                 </p>
@@ -788,8 +778,7 @@ export default function ProxPage() {
 
         {/* ── LIVE CHAT DEMO ─────────────────────────────────────────────── */}
         <section
-          className="section-pad relative"
-          style={{ background: "var(--color-surface)" }}
+          className="section-pad relative bg-[#0a0a0a]"
         >
           {/* Ambient glow */}
           <div
@@ -808,13 +797,13 @@ export default function ProxPage() {
                 viewport={{ once: true, amount: 0.3 }}
                 variants={fadeUp}
               >
-                <span className="section-label mb-3 block">
+                <span className="text-[#10b981] text-xs font-bold uppercase tracking-widest mb-3 block">
                   See Prox in Action
                 </span>
-                <h2 className="section-h2 mb-4">
+                <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
                   Real conversations. Real answers.
                 </h2>
-                <p className="text-neutral-400 text-[0.95rem] leading-relaxed mb-6">
+                <p className="text-neutral-300 text-base leading-relaxed mb-6">
                   Prox understands the full Probiz product suite and responds in
                   seconds — whether you&apos;re a facility manager, developer,
                   or just curious.
@@ -832,7 +821,7 @@ export default function ProxPage() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.1, duration: 0.4 }}
-                      className="flex items-center gap-2.5 text-sm text-neutral-300"
+                      className="flex items-center gap-2.5 text-sm text-neutral-200"
                     >
                       <ChevronRight
                         size={14}
@@ -842,7 +831,7 @@ export default function ProxPage() {
                     </motion.li>
                   ))}
                 </ul>
-                <MetalButton href="/#contact" variant="primary">
+                <MetalButton href="/contact" variant="primary">
                   Talk to Prox Now <ArrowRight size={14} />
                 </MetalButton>
               </motion.div>
@@ -928,15 +917,15 @@ export default function ProxPage() {
               <h2 className="text-3xl md:text-4xl font-extrabold mb-4 relative z-10">
                 Ready to meet Prox?
               </h2>
-              <p className="text-neutral-400 max-w-md mx-auto mb-8 leading-relaxed relative z-10">
+              <p className="text-neutral-200 max-w-md mx-auto mb-8 leading-relaxed relative z-10">
                 Jump into a conversation and experience what it feels like when
                 your building tech actually talks back — helpfully.
               </p>
               <div className="flex flex-wrap gap-4 justify-center relative z-10">
-                <MetalButton href="/#contact" variant="primary">
+                <MetalButton href="/contact" variant="primary">
                   Start a Conversation <MessageCircle size={15} />
                 </MetalButton>
-                <MetalButton href="/products" variant="secondary">
+                <MetalButton href="/products" variant="secondary" className="!text-white !border-white hover:!bg-white/10">
                   See Our Products
                 </MetalButton>
               </div>

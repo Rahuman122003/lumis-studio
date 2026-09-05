@@ -15,22 +15,22 @@ export default function AboutPage() {
 
   const values = [
     {
-      icon: <Zap className="text-[#10b981]" size={24} />,
+      icon: <Zap className="text-[#047857]" size={24} />,
       title: "Innovation First",
       desc: "We continuously push the boundaries of AI, edge computing, and smart sensor integration.",
     },
     {
-      icon: <Shield className="text-[#10b981]" size={24} />,
+      icon: <Shield className="text-[#047857]" size={24} />,
       title: "Reliability Built-in",
       desc: "Our local rules engines guarantee building safety and operational continuity, online or offline.",
     },
     {
-      icon: <Award className="text-[#10b981]" size={24} />,
+      icon: <Award className="text-[#047857]" size={24} />,
       title: "Sustainability Centered",
       desc: "Every line of code we write is optimized to help our partners track, lower, and predict energy use.",
     },
     {
-      icon: <Heart className="text-[#10b981]" size={24} />,
+      icon: <Heart className="text-[#047857]" size={24} />,
       title: "Customer Oriented",
       desc: "We prioritize seamless, open solutions (BACnet, Modbus) that free clients from proprietary vendor lock-in.",
     },
@@ -47,7 +47,7 @@ export default function AboutPage() {
             transition={{ duration: 0.5 }}
             className="space-y-6"
           >
-            <span className="text-xs font-semibold tracking-wide uppercase text-[#10b981] bg-[#10b981]/10 py-1.5 px-4 rounded-full border border-[#10b981]/20">
+            <span className="text-xs font-semibold tracking-wide uppercase text-[#047857] bg-[#047857]/10 py-1.5 px-4 rounded-full border border-[#047857]/20">
               Our Identity
             </span>
             <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-none mt-4">
@@ -108,7 +108,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 bg-[#E5E5E5]/80 border border-[#8E8E8E] rounded-3xl p-8 text-center backdrop-blur-md">
             {stats.map((stat, idx) => (
               <div key={idx} className="space-y-1">
-                <p className="text-3xl md:text-4xl font-extrabold text-[#10b981]">
+                <p className="text-3xl md:text-4xl font-extrabold text-[#047857]">
                   {stat.value}
                 </p>
                 <p className="text-xs text-[#333333] font-medium uppercase tracking-wider">

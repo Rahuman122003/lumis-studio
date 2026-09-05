@@ -13,7 +13,7 @@ const navItems = [
   { name: "Work",         url: "/#how-it-works", icon: Workflow },
   { name: "Case Studies", url: "/#case-studies", icon: TrendingUp },
   { name: "Prox",         url: "/prox",          icon: Bot },
-  { name: "Blog",         url: "https://blogsbyprobiz.vercel.app/probiz-automation/blogs", icon: BookOpen },
+  { name: "Blog",         url: "/blog",          icon: BookOpen },
   { name: "FAQ",          url: "/#faq",          icon: HelpCircle },
 ];
 
@@ -138,7 +138,7 @@ export default function Navbar() {
             <span className="hidden sm:inline-block xl:hidden font-bold text-[#111111] text-base tracking-tight whitespace-nowrap">Probiz</span>
           </a>
           <div style={{ display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}>
-            <a href="/#contact" className="btn-primary" style={{ fontSize: "0.82rem", padding: "10px 22px" }}>
+            <a href="/contact" className="btn-primary" style={{ fontSize: "0.82rem", padding: "10px 22px" }}>
               Get Started
             </a>
           </div>

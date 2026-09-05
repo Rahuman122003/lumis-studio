@@ -7,12 +7,14 @@ import { useEffect, useMemo, useRef, useState } from "react";
 
 interface LiquidMetalButtonProps {
   label?: string;
+  children?: React.ReactNode;
   onClick?: () => void;
   viewMode?: "text" | "icon";
 }
 
 export function LiquidMetalButton({
   label = "Get Started",
+  children,
   onClick,
   viewMode = "text",
 }: LiquidMetalButtonProps) {
@@ -29,8 +31,10 @@ export function LiquidMetalButton({
     if (viewMode === "icon") {
       return { width: 46, height: 46, innerWidth: 42, innerHeight: 42, shaderWidth: 46, shaderHeight: 46 };
     }
-    return { width: 142, height: 46, innerWidth: 138, innerHeight: 42, shaderWidth: 142, shaderHeight: 46 };
-  }, [viewMode]);
+    const textLength = label ? label.length : 12;
+    const calcWidth = Math.max(150, textLength * 9 + 48);
+    return { width: calcWidth, height: 46, innerWidth: calcWidth - 4, innerHeight: 42, shaderWidth: calcWidth, shaderHeight: 46 };
+  }, [viewMode, label]);
 
   useEffect(() => {
     const styleId = "shader-canvas-style-exploded";
@@ -84,10 +88,14 @@ export function LiquidMetalButton({
       <div style={{ perspective: "1000px", perspectiveOrigin: "50% 50%" }}>
         <div style={{ position: "relative", width: dimensions.width, height: dimensions.height, transformStyle: "preserve-3d", transition: spring, transform: "none" }}>
 
-          {/* Label / Icon layer */}
+          {/* Label / Icon layer — text color pure white */}
           <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", gap: 6, transformStyle: "preserve-3d", transition: spring, transform: "translateZ(20px)", zIndex: 30, pointerEvents: "none" }}>
-            {viewMode === "icon" && <Sparkles size={16} style={{ color: "#666", filter: "drop-shadow(0px 1px 2px rgba(0,0,0,.5))", transition: spring }} />}
-            {viewMode === "text" && <span style={{ fontSize: 14, color: "#666", fontWeight: 400, textShadow: "0px 1px 2px rgba(0,0,0,.5)", transition: spring, whiteSpace: "nowrap" }}>{label}</span>}
+            {viewMode === "icon" && <Sparkles size={16} style={{ color: "#FFFFFF", filter: "drop-shadow(0px 1px 2px rgba(0,0,0,.6))", transition: spring }} />}
+            {viewMode === "text" && (
+              <span className="inline-flex items-center gap-1.5" style={{ fontSize: 14, color: "#FFFFFF", fontWeight: 600, textShadow: "0px 1px 2px rgba(0,0,0,.8)", transition: spring, whiteSpace: "nowrap" }}>
+                {children || label}
+              </span>
+            )}
           </div>
 
           {/* Dark pill */}
@@ -105,7 +113,7 @@ export function LiquidMetalButton({
           {/* Click target */}
           <button ref={buttonRef} onClick={handleClick} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onMouseDown={() => setIsPressed(true)} onMouseUp={() => setIsPressed(false)}
             style={{ position: "absolute", inset: 0, background: "transparent", border: "none", cursor: "pointer", outline: "none", zIndex: 40, transformStyle: "preserve-3d", transform: "translateZ(25px)", transition: spring, overflow: "hidden", borderRadius: 100, width: dimensions.width, height: dimensions.height }}
-            aria-label={label}>
+            aria-label={typeof label === "string" ? label : "button"}>
             {ripples.map((r) => (
               <span key={r.id} style={{ position: "absolute", left: r.x, top: r.y, width: 20, height: 20, borderRadius: "50%", background: "radial-gradient(circle, rgba(255,255,255,.4) 0%, rgba(255,255,255,0) 70%)", pointerEvents: "none", animation: "ripple-animation 0.6s ease-out" }} />
             ))}

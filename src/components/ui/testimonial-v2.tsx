@@ -144,7 +144,7 @@ const TestimonialsColumn = ({
                     margin: 0,
                   }}
                 >
-                  "{text}"
+                  &quot;{text}&quot;
                 </p>
                 <footer
                   style={{

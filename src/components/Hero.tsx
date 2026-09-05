@@ -50,8 +50,7 @@ export default function Hero() {
             width: "100%",
             height: "100%",
             objectFit: "cover",
-            opacity: 0.35,
-            mixBlendMode: "luminosity",
+            opacity: 0.45,
           }}
           ref={(el) => {
             if (el) {
@@ -59,16 +58,16 @@ export default function Hero() {
             }
           }}
         >
-          <source src="/herov.webm" type="video/webm" />
           <source src="/herobg.mp4" type="video/mp4" />
+          <source src="/herov.webm" type="video/webm" />
         </video>
-        {/* Dark gradient overlay for readability */}
+        {/* Soft gradient overlay for crisp text contrast */}
         <div
           style={{
             position: "absolute",
             inset: 0,
             background:
-              "linear-gradient(to bottom, rgba(181,181,181,0.2) 0%, rgba(181,181,181,0.75) 60%, rgba(181,181,181,1) 100%)",
+              "linear-gradient(to bottom, rgba(181,181,181,0.15) 0%, rgba(181,181,181,0.65) 65%, rgba(181,181,181,1) 100%)",
           }}
         />
       </div>
@@ -103,7 +102,7 @@ export default function Hero() {
               letterSpacing: "0.12em",
             }}
           >
-             AI-Powered Building Automation & Energy Intelligence
+            AI-Powered Building Automation & Energy Intelligence
           </span>
         </motion.div>
 
@@ -118,14 +117,14 @@ export default function Hero() {
             width: "100%",
           }}
         >
-           Smart Buildings.{" "}
+          Smart Buildings.{" "}
           <AnimatedTextCycle
             words={cyclingWords}
             interval={2500}
             className="hero-cycle-word"
           />
           <br />
-           Connected Infrastructure.
+          Connected Infrastructure.
         </motion.h1>
 
         {/* Sub-headline */}
@@ -180,10 +179,10 @@ export default function Hero() {
           }}
         >
           {[
-            { val: "200+",  label: "Buildings Managed" },
+            { val: "200+", label: "Buildings Managed" },
             { val: "99.9%", label: "System Uptime" },
-            { val: "35%",   label: "Energy Cost Reduction" },
-            { val: "18+",   label: "Industries Served" },
+            { val: "35%", label: "Energy Cost Reduction" },
+            { val: "18+", label: "Industries Served" },
           ].map((s) => (
             <div key={s.label} style={{ textAlign: "center", padding: "var(--space-sm) 0" }}>
               <div

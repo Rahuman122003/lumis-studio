@@ -263,87 +263,77 @@ function ProbizEnergySection() {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// SECTION 2 — PROsmart (Effortless Energy Monitoring & Billing)
+// SECTION 2 — Probiz Facility Management (4 Main Pillars)
 // ═══════════════════════════════════════════════════════════════════════════════
-function PROsmartSection() {
+function FacilityManagementSection() {
   const p = {
-    id: "prosmart",
-    badge: "Next-Generation Energy Monitoring & Billing",
-    name: "PROsmart",
-    tagline: "Effortless Energy Monitoring & Tenant Billing within the Probiz Ecosystem.",
+    id: "facility-management",
+    badge: "Enterprise Building Operations & Maintenance Platform",
+    name: "Facility Management",
+    tagline: "Unify Asset Tracking, Preventive Maintenance, Work Orders, and Occupant Requests into One Intelligent Operations Engine.",
     description:
-      "PROsmart is the next-generation energy monitoring and tenant billing platform within the Probiz ecosystem. Designed to simplify the way energy is measured, monitored, billed, and managed, PROsmart replaces complex manual processes with a transparent and automated digital experience. Whether you're managing a commercial property, utility operation, or multi-tenant building, PROsmart provides the visibility and accuracy required for modern energy management.",
-    color: "#222222",
+      "Probiz Facility Management is an end-to-end digital operations suite engineered to modernise commercial building maintenance. Built for facility directors, chief engineers, and field technicians, the platform eliminates paper-based friction and spreadsheet silos by connecting asset life cycles, preventive servicing schedules, work order dispatches, and tenant work requests into one real-time operational ecosystem.",
+    color: "#111111",
     colorMuted: "rgba(0,0,0,0.06)",
     colorBorder: "rgba(0,0,0,0.2)",
     heroImage: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=80",
-    enables: [
+    stats: [
+      { val: "45%", label: "Breakdown Cost Reduction" },
+      { val: "99.8%", label: "SLA Compliance Rate" },
+      { val: "3.5x", label: "Faster Ticket Resolution" },
+      { val: "100%", label: "Digital Asset Audit Trace" },
+    ],
+    fourPillars: [
       {
-        icon: <BarChart2 size={20} />,
-        title: "Real-Time Energy Monitoring",
-        desc: "Track energy consumption instantly and gain actionable visibility into utility usage.",
+        icon: <Database size={20} />,
+        title: "1. Asset Management (Digital Twin Registry)",
+        desc: "Gain total visibility over every electrical panel, chiller, AHU, pump, elevator, and physical asset in your property portfolio.",
         highlights: [
-          "Live sub-metering across EB, DG, Solar, and Battery Backup",
-          "Granular load profile curves down to 1-minute intervals",
-          "Phase-wise voltage, current, power factor & harmonic tracking",
-          "Custom threshold alerts for over-consumption & low power factor"
-        ]
-      },
-      {
-        icon: <Receipt size={20} />,
-        title: "Automated Tenant Billing",
-        desc: "Generate accurate, automated bills while reducing manual calculations and billing errors.",
-        highlights: [
-          "Flexible tariff structures (TOD, Flat, Slab, Common Area Allocation)",
-          "Automated monthly/weekly invoice PDF generation & email delivery",
-          "Integrated online payment gateway & tenant portal options",
-          "Eliminates billing disputes and manual meter reading walks"
-        ]
-      },
-      {
-        icon: <Layers size={20} />,
-        title: "Multi-Utility Management",
-        desc: "Bring electricity, water, and gas consumption together through a unified monitoring and billing platform.",
-        highlights: [
-          "Single dashboard for Electricity, Water, Gas, and Diesel Usage",
-          "Smart water meter integration for tenant & common area supply",
-          "Gas volume temperature/pressure compensated flow metering",
-          "Unified utility statement for multi-tenant portfolios"
-        ]
-      },
-      {
-        icon: <Thermometer size={20} />,
-        title: "Cooling & BTU Meter Integration",
-        desc: "Support precise cooling-system measurement and billing through BTU meter integration.",
-        highlights: [
-          "Chilled water thermal energy (BTU/TR) precise consumption tracking",
-          "Fair cost distribution for centralized chiller plant usage",
-          "Delta-T performance diagnostics for cooling coil efficiency",
-          "Ideal for commercial IT parks, malls, and mixed-use towers"
+          "Universal Asset Registry: Centralized digital repository for serial numbers, installation dates, model specifications, and locations.",
+          "QR & Barcode Tagging: Scan physical equipment tags with mobile devices for instant access to service logs, manuals, and technical schematics.",
+          "Lifecycle & Financial Tracking: Monitor asset depreciation, warranty expirations, replacement costs, and CapEx budget forecasts.",
+          "Health & Reliability Metrics: Real-time tracking of Mean Time Between Failures (MTBF), Mean Time To Repair (MTTR), and health scorecards."
         ]
       },
       {
         icon: <RefreshCw size={20} />,
-        title: "BMS & BACnet Connectivity",
-        desc: "Connect with modern Building Management Systems through BACnet integration for centralised monitoring and control.",
+        title: "2. Preventive Management (Servicing & PM Automation)",
+        desc: "Transition from costly reactive fire-fighting to structured, automated preventive and predictive maintenance schedules.",
         highlights: [
-          "Native BACnet IP & Modbus gateway compatibility",
-          "Bi-directional sync with central BMS supervisory software",
-          "Centralised alarm log aggregation across all utility meters",
-          "Plug-and-play setup with existing smart meters"
+          "Automated PM Scheduling: Generate recurring servicing tasks automatically based on runtime hours, calendar intervals, or meter readings.",
+          "Digital SOP Checklists: Standardized step-by-step procedures ensuring technicians adhere strictly to safety and maintenance guidelines.",
+          "Telemetry Condition Triggers: IoT sensor integrations trigger automatic preventive maintenance upon detecting abnormal vibration, thermal, or pressure spikes.",
+          "Extended Equipment Lifespan: Prevents minor component wear from turning into catastrophic equipment failures, extending asset life by up to 30%."
         ]
       },
       {
-        icon: <TrendingUp size={20} />,
-        title: "Energy Optimisation & ISO 50001",
-        desc: "Use consumption insights to identify inefficiencies, improve operational decisions, and reduce unnecessary energy costs.",
+        icon: <Settings size={20} />,
+        title: "3. Work Order Management (Smart Dispatch & SLA Tracking)",
+        desc: "Streamline engineering workflows from ticket generation to technician assignment, spare parts usage, and resolution verification.",
         highlights: [
-          "ISO 50001 audit-ready energy baseline & EnPI reports",
-          "Specific Energy Consumption (SEC) benchmarking per sq. ft.",
-          "Identify ghost loads, off-hour waste, and phase imbalance",
-          "Verifiable ROI tracking for energy conservation measures (ECMs)"
+          "Automated Dispatching: Convert BMS alarms, sensor thresholds, or supervisor requests into structured digital work orders instantly.",
+          "Skill & Location-Based Routing: Auto-assign work orders to the nearest qualified technician based on expertise and current building zone.",
+          "Spare Parts & Inventory Sync: Track spare parts consumption per work order with automatic inventory deduction and low-stock reordering alerts.",
+          "Real-Time SLA & Sign-offs: Monitor real-time response times, SLA deadlines, digital customer sign-offs, and quality assurance audits."
+        ]
+      },
+      {
+        icon: <Bell size={20} />,
+        title: "4. Work Request Management (Tenant & Occupant Portal)",
+        desc: "Empower tenants and facility occupants with an intuitive self-service portal to report issues and track resolution live.",
+        highlights: [
+          "Multi-Channel Reporting: Mobile web app, desktop portal, and QR code scan-to-report in common areas, conference rooms, and restrooms.",
+          "Automated Triage & Approval: Smart rules classify, prioritize (Emergency vs Routine), and route requests to the correct supervisor for approval.",
+          "Live Status Transparency: Occupants receive automated real-time SMS, Email, and Push notifications as their request progresses from Received to Resolved.",
+          "Tenant Satisfaction Analytics: Post-resolution feedback ratings, Net Promoter Score (NPS) tracking, and service level benchmark analytics."
         ]
       }
+    ],
+    workflowSteps: [
+      { step: "01", title: "Request & Detection", desc: "Occupants scan QR code or IoT sensors detect an anomaly to log a request instantly." },
+      { step: "02", title: "Automated Triage", desc: "System checks priority, SLA deadlines, and asset warranty history to create a Work Order." },
+      { step: "03", title: "Smart Technician Dispatch", desc: "Assigned to the nearest qualified engineer with SOP digital checklists on mobile." },
+      { step: "04", title: "Resolution & Asset Update", desc: "Technician completes work, logs spare parts used, updates asset history, and obtains digital sign-off." }
     ]
   };
 
@@ -360,14 +350,25 @@ function PROsmartSection() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mb-16">
         <motion.div variants={fadeUp} className="space-y-6 order-2 lg:order-1">
           <p className="text-[#222222] leading-relaxed text-[0.95rem]">{p.description}</p>
+          
+          {/* Detailed stats grid */}
+          <div className="grid grid-cols-2 gap-3">
+            {p.stats.map((s, i) => (
+              <div key={i} className="rounded-xl p-4 text-center border" style={{ background: p.colorMuted, borderColor: p.colorBorder }}>
+                <div className="text-2xl font-extrabold tracking-tight" style={{ color: p.color }}>{s.val}</div>
+                <div className="text-[0.66rem] text-[#333333] font-medium uppercase tracking-wider mt-1">{s.label}</div>
+              </div>
+            ))}
+          </div>
+
           <div className="p-5 rounded-2xl border bg-white/70 space-y-2 shadow-sm" style={{ borderColor: p.colorBorder }}>
-            <p className="text-xs font-bold uppercase tracking-wider text-[#111111]">Built for Commercial, Utility & Multi-Tenant Properties</p>
+            <p className="text-xs font-bold uppercase tracking-wider text-[#111111]">Built for Facilities, Commercial Towers & Industrial Parks</p>
             <p className="text-xs text-[#333333] leading-relaxed">
-              PROsmart eliminates manual spreadsheet work, prevents revenue leakage, and gives property managers total clarity over multi-utility consumption.
+              Probiz Facility Management replaces paper logs and fragmented tools with an end-to-end digital command center for engineering and service teams.
             </p>
           </div>
-          <MetalButton href="https://prosmartenergy.io/book-demo" target="_blank" variant="primary">
-            Explore PROsmart <ArrowRight size={15} />
+          <MetalButton href="/contact" variant="primary">
+            Request Facility Management Demo <ArrowRight size={15} />
           </MetalButton>
         </motion.div>
 
@@ -377,28 +378,45 @@ function PROsmartSection() {
           <div className="absolute inset-0" style={{ background: `linear-gradient(225deg, ${p.colorMuted} 0%, transparent 55%)` }} />
           <div className="absolute top-4 right-4 flex flex-col gap-2">
             <div className="text-[0.65rem] font-bold px-3 py-1.5 rounded-full backdrop-blur-md bg-white/85 border border-black/10 text-[#111111]">
-              ● REAL-TIME MONITORING ACTIVE
+              ● 4 PILLARS INTEGRATED
             </div>
             <div className="text-[0.65rem] font-bold px-3 py-1.5 rounded-full backdrop-blur-md bg-white/85 border border-black/10 text-[#111111]">
-              Electricity · Water · Gas · BTU
+              Assets · Maintenance · Work Orders · Requests
             </div>
           </div>
         </motion.div>
       </div>
 
-      {/* What PROsmart Enables */}
-      <div className="mb-14">
-        <div className="text-center max-w-xl mx-auto mb-8">
-          <p className="text-xs font-bold uppercase tracking-widest text-neutral-500 mb-2">Capabilities</p>
-          <h3 className="text-2xl md:text-3xl font-bold text-[#111111]">What PROsmart Enables</h3>
+      {/* The 4 Main Pillars Showcase */}
+      <div className="mb-16">
+        <div className="text-center max-w-xl mx-auto mb-10">
+          <p className="text-xs font-bold uppercase tracking-widest text-neutral-500 mb-2">Core Operations Architecture</p>
+          <h3 className="text-2xl md:text-3xl font-bold text-[#111111]">The 4 Main Pillars of Facility Management</h3>
         </div>
         <motion.div variants={{ show: { transition: { staggerChildren: 0.07 } } }}
           initial="hidden" whileInView="show" viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {p.enables.map((f, i) => (
+          className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {p.fourPillars.map((f, i) => (
             <FeatureCardDetailed key={i} {...f} color={p.color} muted={p.colorMuted} border={p.colorBorder} />
           ))}
         </motion.div>
+      </div>
+
+      {/* End-to-End Workflow Execution */}
+      <div className="p-8 md:p-10 rounded-3xl border bg-white/60 shadow-lg mb-16" style={{ borderColor: p.colorBorder }}>
+        <div className="text-center max-w-xl mx-auto mb-8">
+          <p className="text-xs font-bold uppercase tracking-widest text-neutral-500 mb-1">Operational Flow</p>
+          <h3 className="text-xl md:text-2xl font-bold text-[#111111]">End-to-End Facility Issue Resolution Lifecycle</h3>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          {p.workflowSteps.map((s, idx) => (
+            <div key={idx} className="p-4 rounded-xl border bg-white/80" style={{ borderColor: "rgba(0,0,0,0.1)" }}>
+              <span className="text-xs font-black text-[#047857]">{s.step}</span>
+              <h4 className="text-sm font-bold text-[#111111] mt-1 mb-1">{s.title}</h4>
+              <p className="text-[0.72rem] text-[#333333] leading-relaxed">{s.desc}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -446,7 +464,7 @@ function WhyProbizSection() {
             With <strong>14+ years of experience in energy management and smart infrastructure</strong>, Probiz Automation brings deep industry knowledge together with modern digital technologies. Our strength lies in creating seamless integrations between systems, devices, data, and people — helping organisations build reliable and efficient smart infrastructure.
           </p>
           <p className="text-[#111111] font-bold text-base md:text-lg pt-2 italic">
-            "We don't just connect technology. We connect your entire building into one intelligent ecosystem."
+            &quot;We don&apos;t just connect technology. We connect your entire building into one intelligent ecosystem.&quot;
           </p>
         </div>
 
@@ -471,8 +489,8 @@ function WhyProbizSection() {
 // PAGE
 // ═══════════════════════════════════════════════════════════════════════════════
 const navProducts = [
-  { id: "probiz-energy", label: "Probiz Energy AI", color: "#111111", icon: <Cpu size={14} /> },
-  { id: "prosmart",      label: "PROsmart",        color: "#222222", icon: <BarChart2 size={14} /> },
+  { id: "probiz-energy",        label: "Probiz Energy AI",     color: "#111111", icon: <Cpu size={14} /> },
+  { id: "facility-management", label: "Facility Management",  color: "#222222", icon: <Layers size={14} /> },
 ];
 
 export default function ProductsPage() {
@@ -486,13 +504,13 @@ export default function ProductsPage() {
           className="container max-w-6xl mx-auto px-6 mb-16 text-center">
           <motion.div variants={fadeUp}>
             <span className="text-xs font-semibold tracking-wide uppercase text-[#333333] bg-[#333333]/10 py-1.5 px-4 rounded-full border border-[#333333]/20">
-              Probiz Energy AI Suite
+              Probiz Enterprise Suite
             </span>
             <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-none mt-5 mb-5">
               The Smartest Brain<br className="hidden md:block" /> for Your Building.
             </h1>
             <p className="text-[#333333] text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-              Transform the way your building operates with Probiz Energy AI — combining AI analytics, IoT connectivity, real-time monitoring, automation, and intelligent energy management into one connected ecosystem.
+              Transform the way your building operates with Probiz Energy AI & Facility Management — combining AI analytics, asset management, preventive servicing, work orders, and tenant requests into one connected ecosystem.
             </p>
           </motion.div>
 
@@ -516,10 +534,10 @@ export default function ProductsPage() {
 
         <SectionDivider />
 
-        {/* ── Product 2: PROsmart ───────────────────────────────────────────── */}
+        {/* ── Product 2: Facility Management ────────────────────────────────── */}
         <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.08 }}
           variants={{ show: { transition: { staggerChildren: 0.1 } } }}>
-          <PROsmartSection />
+          <FacilityManagementSection />
         </motion.div>
 
         <SectionDivider />
@@ -534,16 +552,16 @@ export default function ProductsPage() {
             style={{ background: "linear-gradient(135deg, rgba(229,229,229,0.8), rgba(245,245,245,0.6))", border: "0.5px solid var(--color-border)" }}>
             <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-[#111111]">Your Building Is Already Generating Data.</h2>
             <p className="text-lg md:text-xl text-[#333333] font-medium max-w-xl mx-auto mb-6">
-              It's time to make that data intelligent.
+              It&apos;s time to make that data intelligent.
             </p>
             <p className="text-sm text-[#333333] max-w-lg mx-auto mb-8 leading-relaxed">
               Experience the power of Probiz Energy AI. Monitor smarter. Operate better. Optimise continuously.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <MetalButton href="mailto:info@probiztech.com" variant="primary">
+              <MetalButton href="/contact" variant="primary">
                 Book a Platform Demo <ArrowRight size={15} />
               </MetalButton>
-              <MetalButton href="/#contact" variant="secondary">
+              <MetalButton href="/contact" variant="secondary">
                 Contact Our Experts
               </MetalButton>
             </div>

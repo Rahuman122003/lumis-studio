@@ -14,27 +14,36 @@ export default function AnimatedTextCycle({
   interval = 5000,
   className = "",
 }: AnimatedTextCycleProps) {
+  const [mounted, setMounted] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [width, setWidth] = useState("auto");
   const measureRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   // Measure width of the current word
   useEffect(() => {
+    if (!mounted) return;
     if (measureRef.current) {
       const elements = measureRef.current.children;
       if (elements.length > currentIndex) {
         const newWidth = elements[currentIndex].getBoundingClientRect().width;
-        setWidth(`${newWidth}px`);
+        if (newWidth > 0) {
+          setWidth(`${newWidth}px`);
+        }
       }
     }
-  }, [currentIndex]);
+  }, [currentIndex, mounted]);
 
   useEffect(() => {
+    if (!mounted) return;
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % words.length);
     }, interval);
     return () => clearInterval(timer);
-  }, [interval, words.length]);
+  }, [interval, words.length, mounted]);
 
   const containerVariants = {
     hidden: {
@@ -79,23 +88,29 @@ export default function AnimatedTextCycle({
       {/* Animated cycling word */}
       <motion.span
         className="relative inline-block"
-        animate={{
-          width,
-          transition: {
-            type: "spring",
-            stiffness: 150,
-            damping: 15,
-            mass: 1.2,
-          },
-        }}
+        suppressHydrationWarning
+        animate={
+          mounted
+            ? {
+                width,
+                transition: {
+                  type: "spring",
+                  stiffness: 150,
+                  damping: 15,
+                  mass: 1.2,
+                },
+              }
+            : {}
+        }
       >
         <AnimatePresence mode="wait" initial={false}>
           <motion.span
             key={currentIndex}
             className={className}
+            suppressHydrationWarning
             style={{ display: "inline-block", whiteSpace: "nowrap", fontWeight: 800 }}
             variants={containerVariants}
-            initial="hidden"
+            initial={mounted ? "hidden" : false}
             animate="visible"
             exit="exit"
           >

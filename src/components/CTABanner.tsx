@@ -93,10 +93,10 @@ export default function CTABanner() {
           transition={{ duration: 0.5, delay: 0.24 }}
           style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}
         >
-          <MetalButton href="mailto:hello@probiz.io" variant="primary" external>
+          <MetalButton href="/contact" variant="primary">
             Book a Live Demo <ArrowRight size={15} />
           </MetalButton>
-          <MetalButton href="#solutions" variant="secondary">
+          <MetalButton href="/contact" variant="secondary">
             Talk to Our Experts
           </MetalButton>
         </motion.div>

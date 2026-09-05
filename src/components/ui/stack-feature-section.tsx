@@ -21,12 +21,9 @@ import {
   SiRedux,
   SiTypescript,
   SiFacebook,
+  SiPostgresql,
+  SiMongodb,
 } from "react-icons/si";
-
-const fallbackUrls = [
-  "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
-  "https://upload.wikimedia.org/wikipedia/commons/9/96/Among_Us_icon.png",
-];
 
 const iconConfigs = [
   { Icon: FaReact, color: "#61DAFB" },
@@ -44,8 +41,8 @@ const iconConfigs = [
   { Icon: FaGoogle, color: "#DB4437" },
   { Icon: FaApple, color: "#FFFFFF" },
   { Icon: SiFacebook, color: "#1877F2" },
-  { Icon: null, img: fallbackUrls[0] },
-  { Icon: null, img: fallbackUrls[1] },
+  { Icon: SiPostgresql, color: "#4169E1" },
+  { Icon: SiMongodb, color: "#47A248" },
 ];
 
 export default function FeatureSection() {
@@ -57,7 +54,7 @@ export default function FeatureSection() {
     <section className="relative max-w-6xl mx-auto my-32 pl-10 flex flex-col md:flex-row items-center justify-between min-h-[30rem] border border-neutral-900 bg-[#121212] overflow-hidden rounded-3xl p-8 md:p-12">
       {/* Left side: Heading and Text */}
       <div className="w-full md:w-1/2 z-10 text-left mb-8 md:mb-0">
-        <span className="text-xs font-semibold tracking-wide uppercase text-[#10b981] bg-neutral-800/50 py-1 px-4 rounded-full">
+        <span className="text-xs font-semibold tracking-wide uppercase text-[#047857] bg-neutral-800/50 py-1 px-4 rounded-full">
           TECHNOLOGY STACK
         </span>
         <h2 className="text-4xl sm:text-5xl font-bold mt-6 mb-4 text-white leading-tight">
@@ -123,18 +120,10 @@ export default function FeatureSection() {
                           transform: "translate(-50%, -50%)",
                         }}
                       >
-                        {cfg.Icon ? (
-                          <cfg.Icon
-                            className="w-7 h-7"
-                            style={{ color: cfg.color }}
-                          />
-                        ) : (
-                          <img
-                            src={cfg.img}
-                            alt="icon"
-                            className="w-7 h-7 object-contain"
-                          />
-                        )}
+                        <cfg.Icon
+                          className="w-7 h-7"
+                          style={{ color: cfg.color }}
+                        />
                       </div>
                     );
                   })}

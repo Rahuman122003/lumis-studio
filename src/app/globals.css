@@ -124,13 +124,17 @@ main {
   color: #111111;
 }
 
-/* Cycling word inside h1 — underline accent */
+/* Cycling word inside h1 — underline accent & pastel gradient */
 .hero-cycle-word {
   text-decoration: underline;
-  text-decoration-color: rgba(0, 0, 0, 0.45);
+  text-decoration-color: rgba(240, 160, 240, 0.45);
   text-underline-offset: 8px;
   text-decoration-thickness: 1.5px;
-  color: #222222;
+  background: linear-gradient(135deg, #C0A8F0, #F8F88A, #F8E0A0, #F0A0F0, #80C0F8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }
 
 .section-h2 {

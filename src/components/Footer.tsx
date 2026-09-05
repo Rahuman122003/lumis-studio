@@ -65,7 +65,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#E5E5E5] relative h-fit rounded-3xl border border-[#8E8E8E] overflow-hidden m-4 sm:m-8 z-10 shadow-xl">
+    <footer className="bg-[#0A0A0A] text-white relative h-fit rounded-3xl border border-neutral-800 overflow-hidden m-4 sm:m-8 z-10 shadow-2xl">
       <div className="max-w-7xl mx-auto p-8 sm:p-14 z-40 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 md:gap-8 lg:gap-12 pb-6">
           {/* Brand section */}
@@ -80,19 +80,19 @@ export default function Footer() {
                   objectFit: "contain",
                 }}
               />
-              <span className="text-[#111111] font-bold text-base tracking-tight">
+              <span className="text-white font-bold text-base tracking-tight">
                 Probiz Automation
               </span>
             </div>
-            <p className="text-sm leading-relaxed text-[#333333] max-w-xs">
+            <p className="text-sm leading-relaxed text-neutral-400 max-w-xs">
               Intelligent building and industrial automation platform for the next generation of smart infrastructure.
             </p>
             
             {/* Newsletter input nested in brand section */}
             <div className="pt-4">
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#333333] block mb-2">Newsletter</span>
+              <span className="text-xs font-semibold uppercase tracking-wider text-neutral-400 block mb-2">Newsletter</span>
               {subscribed ? (
-                <div className="text-xs text-[#111111] bg-white border border-[#8E8E8E] rounded-full py-2 px-4 w-fit">
+                <div className="text-xs text-white bg-neutral-900 border border-neutral-700 rounded-full py-2 px-4 w-fit">
                   ✓ You&apos;re subscribed
                 </div>
               ) : (
@@ -103,7 +103,7 @@ export default function Footer() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="border border-[#8E8E8E] bg-white text-[#111111] text-xs rounded-full py-2 px-4 outline-none focus:border-black transition-colors flex-1"
+                    className="border border-neutral-800 bg-neutral-900 text-white placeholder-neutral-500 text-xs rounded-full py-2 px-4 outline-none focus:border-neutral-500 transition-colors flex-1"
                   />
                   <MetalButton type="submit" variant="primary">Subscribe</MetalButton>
                 </form>
@@ -114,7 +114,7 @@ export default function Footer() {
           {/* Footer link sections */}
           {footerLinks.map((section) => (
             <div key={section.title}>
-              <h4 className="text-[#111111] text-sm font-bold uppercase tracking-wider mb-5">
+              <h4 className="text-white text-sm font-bold uppercase tracking-wider mb-5">
                 {section.title}
               </h4>
               <ul className="space-y-3">
@@ -122,12 +122,12 @@ export default function Footer() {
                   <li key={link.label} className="relative w-fit">
                     <a
                       href={link.href}
-                      className="text-sm text-[#333333] hover:text-[#111111] font-semibold transition-colors"
+                      className="text-sm text-neutral-400 hover:text-white font-semibold transition-colors"
                     >
                       {link.label}
                     </a>
                     {link.pulse && (
-                      <span className="absolute top-1/2 -translate-y-1/2 -right-3 w-1.5 h-1.5 rounded-full bg-black animate-pulse"></span>
+                      <span className="absolute top-1/2 -translate-y-1/2 -right-3 w-1.5 h-1.5 rounded-full bg-[#047857] animate-pulse"></span>
                     )}
                   </li>
                 ))}
@@ -143,23 +143,23 @@ export default function Footer() {
           </div>
         </div>
 
-        <hr className="border-t border-[#8E8E8E] my-6" />
+        <hr className="border-t border-neutral-800 my-6" />
 
         {/* Footer bottom */}
-        <div className="flex flex-col md:flex-row justify-between items-center text-xs text-[#333333] space-y-4 md:space-y-0 relative z-40">
+        <div className="flex flex-col md:flex-row justify-between items-center text-xs text-neutral-400 space-y-4 md:space-y-0 relative z-40">
           {/* Copyright */}
           <p className="text-center md:text-left font-medium">
             &copy; {new Date().getFullYear()} Probiz Automation. All rights reserved.
           </p>
 
           {/* Social icons */}
-          <div className="flex space-x-5 text-[#333333]">
+          <div className="flex space-x-5 text-neutral-400">
             {socialLinks.map(({ icon, label, href }) => (
               <a
                 key={label}
                 href={href}
                 aria-label={label}
-                className="hover:text-black transition-colors"
+                className="hover:text-white transition-colors"
               >
                 {icon}
               </a>

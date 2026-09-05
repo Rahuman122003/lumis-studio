@@ -19,19 +19,19 @@ export default function ContactPage() {
 
   const contactInfo = [
     {
-      icon: <Mail className="text-[#10b981]" size={20} />,
+      icon: <Mail className="text-[#047857]" size={20} />,
       label: "Email",
       value: "info@probiztech.com",
       sub: "Sales & Support inquiries",
     },
     {
-      icon: <Phone className="text-[#10b981]" size={20} />,
+      icon: <Phone className="text-[#047857]" size={20} />,
       label: "Phone",
       value: "+1 (800) 555-0199",
       sub: "Mon - Fri, 9am - 6pm EST",
     },
     {
-      icon: <MapPin className="text-[#10b981]" size={20} />,
+      icon: <MapPin className="text-[#047857]" size={20} />,
       label: "Office",
       value: "100 Innovation Way, Suite 400",
       sub: "Tech Plaza, NY 10001",
@@ -49,7 +49,7 @@ export default function ContactPage() {
             transition={{ duration: 0.5 }}
             className="space-y-4"
           >
-            <span className="text-xs font-semibold tracking-wide uppercase text-[#10b981] bg-[#10b981]/10 py-1.5 px-4 rounded-full border border-[#10b981]/20">
+            <span className="text-xs font-semibold tracking-wide uppercase text-[#047857] bg-[#047857]/10 py-1.5 px-4 rounded-full border border-[#047857]/20">
               Get In Touch
             </span>
             <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-none mt-4">
@@ -87,8 +87,8 @@ export default function ContactPage() {
                 </div>
               ))}
 
-              <div className="p-6 bg-[#10b981]/5 border border-[#10b981]/10 rounded-2xl text-left space-y-3">
-                <div className="flex items-center gap-2 text-[#10b981] font-bold text-sm">
+              <div className="p-6 bg-[#047857]/5 border border-[#047857]/10 rounded-2xl text-left space-y-3">
+                <div className="flex items-center gap-2 text-[#047857] font-bold text-sm">
                   <MessageSquare size={16} /> Support Channels
                 </div>
                 <p className="text-xs text-[#333333] leading-relaxed">
@@ -106,7 +106,7 @@ export default function ContactPage() {
                     animate={{ opacity: 1, scale: 1 }}
                     className="text-center py-12 space-y-4"
                   >
-                    <div className="w-16 h-16 bg-[#10b981]/10 text-[#10b981] rounded-full flex items-center justify-center mx-auto border border-[#10b981]/20 text-2xl font-bold">
+                    <div className="w-16 h-16 bg-[#047857]/10 text-[#047857] rounded-full flex items-center justify-center mx-auto border border-[#047857]/20 text-2xl font-bold">
                       ✓
                     </div>
                     <h2 className="text-2xl font-bold text-[#111111]">Message Sent!</h2>
@@ -131,7 +131,7 @@ export default function ContactPage() {
                           required
                           value={form.name}
                           onChange={(e) => setForm({ ...form, name: e.target.value })}
-                          className="w-full bg-white border border-[#8E8E8E] rounded-xl py-3 px-4 text-sm text-[#111111] focus:border-[#10b981] outline-none transition-colors"
+                          className="w-full bg-white border border-[#8E8E8E] rounded-xl py-3 px-4 text-sm text-[#111111] focus:border-[#047857] outline-none transition-colors"
                           placeholder="John Doe"
                         />
                       </div>
@@ -145,7 +145,7 @@ export default function ContactPage() {
                           required
                           value={form.email}
                           onChange={(e) => setForm({ ...form, email: e.target.value })}
-                          className="w-full bg-white border border-[#8E8E8E] rounded-xl py-3 px-4 text-sm text-[#111111] focus:border-[#10b981] outline-none transition-colors"
+                          className="w-full bg-white border border-[#8E8E8E] rounded-xl py-3 px-4 text-sm text-[#111111] focus:border-[#047857] outline-none transition-colors"
                           placeholder="john@organization.com"
                         />
                       </div>
@@ -159,7 +159,7 @@ export default function ContactPage() {
                         type="text"
                         value={form.org}
                         onChange={(e) => setForm({ ...form, org: e.target.value })}
-                        className="w-full bg-white border border-[#8E8E8E] rounded-xl py-3 px-4 text-sm text-[#111111] focus:border-[#10b981] outline-none transition-colors"
+                        className="w-full bg-white border border-[#8E8E8E] rounded-xl py-3 px-4 text-sm text-[#111111] focus:border-[#047857] outline-none transition-colors"
                         placeholder="ACME Corp"
                       />
                     </div>
@@ -173,7 +173,7 @@ export default function ContactPage() {
                         rows={5}
                         value={form.msg}
                         onChange={(e) => setForm({ ...form, msg: e.target.value })}
-                        className="w-full bg-white border border-[#8E8E8E] rounded-xl py-3 px-4 text-sm text-[#111111] focus:border-[#10b981] outline-none transition-colors resize-none"
+                        className="w-full bg-white border border-[#8E8E8E] rounded-xl py-3 px-4 text-sm text-[#111111] focus:border-[#047857] outline-none transition-colors resize-none"
                         placeholder="Tell us about your building facilities (number of buildings, current controllers, BMS protocols, etc.)."
                       />
                     </div>
