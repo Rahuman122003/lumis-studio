@@ -9,12 +9,7 @@ export default function SecSection() {
   return (
     <section
       ref={ref as React.RefObject<HTMLElement>}
-      style={{
-        paddingTop: "var(--space-2xl)",
-        paddingBottom: "var(--space-2xl)",
-        background: "var(--color-bg)",
-        overflow: "hidden",
-      }}
+      className="bg-[#0A0A0A] text-white py-16 my-8 rounded-3xl border border-neutral-800 shadow-2xl overflow-hidden"
     >
       <div className="container">
         {/* Header — centred */}
@@ -25,13 +20,28 @@ export default function SecSection() {
           transition={{ duration: 0.5 }}
           style={{ marginBottom: "var(--space-lg)" }}
         >
-          <span className="section-label">PROBIZ TECHNOLOGIES</span>
-          <h2 className="section-h2" style={{ maxWidth: 640 }}>
+          <span
+            className="section-label px-3 py-1 rounded-full border border-[#10b981]/30 bg-[#10b981]/10 font-bold"
+            style={{
+              color: "#FFFFFF",
+              WebkitTextStroke: "0.8px #10b981",
+              textShadow: "0 0 10px rgba(16, 185, 129, 0.6)",
+            }}
+          >
+            PROBIZ TECHNOLOGIES
+          </span>
+          <h2
+            className="section-h2 text-white"
+            style={{
+              maxWidth: 640,
+              color: "#FFFFFF",
+            }}
+          >
             Probiz Automation: A Division of Probiz Technologies
           </h2>
           <p
             style={{
-              color: "var(--color-muted)",
+              color: "#A3A3A3",
               fontSize: "1rem",
               lineHeight: 1.65,
               maxWidth: 540,
@@ -53,9 +63,9 @@ export default function SecSection() {
               width: "100%",
               borderRadius: "16px",
               overflow: "hidden",
-              border: "0.5px solid var(--color-border)",
-              background: "rgba(255, 255, 255, 0.01)",
-              boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)",
+              border: "1px solid rgba(255, 255, 255, 0.1)",
+              background: "rgba(255, 255, 255, 0.02)",
+              boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.8)",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",

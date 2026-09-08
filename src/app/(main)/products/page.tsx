@@ -73,7 +73,7 @@ function ProbizEnergySection() {
     color: "#111111",
     colorMuted: "rgba(0,0,0,0.06)",
     colorBorder: "rgba(0,0,0,0.2)",
-    heroImage: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80",
+    heroImage: "/energy-ai-hero.png",
     stats: [
       { val: "35%", label: "Avg. Energy Cost Savings" },
       { val: "99.9%", label: "System Gateway Uptime" },

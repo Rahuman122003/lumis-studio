@@ -13,7 +13,7 @@ const navItems = [
   { name: "Work",         url: "/#how-it-works", icon: Workflow },
   { name: "Case Studies", url: "/#case-studies", icon: TrendingUp },
   { name: "Prox",         url: "/prox",          icon: Bot },
-  { name: "Blog",         url: "/blog",          icon: BookOpen },
+  { name: "Blog",         url: "https://blogsbyprobiz.vercel.app/probiz-automation/blogs", icon: BookOpen },
   { name: "FAQ",          url: "/#faq",          icon: HelpCircle },
 ];
 

@@ -1,19 +1,44 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, MessageSquare } from "lucide-react";
+import { Mail, Phone, MapPin, Send, MessageSquare, Loader2 } from "lucide-react";
 import { MetalButton } from "@/components/ui/metal-button";
+import emailjs from "@emailjs/browser";
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", org: "", msg: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (form.name && form.email) {
+    if (!form.name || !form.email) return;
+    setLoading(true);
+    setError("");
+    try {
+      await emailjs.send(
+        "service_probiz",      // Replace with your EmailJS Service ID
+        "template_contact",    // Replace with your EmailJS Template ID
+        {
+          from_name: form.name,
+          from_email: form.email,
+          organization: form.org,
+          message: form.msg,
+          to_email: "info@probizautomation.com",
+        },
+        "YOUR_PUBLIC_KEY"      // Replace with your EmailJS Public Key
+      );
       setSubmitted(true);
+      setForm({ name: "", email: "", org: "", msg: "" });
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      setError("Failed to send message. Please try again or email us directly at info@probizautomation.com.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -21,20 +46,20 @@ export default function ContactPage() {
     {
       icon: <Mail className="text-[#047857]" size={20} />,
       label: "Email",
-      value: "info@probiztech.com",
+      value: "info@probizautomation.com",
       sub: "Sales & Support inquiries",
     },
     {
       icon: <Phone className="text-[#047857]" size={20} />,
       label: "Phone",
-      value: "+1 (800) 555-0199",
-      sub: "Mon - Fri, 9am - 6pm EST",
+      value: "+91 99161 99499",
+      sub: "Mon - Fri, 9am - 6pm IST",
     },
     {
       icon: <MapPin className="text-[#047857]" size={20} />,
       label: "Office",
-      value: "100 Innovation Way, Suite 400",
-      sub: "Tech Plaza, NY 10001",
+      value: "Probiz Technologies",
+      sub: "Bengaluru, Karnataka, India",
     },
   ];
 
@@ -92,7 +117,7 @@ export default function ContactPage() {
                   <MessageSquare size={16} /> Support Channels
                 </div>
                 <p className="text-xs text-[#333333] leading-relaxed">
-                  Existing clients can also open service tickets directly through the Probiz Technologies portal or email support@probiztech.com.
+                  Existing clients can also open service tickets directly through the Probiz Technologies portal or email info@probizautomation.com.
                 </p>
               </div>
             </div>
@@ -120,7 +145,7 @@ export default function ContactPage() {
                     </div>
                   </motion.div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6 text-left">
+                  <form ref={formRef} onSubmit={handleSubmit} className="space-y-6 text-left">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <label className="text-xs font-bold uppercase tracking-wider text-[#333333]">
@@ -178,8 +203,16 @@ export default function ContactPage() {
                       />
                     </div>
 
-                    <MetalButton type="submit" variant="primary">
-                      Send Message <Send size={14} />
+                    {error && (
+                      <p className="text-red-500 text-sm bg-red-50 border border-red-200 rounded-xl py-2 px-4">{error}</p>
+                    )}
+
+                    <MetalButton type="submit" variant="primary" disabled={loading}>
+                      {loading ? (
+                        <><Loader2 size={14} className="animate-spin" /> Sending...</>
+                      ) : (
+                        <>Send Message <Send size={14} /></>
+                      )}
                     </MetalButton>
                   </form>
                 )}

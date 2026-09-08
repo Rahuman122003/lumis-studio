@@ -70,7 +70,7 @@ export default function OurProcess() {
     <section
       id="process"
       ref={ref as React.RefObject<HTMLElement>}
-      className="section-pad bg-transparent"
+      className="section-pad bg-[#0A0A0A] text-white my-8 rounded-3xl border border-neutral-800 shadow-2xl"
     >
       <div className="container">
         {/* Header */}
@@ -81,11 +81,26 @@ export default function OurProcess() {
           transition={{ duration: 0.5 }}
           style={{ marginBottom: "var(--space-md)" }}
         >
-          <span className="section-label">PROCESS ROADMAP</span>
-          <h2 className="section-h2" style={{ maxWidth: 480 }}>
+          <span
+            className="section-label px-3 py-1 rounded-full border border-[#10b981]/30 bg-[#10b981]/10 font-bold"
+            style={{
+              color: "#FFFFFF",
+              WebkitTextStroke: "0.8px #10b981",
+              textShadow: "0 0 10px rgba(16, 185, 129, 0.6)",
+            }}
+          >
+            PROCESS ROADMAP
+          </span>
+          <h2
+            className="section-h2 text-white"
+            style={{
+              maxWidth: 480,
+              color: "#FFFFFF",
+            }}
+          >
             Automation lifecycle from assessment to intelligence
           </h2>
-          <p style={{ color: "var(--color-muted)", fontSize: "0.875rem", marginTop: "12px", maxWidth: "540px" }}>
+          <p style={{ color: "#A3A3A3", fontSize: "0.875rem", marginTop: "12px", maxWidth: "540px" }}>
             Click on any outer orbit node to inspect details, completion status, energy level parameters, and connected system links.
           </p>
         </motion.div>

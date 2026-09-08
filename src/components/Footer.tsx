@@ -47,11 +47,9 @@ export default function Footer() {
     {
       title: "Resources",
       links: [
-        { label: "Documentation", href: "#" },
-        { label: "API Reference", href: "#" },
-        { label: "Platform Guides", href: "#" },
-        { label: "Partner Program", href: "#" },
-        { label: "Blog", href: "/blog" },
+        { label: "Documentation", href: "/docs" },
+        { label: "Partner Program", href: "/partner-program" },
+        { label: "Blog", href: "https://blogsbyprobiz.vercel.app/probiz-automation/blogs" },
       ],
     },
   ];

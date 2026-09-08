@@ -512,7 +512,7 @@ function EmailStep({
           <div className="relative">
             <input
               type="email"
-              placeholder="info@gmail.com"
+              placeholder="info@probizautomation.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required

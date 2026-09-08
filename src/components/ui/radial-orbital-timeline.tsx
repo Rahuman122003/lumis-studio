@@ -167,21 +167,21 @@ export default function RadialOrbitalTimeline({
             transform: `translate(${centerOffset.x}px, ${centerOffset.y}px)`,
           }}
         >
-          {/* Core Central Node — Black Orbit Core */}
-          <div className="absolute w-16 h-16 rounded-full bg-black animate-pulse flex items-center justify-center z-10 shadow-[0_0_25px_rgba(0,0,0,0.5)] border border-black">
-            <div className="absolute w-20 h-20 rounded-full border-2 border-black/40 animate-ping opacity-75"></div>
+          {/* Core Central Node */}
+          <div className="absolute w-16 h-16 rounded-full bg-[#047857] animate-pulse flex items-center justify-center z-10 shadow-[0_0_25px_rgba(16,185,129,0.5)] border border-[#10b981]">
+            <div className="absolute w-20 h-20 rounded-full border-2 border-[#10b981]/40 animate-ping opacity-75"></div>
             <div
-              className="absolute w-24 h-24 rounded-full border border-black/20 animate-ping opacity-50"
+              className="absolute w-24 h-24 rounded-full border border-[#10b981]/20 animate-ping opacity-50"
               style={{ animationDelay: "0.5s" }}
             ></div>
-            <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center text-white font-extrabold text-xs">
+            <div className="w-8 h-8 rounded-full bg-[#10b981] flex items-center justify-center text-black font-extrabold text-xs">
               <Zap size={15} />
             </div>
           </div>
 
-          {/* Central Orbit Rings — Crisp Black */}
-          <div className="absolute w-[400px] h-[400px] rounded-full border-2 border-black/60 shadow-[0_0_20px_rgba(0,0,0,0.15)] pointer-events-none"></div>
-          <div className="absolute w-[500px] h-[500px] rounded-full border border-black/30 pointer-events-none"></div>
+          {/* Central Orbit Rings */}
+          <div className="absolute w-[400px] h-[400px] rounded-full border-2 border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.05)] pointer-events-none"></div>
+          <div className="absolute w-[500px] h-[500px] rounded-full border border-white/10 pointer-events-none"></div>
 
           {timelineData.map((item, index) => {
             const position = calculateNodePosition(index, timelineData.length);
@@ -249,13 +249,13 @@ export default function RadialOrbitalTimeline({
                   <Icon size={16} />
                 </div>
 
-                {/* Node Label — High-contrast Black */}
+                {/* Node Label — High-contrast White */}
                 <div
                   className={`
                   absolute top-12 left-1/2 -translate-x-1/2 whitespace-nowrap
                   text-[11px] font-extrabold tracking-wider uppercase
                   transition-all duration-300
-                  ${isExpanded ? "text-black scale-110" : "text-black"}
+                  ${isExpanded ? "text-[#10b981] scale-110" : "text-white"}
                 `}
                 >
                   {item.title}
