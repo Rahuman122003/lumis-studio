@@ -20,23 +20,45 @@ export default function ContactPage() {
     setLoading(true);
     setError("");
     try {
+      // 1. Send Admin Notification Email (Contact Us)
       await emailjs.send(
-        "service_probiz",      // Replace with your EmailJS Service ID
-        "template_contact",    // Replace with your EmailJS Template ID
+        "service_hu3dxf5",
+        "template_fz53dsl",     // Admin Contact Us Template ID
         {
           from_name: form.name,
           from_email: form.email,
+          reply_to: form.email,
           organization: form.org,
           message: form.msg,
           to_email: "info@probizautomation.com",
+          email: form.email,
         },
-        "YOUR_PUBLIC_KEY"      // Replace with your EmailJS Public Key
+        "9fR7EoDwwA_4UhF4B"
       );
+
+      // 2. Send Auto-Reply Email to the User
+      await emailjs.send(
+        "service_hu3dxf5",
+        "template_qqkhmca",     // User Auto-Reply Template ID
+        {
+          from_name: form.name,
+          from_email: form.email,
+          to_name: form.name,
+          to_email: form.email,
+          reply_to: "info@probizautomation.com",
+          organization: form.org,
+          message: form.msg,
+          email: form.email,
+        },
+        "9fR7EoDwwA_4UhF4B"
+      );
+
       setSubmitted(true);
       setForm({ name: "", email: "", org: "", msg: "" });
-    } catch (err) {
+    } catch (err: any) {
       console.error("EmailJS error:", err);
-      setError("Failed to send message. Please try again or email us directly at info@probizautomation.com.");
+      const detail = err?.text || err?.message || "Failed to send message.";
+      setError(`EmailJS Error: ${detail}. Please check your EmailJS Service connection or email us at info@probizautomation.com.`);
     } finally {
       setLoading(false);
     }
