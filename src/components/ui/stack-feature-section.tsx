@@ -65,7 +65,7 @@ export default function FeatureSection() {
         </p>
         <div className="flex items-center gap-3">
           <Button asChild variant="default" className="rounded-full bg-white text-[#080808] hover:bg-neutral-200 font-semibold px-6 py-2">
-            <Link href="#contact">Get Started</Link>
+            <Link href="/contact">Get Started</Link>
           </Button>
           <Button asChild variant="outline" className="rounded-full border-neutral-800 text-white hover:bg-neutral-900 font-semibold px-6 py-2">
             <Link href="#solutions">Learn More</Link>

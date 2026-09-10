@@ -45,12 +45,29 @@ const partnerTiers = [
 export default function PartnerProgramPage() {
   const [form, setForm] = useState({ name: "", company: "", email: "", type: "System Integrator", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
+
+  const sanitize = (text: string) => text.replace(/<[^>]*>?/gm, "").trim();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (form.name && form.email) {
-      setSubmitted(true);
+    setError("");
+
+    const cleanName = sanitize(form.name).slice(0, 100);
+    const cleanEmail = sanitize(form.email).slice(0, 100);
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!cleanName || !cleanEmail) {
+      setError("Please fill in all required fields.");
+      return;
     }
+
+    if (!emailRegex.test(cleanEmail)) {
+      setError("Please enter a valid work email address.");
+      return;
+    }
+
+    setSubmitted(true);
   };
 
   return (
@@ -185,6 +202,10 @@ export default function PartnerProgramPage() {
                     placeholder="Tell us about your active building projects or hardware ecosystem."
                   />
                 </div>
+
+                {error && (
+                  <p className="text-red-500 text-sm bg-red-50 border border-red-200 rounded-xl py-2 px-4">{error}</p>
+                )}
 
                 <MetalButton type="submit" variant="primary">
                   Submit Partner Application <Send size={14} />

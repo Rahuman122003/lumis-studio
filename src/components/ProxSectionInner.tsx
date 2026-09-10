@@ -123,7 +123,7 @@ export default function ProxSectionInner() {
               <MetalButton href="/prox" variant="primary">
                 Meet Prox <ArrowRight size={14} />
               </MetalButton>
-              <MetalButton href="/#contact" variant="secondary">
+              <MetalButton href="/contact" variant="secondary">
                 Chat with Us
               </MetalButton>
             </div>

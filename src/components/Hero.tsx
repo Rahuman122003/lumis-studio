@@ -156,10 +156,10 @@ export default function Hero() {
             marginBottom: 72,
           }}
         >
-          <MetalButton href="#solutions" variant="primary">
+          <MetalButton href="/contact" variant="primary">
             Book a Demo <ArrowRight size={15} />
           </MetalButton>
-          <MetalButton href="#how-it-works" variant="secondary">
+          <MetalButton href="/contact" variant="secondary">
             <Play size={13} fill="currentColor" /> Schedule Consultation
           </MetalButton>
         </motion.div>

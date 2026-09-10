@@ -14,24 +14,49 @@ export default function ContactPage() {
   const [error, setError] = useState("");
   const formRef = useRef<HTMLFormElement>(null);
 
+  const sanitize = (text: string) => text.replace(/<[^>]*>?/gm, "").trim();
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name || !form.email) return;
-    setLoading(true);
     setError("");
+
+    const cleanName = sanitize(form.name).slice(0, 100);
+    const cleanEmail = sanitize(form.email).slice(0, 100);
+    const cleanOrg = sanitize(form.org).slice(0, 150);
+    const cleanMsg = sanitize(form.msg).slice(0, 2000);
+
+    if (!cleanName || !cleanEmail || !cleanMsg) {
+      setError("Please fill out all required fields.");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(cleanEmail)) {
+      setError("Please enter a valid work email address.");
+      return;
+    }
+
+    // Rate limiting cooldown protection
+    const lastSubmitted = typeof window !== "undefined" ? localStorage.getItem("last_contact_sub") : null;
+    if (lastSubmitted && Date.now() - parseInt(lastSubmitted, 10) < 30000) {
+      setError("Security Protection: Please wait 30 seconds before submitting another request.");
+      return;
+    }
+
+    setLoading(true);
     try {
       // 1. Send Admin Notification Email (Contact Us)
       await emailjs.send(
         "service_hu3dxf5",
         "template_fz53dsl",     // Admin Contact Us Template ID
         {
-          from_name: form.name,
-          from_email: form.email,
-          reply_to: form.email,
-          organization: form.org,
-          message: form.msg,
+          from_name: cleanName,
+          from_email: cleanEmail,
+          reply_to: cleanEmail,
+          organization: cleanOrg,
+          message: cleanMsg,
           to_email: "info@probizautomation.com",
-          email: form.email,
+          email: cleanEmail,
         },
         "9fR7EoDwwA_4UhF4B"
       );
@@ -41,24 +66,26 @@ export default function ContactPage() {
         "service_hu3dxf5",
         "template_qqkhmca",     // User Auto-Reply Template ID
         {
-          from_name: form.name,
-          from_email: form.email,
-          to_name: form.name,
-          to_email: form.email,
+          from_name: cleanName,
+          from_email: cleanEmail,
+          to_name: cleanName,
+          to_email: cleanEmail,
           reply_to: "info@probizautomation.com",
-          organization: form.org,
-          message: form.msg,
-          email: form.email,
+          organization: cleanOrg,
+          message: cleanMsg,
+          email: cleanEmail,
         },
         "9fR7EoDwwA_4UhF4B"
       );
 
+      if (typeof window !== "undefined") {
+        localStorage.setItem("last_contact_sub", Date.now().toString());
+      }
       setSubmitted(true);
       setForm({ name: "", email: "", org: "", msg: "" });
     } catch (err: any) {
       console.error("EmailJS error:", err);
-      const detail = err?.text || err?.message || "Failed to send message.";
-      setError(`EmailJS Error: ${detail}. Please check your EmailJS Service connection or email us at info@probizautomation.com.`);
+      setError("Unable to submit message. Please try again or email info@probizautomation.com directly.");
     } finally {
       setLoading(false);
     }

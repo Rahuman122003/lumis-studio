@@ -200,7 +200,7 @@ function ProbizEnergySection() {
             <Globe size={13} style={{ color: p.color }} />
             <span>AI + IoT + Automation + Energy Analytics + BMS Integration</span>
           </div>
-          <MetalButton href="https://prosmartenergy.io/#contact" target="_blank" variant="primary">
+          <MetalButton href="/contact" variant="primary">
             Learn More <ArrowRight size={15} />
           </MetalButton>
         </motion.div>
