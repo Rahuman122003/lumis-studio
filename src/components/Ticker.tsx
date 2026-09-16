@@ -2,19 +2,20 @@
 
 const logos = [
   { src: "/logo1.png", alt: "Client 1" },
-  { src: "/logo2.webp", alt: "Client 2" },
-  { src: "/logo3.svg.webp", alt: "Client 3" },
-  { src: "/logo4.svg", alt: "Client 4" },
-  { src: "/logo5.svg", alt: "Client 5" },
-  { src: "/logo6.png", alt: "Client 6" },
+  { src: "/logo2.png", alt: "Client 2" },
+  { src: "/logo3.png", alt: "Client 3" },
+  { src: "/logo4.svg", alt: "Client 4", height: 60 },
+  { src: "/logo5.svg", alt: "Client 5", height: 60 },
+  { src: "/logo6.png", alt: "Client 6", height: 46 },
   { src: "/logo7.png", alt: "Client 7" },
-  { src: "/logo8.webp", alt: "Client 8" },
-  { src: "/logo9.jpeg", alt: "Client 9" },
-  { src: "/logo10.webp", alt: "Client 10" },
-  { src: "/logo11.webp", alt: "Client 11" },
-  { src: "/logo12.webp", alt: "Client 12" },
+  { src: "/logo8.png", alt: "Client 8" },
+  { src: "/logo9.png", alt: "Client 9" },
+  { src: "/logo10.png", alt: "Client 10" },
+  { src: "/logo11.png", alt: "Client 11" },
+  { src: "/logo12.png", alt: "Client 12" },
   { src: "/logo13.png", alt: "Client 13" },
-];
+  { src: "/logo14.png", alt: "L&T Semiconductor Technologies" },
+] as const;
 
 export default function Ticker() {
   // Triple the logos for seamless loop
@@ -26,7 +27,7 @@ export default function Ticker() {
         borderTop: "0.5px solid var(--color-border)",
         borderBottom: "0.5px solid var(--color-border)",
         background: "var(--color-surface)",
-        padding: "20px 0",
+        padding: "24px 0",
         overflow: "hidden",
         userSelect: "none",
       }}
@@ -35,7 +36,7 @@ export default function Ticker() {
       <div
         style={{
           textAlign: "center",
-          marginBottom: 18,
+          marginBottom: 20,
         }}
       >
         <span
@@ -61,6 +62,7 @@ export default function Ticker() {
               alignItems: "center",
               justifyContent: "center",
               flexShrink: 0,
+              height: 44,
               margin: "0 32px",
             }}
           >
@@ -70,19 +72,20 @@ export default function Ticker() {
               loading="lazy"
               draggable={false}
               style={{
-                height: 44,
+                height: logo.height ?? 38,
                 width: "auto",
-                maxWidth: 140,
+                maxWidth: 150,
                 objectFit: "contain",
-                filter: "brightness(0)",
-                opacity: 0.85,
-                transition: "opacity 0.3s ease",
+                opacity: 0.9,
+                transition: "transform 0.2s ease, opacity 0.2s ease",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.opacity = "1";
+                e.currentTarget.style.transform = "scale(1.05)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.opacity = "0.85";
+                e.currentTarget.style.opacity = "0.9";
+                e.currentTarget.style.transform = "scale(1)";
               }}
             />
           </div>
