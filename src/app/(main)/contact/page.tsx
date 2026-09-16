@@ -310,7 +310,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#047857] bg-[#047857]/10 px-3 py-1 rounded-full border border-[#047857]/20 inline-block mb-1">
-                      India HQ
+                      India
                     </span>
                     <h3 className="text-base font-extrabold text-[#111111] leading-snug">
                       PROBIZ TECHNOLOGIES PVT LTD
@@ -327,7 +327,7 @@ export default function ContactPage() {
                 {/* Map Container with rounded mask & border overlay */}
                 <div className="w-full h-56 rounded-2xl overflow-hidden border border-[#8E8E8E]/60 relative mt-4 shadow-md group-hover:border-[#047857]/50 transition-colors">
                   <iframe
-                    title="India HQ Location Map"
+                    title="India Location Map"
                     width="100%"
                     height="100%"
                     style={{ border: 0, filter: "contrast(1.05) saturate(1.1)" }}

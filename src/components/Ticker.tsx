@@ -1,6 +1,12 @@
 "use client";
 
-const logos = [
+interface LogoItem {
+  src: string;
+  alt: string;
+  height?: number;
+}
+
+const logos: LogoItem[] = [
   { src: "/logo1.png", alt: "Client 1" },
   { src: "/logo2.png", alt: "Client 2" },
   { src: "/logo3.png", alt: "Client 3" },
@@ -15,7 +21,7 @@ const logos = [
   { src: "/logo12.png", alt: "Client 12" },
   { src: "/logo13.png", alt: "Client 13" },
   { src: "/logo14.png", alt: "L&T Semiconductor Technologies" },
-] as const;
+];
 
 export default function Ticker() {
   // Triple the logos for seamless loop
