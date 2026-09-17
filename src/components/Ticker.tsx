@@ -15,7 +15,7 @@ const logos: LogoItem[] = [
   { src: "/logo6.png", alt: "Client 6", height: 46 },
   { src: "/logo7.png", alt: "Client 7" },
   { src: "/logo8.png", alt: "Client 8" },
-  { src: "/logo9.png", alt: "Client 9" },
+  { src: "/logo9.jpeg", alt: "Client 9" },
   { src: "/logo10.png", alt: "Client 10" },
   { src: "/logo11.png", alt: "Client 11" },
   { src: "/logo12.png", alt: "Client 12" },
