@@ -1,9 +1,8 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
-import pcLogo from "../../../../assets/pclogo.png";
 import Footer from "@/components/Footer";
+import ProductSubnav from "@/components/ProductSubnav";
 import { motion } from "framer-motion";
 import {
   Zap, ArrowRight, BarChart2,
@@ -424,42 +423,7 @@ function FacilityManagementSection() {
   );
 }
 
-// ═══════════════════════════════════════════════════════════════════════════════
-// SECTION 3 — Probiz Controls
-// ═══════════════════════════════════════════════════════════════════════════════
-function ProbizControlsSection() {
-  return (
-    <section id="probiz-controls" aria-labelledby="probiz-controls-heading" className="container max-w-6xl mx-auto px-6 scroll-mt-28">
-      <motion.div variants={fadeUp}
-        className="grid md:grid-cols-2 gap-8 md:gap-12 items-center rounded-3xl p-8 md:p-12 border border-black/10 bg-white/80 shadow-xl">
-        <div className="flex flex-col items-center justify-center p-8 md:p-12">
-          <Image src={pcLogo} alt="Probiz Controls logo" sizes="(max-width: 768px) 80vw, 400px" className="w-full max-w-sm h-auto mix-blend-multiply" />
-          <span className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-[#555555]">PC Series Controllers</span>
-        </div>
-        <div>
-          <Badge label="Building Automation Hardware" color="#111111" muted="rgba(0,0,0,0.06)" border="rgba(0,0,0,0.2)" />
-          <h2 id="probiz-controls-heading" className="text-3xl md:text-4xl font-extrabold tracking-tight mt-5 mb-4">Probiz Controls</h2>
-          <p className="text-[#333333] text-sm md:text-base leading-relaxed mb-6">
-            Connect your building with PC Series programmable controllers and I/O modules. Explore CPU controllers, analog and digital modules for building management and automation systems.
-          </p>
-          <ul className="space-y-3 mb-8">
-            {["CPU controllers and expandable I/O modules", "BACnet and Modbus integration", "DIN rail mounting for control panels"].map((feature) => (
-              <li key={feature} className="flex items-start gap-2 text-sm text-[#333333]">
-                <CheckCircle2 size={17} className="shrink-0 mt-0.5" />
-                {feature}
-              </li>
-            ))}
-          </ul>
-          <MetalButton href="/pc-products" variant="primary">
-            Explore PC Products <ArrowRight size={15} />
-          </MetalButton>
-        </div>
-      </motion.div>
-    </section>
-  );
-}
-
-// SECTION 4 — Why Probiz Energy AI (14+ Years Experience)
+// SECTION 3 — Why Probiz Energy AI (14+ Years Experience)
 function WhyProbizSection() {
   const points = [
     {
@@ -526,13 +490,13 @@ function WhyProbizSection() {
 const navProducts = [
   { id: "probiz-energy",        label: "Probiz Energy AI",     color: "#111111", icon: <Cpu size={14} /> },
   { id: "facility-management", label: "Facility Management",  color: "#222222", icon: <Layers size={14} /> },
-  { id: "probiz-controls", label: "Probiz Controls", color: "#111111", icon: <Settings size={14} /> },
 ];
 
 export default function ProductsPage() {
   return (
     <>
-      <main className="min-h-screen pt-32 pb-24 text-[#111111]">
+      <main className="min-h-screen pt-24 sm:pt-44 pb-24 text-[#111111]">
+        <ProductSubnav />
 
         {/* ── Page Hero ─────────────────────────────────────────────────────── */}
         <motion.section
@@ -574,13 +538,6 @@ export default function ProductsPage() {
         <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.08 }}
           variants={{ show: { transition: { staggerChildren: 0.1 } } }}>
           <FacilityManagementSection />
-        </motion.div>
-
-        <SectionDivider />
-
-        {/* ── Product 3: Probiz Controls ────────────────────────────────────── */}
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.08 }}>
-          <ProbizControlsSection />
         </motion.div>
 
         <SectionDivider />

@@ -2,13 +2,13 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import emailjs from "@emailjs/browser";
 import pcLogo from "../../../../assets/pclogo.png";
 import Footer from "@/components/Footer";
+import ProductSubnav from "@/components/ProductSubnav";
 import { motion, AnimatePresence, useScroll, useTransform, useInView } from "framer-motion";
 import {
-  Download, X, ChevronDown, Cpu, Zap, Activity,
-  CheckCircle2, ArrowRight, Shield, Layers, Globe,
+  Download, ChevronDown, Cpu, Zap, Activity,
+  ArrowRight, Shield, Layers, Globe,
   Wifi, Lock, Star
 } from "lucide-react";
 
@@ -249,7 +249,7 @@ function AnimatedCounter({ value, suffix = "" }: { value: number; suffix?: strin
 // ══════════════════════════════════════════════════════════
 // PRODUCT CARD
 // ══════════════════════════════════════════════════════════
-function ProductCard({ product, onDownload }: { product: Product; onDownload: (p: Product) => void }) {
+function ProductCard({ product }: { product: Product }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(cardRef, { once: true, margin: "-60px" });
 
@@ -351,432 +351,19 @@ function ProductCard({ product, onDownload }: { product: Product; onDownload: (p
           </ul>
 
           {/* Download Button — solid black, white text, no tilt/animation */}
-          <button
+          <a
             id={`download-datasheet-${product.id}`}
-            onClick={() => onDownload(product)}
-            className="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-[0.8rem] font-bold text-white transition-opacity duration-200 hover:opacity-85"
+            href={encodeURI(product.pdf)}
+            download={`${product.model}-datasheet.pdf`}
+            className="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-[0.8rem] font-bold text-white transition-opacity duration-200 hover:opacity-85 cursor-pointer"
             style={{ background: "#111111" }}
           >
             <Download size={14} />
             Download Datasheet
-          </button>
+          </a>
         </div>
       </div>
     </motion.div>
-  );
-}
-
-// ══════════════════════════════════════════════════════════
-// CONTACT POPUP
-// ══════════════════════════════════════════════════════════
-function ContactPopup({ product, onClose }: { product: Product | null; onClose: () => void }) {
-  const [form, setForm] = useState({ name: "", countryCode: "+91", phone: "", company: "", address: "" });
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [errors, setErrors] = useState<Record<string, string>>({});
-  const [focusedField, setFocusedField] = useState<string | null>(null);
-  const overlayRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    document.body.style.overflow = "hidden";
-    return () => { document.body.style.overflow = ""; };
-  }, []);
-
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [onClose]);
-
-  const validate = () => {
-    const e: Record<string, string> = {};
-    if (!form.name.trim()) e.name = "Full name is required";
-    if (!form.phone.trim()) e.phone = "Contact number is required";
-    else if (!/^\d{7,15}$/.test(form.phone.replace(/\s/g, ""))) e.phone = "Enter a valid phone number";
-    if (!form.company.trim()) e.company = "Company name is required";
-    if (!form.address.trim()) e.address = "Address is required";
-    return e;
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (loading || submitted || !product) return;
-
-    const errs = validate();
-    if (Object.keys(errs).length) {
-      setErrors(errs);
-      return;
-    }
-
-    setErrors({});
-    setLoading(true);
-
-    try {
-      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-
-      if (!serviceId || !templateId || !publicKey) {
-        throw new Error("EmailJS configuration is missing");
-      }
-
-      // These variable names must match the EmailJS notification template.
-      // Product identifiers are deliberately excluded from the email.
-      const templateParams = {
-        full_name: form.name.trim(),
-        country_code: form.countryCode,
-        contact_number: form.phone.trim(),
-        company_name: form.company.trim(),
-        address: form.address.trim(),
-      };
-
-      const response = await emailjs.send(serviceId, templateId, templateParams, {
-        publicKey,
-      });
-
-      if (response.status !== 200) {
-        throw new Error("EmailJS did not confirm delivery");
-      }
-
-      setSubmitted(true);
-      if (product.pdf) {
-        const link = document.createElement("a");
-        link.href = encodeURI(product.pdf);
-        link.download = `${product.model}-datasheet.pdf`;
-        document.body.appendChild(link);
-        link.click();
-        link.remove();
-      }
-    } catch (error) {
-      console.error("Datasheet request failed:", error);
-      setErrors((previous) => ({
-        ...previous,
-        submit: "Unable to send your request. Please try again.",
-      }));
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const fieldClass = (field: string) => {
-    const base = "w-full px-4 py-3.5 rounded-xl text-sm font-medium outline-none transition-all duration-250 bg-white";
-    const focused = focusedField === field;
-    if (errors[field]) return `${base} border-2 border-red-400 shadow-sm shadow-red-100`;
-    if (focused) return `${base} border-2 border-[#111] shadow-sm shadow-black/10 ring-4 ring-black/5`;
-    return `${base} border border-[#e5e7eb] hover:border-[#9ca3af]`;
-  };
-
-  if (!product) return null;
-
-  return (
-    <AnimatePresence>
-      <motion.div
-        ref={overlayRef}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.25 }}
-        onClick={(e) => { if (e.target === overlayRef.current) onClose(); }}
-        className="fixed inset-0 z-[100] flex items-center justify-center p-4"
-        style={{ background: "rgba(0,0,0,0.6)", backdropFilter: "blur(12px)" }}
-      >
-        <motion.div
-          initial={{ opacity: 0, y: 40, scale: 0.9, rotateX: 8 }}
-          animate={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
-          exit={{ opacity: 0, y: 24, scale: 0.92 }}
-          transition={{ duration: 0.45, ease: EASE_OUT_EXPO }}
-          className="relative w-full max-w-[480px] max-h-[92vh] overflow-y-auto rounded-3xl"
-          style={{
-            background: "linear-gradient(165deg, #ffffff 0%, #f9fafb 100%)",
-            border: "1px solid rgba(0,0,0,0.08)",
-            boxShadow: "0 32px 80px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.5) inset",
-          }}
-        >
-          {/* Decorative accent bar */}
-          <div
-            className="absolute top-0 left-0 right-0 h-1 rounded-t-3xl"
-            style={{ background: "#111111" }}
-          />
-
-          {/* Header */}
-          <div className="sticky top-0 z-20 px-7 pt-7 pb-5 rounded-t-3xl"
-            style={{ background: "linear-gradient(to bottom, rgba(255,255,255,0.97) 80%, transparent)", backdropFilter: "blur(8px)" }}>
-            <div className="flex items-start justify-between gap-4">
-              <div className="flex-1 min-w-0">
-                {/* Product mini preview */}
-                <div className="flex items-center gap-3 mb-3 p-3 rounded-2xl"
-                  style={{ background: "rgba(0,0,0,0.04)", border: "1px solid rgba(0,0,0,0.08)" }}>
-                  <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center flex-shrink-0 shadow-sm">
-                    <img src={product.image} alt={product.name} className="w-10 h-10 object-contain" />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="text-[0.6rem] font-bold uppercase tracking-widest mb-0.5 text-[#888]">
-                      {product.category}
-                    </p>
-                    <p className="font-extrabold text-[#111] text-sm leading-tight truncate">{product.name}</p>
-                    <p className="text-[0.65rem] text-[#666]">{product.model}</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <Download size={15} className="text-[#111]" />
-                  <h2 className="text-lg font-extrabold text-[#111] leading-tight">Request Datasheet</h2>
-                </div>
-              </div>
-
-              <button
-                id="close-popup-btn"
-                onClick={onClose}
-                aria-label="Close"
-                className="flex-shrink-0 w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-200 hover:bg-black/08 active:scale-90"
-                style={{ border: "1px solid rgba(0,0,0,0.08)", marginTop: "2px" }}
-              >
-                <X size={16} />
-              </button>
-            </div>
-          </div>
-
-          <div className="px-7 pb-7">
-            {!submitted ? (
-              <>
-                <p className="text-[0.78rem] text-[#6b7280] mb-6 leading-relaxed">
-                  Fill in your contact details to request the <span className="font-semibold text-[#111]">{product.model}</span> technical datasheet. {product.pdf ? "Your PDF will download automatically once your request is sent." : "Our team will contact you with the datasheet."}
-                </p>
-
-                <form id="datasheet-contact-form" onSubmit={handleSubmit} noValidate className="space-y-4">
-                  {/* Name */}
-                  <div>
-                    <label className="block text-[0.68rem] font-bold text-[#374151] mb-1.5 uppercase tracking-wider">
-                      Full Name <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      id="contact-name"
-                      type="text"
-                      placeholder="e.g. Rahul Sharma"
-                      className={fieldClass("name")}
-                      value={form.name}
-                      onFocus={() => setFocusedField("name")}
-                      onBlur={() => setFocusedField(null)}
-                      onChange={(e) => { setForm({ ...form, name: e.target.value }); setErrors({ ...errors, name: "" }); }}
-                    />
-                    <AnimatePresence>
-                      {errors.name && (
-                        <motion.p initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
-                          className="text-red-500 text-[0.68rem] mt-1.5 flex items-center gap-1">
-                          <span>⚠</span> {errors.name}
-                        </motion.p>
-                      )}
-                    </AnimatePresence>
-                  </div>
-
-                  {/* Phone */}
-                  <div>
-                    <label className="block text-[0.68rem] font-bold text-[#374151] mb-1.5 uppercase tracking-wider">
-                      Contact Number <span className="text-red-500">*</span>
-                    </label>
-                    <div className="flex gap-2">
-                      <div className="relative flex-shrink-0">
-                        <select
-                          id="country-code-select"
-                          value={form.countryCode}
-                          onChange={(e) => setForm({ ...form, countryCode: e.target.value })}
-                          className="appearance-none pl-3 pr-7 py-3.5 rounded-xl border border-[#e5e7eb] text-sm font-semibold bg-white outline-none focus:border-2 focus:border-[#111] transition-all cursor-pointer hover:border-[#9ca3af]"
-                          style={{ minWidth: "105px" }}
-                        >
-                          {COUNTRY_CODES.map((c) => (
-                            <option key={c.code} value={c.code}>{c.flag} {c.code}</option>
-                          ))}
-                        </select>
-                        <ChevronDown size={12} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#9ca3af] pointer-events-none" />
-                      </div>
-                      <input
-                        id="contact-phone"
-                        type="tel"
-                        placeholder="9876543210"
-                        className={`flex-1 ${fieldClass("phone")}`}
-                        value={form.phone}
-                        onFocus={() => setFocusedField("phone")}
-                        onBlur={() => setFocusedField(null)}
-                        onChange={(e) => { setForm({ ...form, phone: e.target.value }); setErrors({ ...errors, phone: "" }); }}
-                      />
-                    </div>
-                    <AnimatePresence>
-                      {errors.phone && (
-                        <motion.p initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
-                          className="text-red-500 text-[0.68rem] mt-1.5 flex items-center gap-1">
-                          <span>⚠</span> {errors.phone}
-                        </motion.p>
-                      )}
-                    </AnimatePresence>
-                  </div>
-
-                  {/* Company */}
-                  <div>
-                    <label className="block text-[0.68rem] font-bold text-[#374151] mb-1.5 uppercase tracking-wider">
-                      Company Name <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      id="contact-company"
-                      type="text"
-                      placeholder="e.g. Probiz Automation Pvt. Ltd."
-                      className={fieldClass("company")}
-                      value={form.company}
-                      onFocus={() => setFocusedField("company")}
-                      onBlur={() => setFocusedField(null)}
-                      onChange={(e) => { setForm({ ...form, company: e.target.value }); setErrors({ ...errors, company: "" }); }}
-                    />
-                    <AnimatePresence>
-                      {errors.company && (
-                        <motion.p initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
-                          className="text-red-500 text-[0.68rem] mt-1.5 flex items-center gap-1">
-                          <span>⚠</span> {errors.company}
-                        </motion.p>
-                      )}
-                    </AnimatePresence>
-                  </div>
-
-                  {/* Address */}
-                  <div>
-                    <label className="block text-[0.68rem] font-bold text-[#374151] mb-1.5 uppercase tracking-wider">
-                      Address <span className="text-red-500">*</span>
-                    </label>
-                    <textarea
-                      id="contact-address"
-                      rows={3}
-                      placeholder="Enter your full mailing or office address…"
-                      className={`resize-none ${fieldClass("address")}`}
-                      value={form.address}
-                      onFocus={() => setFocusedField("address")}
-                      onBlur={() => setFocusedField(null)}
-                      onChange={(e) => { setForm({ ...form, address: e.target.value }); setErrors({ ...errors, address: "" }); }}
-                    />
-                    <AnimatePresence>
-                      {errors.address && (
-                        <motion.p initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
-                          className="text-red-500 text-[0.68rem] mt-1.5 flex items-center gap-1">
-                          <span>⚠</span> {errors.address}
-                        </motion.p>
-                      )}
-                    </AnimatePresence>
-                  </div>
-
-                  {/* EmailJS submission error */}
-                  <AnimatePresence>
-                    {errors.submit && (
-                      <motion.p
-                        role="alert"
-                        initial={{ opacity: 0, y: -5 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0 }}
-                        className="text-red-500 text-xs text-center"
-                      >
-                        {errors.submit}
-                      </motion.p>
-                    )}
-                  </AnimatePresence>
-
-                  {/* Submit */}
-                  <button
-                    id="submit-datasheet-btn"
-                    type="submit"
-                    disabled={loading}
-                    className="w-full flex items-center justify-center gap-2.5 py-4 rounded-xl text-sm font-bold text-white mt-2 disabled:opacity-60 transition-opacity duration-200 hover:opacity-85"
-                    style={{ background: "#111111" }}
-                  >
-                    {loading ? (
-                      <>
-                        <svg className="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
-                          <circle className="opacity-20" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                          <path className="opacity-80" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
-                        </svg>
-                        <span>Sending your request…</span>
-                      </>
-                    ) : (
-                      <>
-                        <Download size={15} />
-                        <span>Submit & Get Datasheet</span>
-                        <ArrowRight size={14} className="ml-0.5" />
-                      </>
-                    )}
-                  </button>
-
-                  {/* Trust indicator */}
-                  <div className="flex items-center justify-center gap-4 pt-1">
-                    <span className="flex items-center gap-1 text-[0.65rem] text-[#9ca3af]"><Lock size={10} /> Confidential</span>
-                    <span className="w-px h-3 bg-[#e5e7eb]" />
-                    <span className="flex items-center gap-1 text-[0.65rem] text-[#9ca3af]"><Shield size={10} /> No Spam</span>
-                    <span className="w-px h-3 bg-[#e5e7eb]" />
-                    <span className="flex items-center gap-1 text-[0.65rem] text-[#9ca3af]"><Zap size={10} /> Fast Response</span>
-                  </div>
-                </form>
-              </>
-            ) : (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.85, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ duration: 0.55, ease: EASE_OUT_EXPO }}
-                className="flex flex-col items-center text-center py-6"
-              >
-                {/* Success ring animation */}
-                <div className="relative w-20 h-20 mb-6">
-                  <motion.div
-                    className="absolute inset-0 rounded-full"
-                    style={{ background: "rgba(16,185,129,0.12)", border: "2px solid rgba(16,185,129,0.3)" }}
-                    animate={{ scale: [1, 1.15, 1], opacity: [1, 0.5, 1] }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <motion.div
-                      initial={{ scale: 0, rotate: -90 }}
-                      animate={{ scale: 1, rotate: 0 }}
-                      transition={{ delay: 0.1, duration: 0.5, ease: EASE_OUT_EXPO }}
-                    >
-                      <CheckCircle2 size={36} className="text-emerald-500" />
-                    </motion.div>
-                  </div>
-                </div>
-
-                <motion.h3 initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-                  className="text-2xl font-extrabold text-[#111] mb-2">
-                  Request Received!
-                </motion.h3>
-                <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
-                  className="text-sm text-[#6b7280] leading-relaxed max-w-xs">
-                  Thanks, <strong className="text-[#111]">{form.name}</strong>! {product.pdf ? "Your request has been sent and your PDF download has started." : "Your datasheet request has been received. Our team will contact you shortly."}
-                </motion.p>
-
-                {product.pdf && (
-                  <a href={encodeURI(product.pdf)} download={`${product.model}-datasheet.pdf`}
-                    className="mt-4 inline-flex items-center gap-2 text-sm font-bold underline underline-offset-4">
-                    <Download size={15} /> Download PDF again
-                  </a>
-                )}
-
-                <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
-                  className="mt-5 w-full max-w-xs rounded-2xl p-4 text-left text-[0.72rem] text-[#555] space-y-2"
-                  style={{ background: "rgba(0,0,0,0.03)", border: "1px solid rgba(0,0,0,0.06)" }}>
-                  <div className="flex justify-between"><span className="text-[#9ca3af] font-medium">Name</span><span className="font-semibold text-[#111]">{form.name}</span></div>
-                  <div className="flex justify-between"><span className="text-[#9ca3af] font-medium">Phone</span><span className="font-semibold text-[#111]">{form.countryCode} {form.phone}</span></div>
-                  <div className="flex justify-between"><span className="text-[#9ca3af] font-medium">Company</span><span className="font-semibold text-[#111] truncate ml-2">{form.company}</span></div>
-                </motion.div>
-
-                <motion.button
-                  id="close-success-btn"
-                  initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}
-                  onClick={onClose}
-                  className="mt-6 px-10 py-3 rounded-xl text-sm font-bold text-white transition-all duration-200"
-                  style={{ background: "linear-gradient(135deg, #111 0%, #333 100%)" }}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.97 }}
-                >
-                  Done
-                </motion.button>
-              </motion.div>
-            )}
-          </div>
-        </motion.div>
-      </motion.div>
-    </AnimatePresence>
   );
 }
 
@@ -851,7 +438,6 @@ function StatsRow() {
 // PAGE
 // ══════════════════════════════════════════════════════════
 export default function PCProductsPage() {
-  const [activeProduct, setActiveProduct] = useState<Product | null>(null);
   const [filter, setFilter] = useState("All");
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
@@ -884,7 +470,8 @@ export default function PCProductsPage() {
           <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
             style={{ background: "linear-gradient(to bottom, transparent, #f0f0f0)" }} />
 
-          <div className="container max-w-6xl mx-auto px-6 relative z-10 pt-36 pb-20">
+          <div className="container max-w-6xl mx-auto px-6 relative z-10 pt-24 sm:pt-44 pb-20">
+            <ProductSubnav />
             <motion.div
               variants={staggerContainer(0.1)}
               initial="hidden"
@@ -1068,7 +655,6 @@ export default function PCProductsPage() {
                 <ProductCard
                   key={product.id}
                   product={product}
-                  onDownload={setActiveProduct}
                 />
               ))}
             </motion.div>
@@ -1176,16 +762,6 @@ export default function PCProductsPage() {
           </motion.div>
         </section>
       </main>
-
-      {/* ── POPUP ────────────────────────────────────────────────────── */}
-      <AnimatePresence>
-        {activeProduct && (
-          <ContactPopup
-            product={activeProduct}
-            onClose={() => setActiveProduct(null)}
-          />
-        )}
-      </AnimatePresence>
 
       <Footer />
     </>
