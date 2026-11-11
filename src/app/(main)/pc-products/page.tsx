@@ -159,6 +159,17 @@ const PC_PRODUCTS = [
     tagline: "Mixed I/O controller combining digital and analog inputs and outputs for building automation.",
     specs: ["4× Digital Inputs", "5× Analog Inputs", "3× Digital Outputs", "2× Analog Outputs"],
   },
+  {
+    id: "pc-iot-460m",
+    name: "PC-IOT-460M",
+    model: "PC-IOT-460M",
+    image: "/pc-products/PC-IOT-460M.png",
+    pdf: "/pc-products/PC-IOT-460M.pdf",
+    category: "IoT Gateway",
+    badge: "4G / Modbus IoT",
+    tagline: "Dual-network 4G LTE and Ethernet IoT gateway for Modbus telemetry, telemetry logging, and SCADA automation.",
+    specs: ["4G LTE + Ethernet Failover", "Dual Cloud Servers (MQTT/HTTP/TCP)", "RS-485 Modbus RTU/TCP Master & Slave", "4× I/O + 4–20mA + Relay Output"],
+  },
 ];
 
 type Product = typeof PC_PRODUCTS[0];
