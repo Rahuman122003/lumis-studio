@@ -56,8 +56,8 @@ function ProductsMenu({ className, children, onSelect }: {
       {open && (
         <nav id="products-submenu" aria-label="Products" className="absolute bottom-full left-0 mb-3 w-64 sm:bottom-auto sm:top-full sm:left-1/2 sm:-translate-x-1/2 sm:mb-0 sm:mt-3 rounded-2xl border border-black/10 bg-[#fafafa] p-2 shadow-xl">
           {[
-            { label: "Software", name: "Energy AI & Facility Management", href: "/products", icon: Layers },
-            { label: "Hardware", name: "Probiz Controls", href: "/pc-products", icon: Cpu },
+            { label: "Platform", name: "Energy AI & Facility Management", href: "/products", icon: Layers },
+            { label: "Modules", name: "Probiz Controls", href: "/pc-products", icon: Cpu },
           ].map(({ label, name, href, icon: Icon }) => (
             <Link key={href} href={href} aria-current={pathname === href ? "page" : undefined}
               onClick={() => { setOpen(false); onSelect(); }}
